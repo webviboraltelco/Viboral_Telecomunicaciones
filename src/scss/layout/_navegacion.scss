@@ -1,0 +1,74 @@
+.barra {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  img {
+    width: 200px; 
+    height: auto;
+  }
+}
+.navegacion {
+    display: flex;
+    gap: 1rem;
+
+  a {
+    color: $blanco;
+    text-decoration: none;
+    font-size: 2.2rem;
+    display: block;
+    
+    &:hover {
+      color: $amarillo;
+    }
+  }
+}
+.barra img {
+    width: 120px;
+    height: auto;
+    animation: aparecerLogo 3s ease-out forwards;
+}
+
+@keyframes aparecerLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.barra img {
+    width: 120px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+// .barra img:hover {
+//     transform: scale(1.1);
+//     filter: drop-shadow(0 0 10px #f9a825);
+// }
+// .barra {
+//     perspective: 800px; 
+// }
+
+// .barra img {
+//     width: 120px;
+//     height: auto;
+//     transition: transform 0.8s ease;
+//     transform-style: preserve-3d;
+// }
+
+// .barra img:hover {
+//     transform: rotateY(360deg);
+// }
+// .barra img:hover {
+//     transform: rotateY(360deg) scale(1.1);
+//     filter: drop-shadow(0 0 12px rgba(255, 200, 0, 0.7));
+// }
+
+
