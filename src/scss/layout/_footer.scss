@@ -1,0 +1,99 @@
+.footer-futurista {
+  background: $amarillo;
+  padding: 2.5rem 0;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+
+  /* efecto fondo glow animado */
+  &::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    // background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
+    top: -200px;
+    left: -200px;
+    animation: moveGlow 8s infinite alternate;
+  }
+
+  .contenedor-footer {
+    position: relative;
+    z-index: 2;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .titulo-footer {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    // color: #00ffff;
+    text-shadow: 0 0 10px #00ffff,
+                 0 0 20px #00ffff,
+                 0 0 40px #00ffff;
+  }
+
+  .redes-sociales {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,255,255,0.4);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-8px) scale(1.15);
+      box-shadow: 0 0 15px currentColor,
+                  0 0 30px currentColor;
+    }
+  }
+
+  /* COLORES NEÓN */
+
+  .facebook { color: #1877F2; }
+  .instagram { color: #ff00cc; }
+  .whatsapp { color: #00ff88; }
+  .waze { 
+    color: #00e1ff;
+    animation: pulseNeon 2s infinite;
+  }
+
+  .copyright {
+    font-size: 1.4rem;
+    opacity: 0.7;
+    color: $blanco;
+  }
+}
+
+/* ANIMACIONES FUTURISTAS */
+
+@keyframes pulseNeon {
+  0% { text-shadow: 0 0 5px #00e1ff; }
+  50% { text-shadow: 0 0 20px #00e1ff, 0 0 40px #00e1ff; }
+  100% { text-shadow: 0 0 5px #00e1ff; }
+}
+
+@keyframes moveGlow {
+  from { transform: translate(0,0); }
+  to { transform: translate(150px, 150px); }
+}

@@ -1,0 +1,41 @@
+@include tablet {
+    .contenedor-servicios{
+        @include grid(2, 2rem);
+    }
+}
+
+.servicio {
+    background-color: $gris;
+    border: 1px solid $grisOscuro;
+    border-radius: 2rem;
+
+    .contenedor-servicios{
+        padding: 2rem;
+    }
+}
+p {
+    padding: 0 2rem 2rem;
+    text-align: justify;
+   
+}
+h3 {
+    text-transform: uppercase;
+    font-weight: $bold;
+   }
+.iconos-caracteristicas {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    
+    li {
+        flex: 1;
+        display: flex;
+
+        img {
+        margin: 0 auto;
+        width: 12rem;
+        }
+
+    }
+    
+}
