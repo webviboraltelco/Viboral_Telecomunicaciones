@@ -1,6 +1,6 @@
 @include tablet {
     .contenedor-servicios{
-        @include grid(2, 2rem);
+        @include grid(3, 2rem);
     }
 }
 
@@ -16,12 +16,15 @@
 p {
     padding: 0 2rem 2rem;
     text-align: justify;
+    font-size: 2.4rem;
    
 }
 h3 {
-    text-transform: uppercase;
-    font-weight: $bold;
-   }
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: $bold;
+        
+    }
 .iconos-caracteristicas {
     display: flex;
     list-style: none;

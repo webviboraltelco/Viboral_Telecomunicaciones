@@ -1,0 +1,21 @@
+.no-webp .imagen-consulta  {
+      background-image: url("../img/05.jpeg");
+
+}
+.webp .imagen-consulta  {
+          background-image: url("../img/05.webp");
+
+
+}
+
+.imagen-consulta {
+    background-position: center center;
+    background-size: cover;
+    height: 60rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    
+}

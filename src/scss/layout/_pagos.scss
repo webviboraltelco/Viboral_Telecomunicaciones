@@ -1,0 +1,21 @@
+.no-webp .imagen-pagos  {
+      background-image: url("../img/04.jpeg");
+
+}
+.webp .imagen-pagos  {
+          background-image: url("../img/04.webp");
+
+
+}
+
+.imagen-pagos {
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    
+}
