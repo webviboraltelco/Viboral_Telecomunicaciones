@@ -1,0 +1,36 @@
+.contenido-nosotros {
+  @include tablet {
+    @include grid(2, 2rem);
+    align-items: center; // centra verticalmente imagen y texto
+  }
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  text-align: center;
+  justify-content: center;
+  color: $amarillo;
+}
+
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.imagen {
+  img {
+    width: 100%;
+    border-radius: 2rem;
+    display: block;
+  }
+}
+
+.imagen-nosotros {
+  order: 2;
+  img {
+    width: 100%;
+    border-radius: 2rem;
+    display: block;
+  }
+}
