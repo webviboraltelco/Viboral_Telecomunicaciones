@@ -4,12 +4,18 @@
     align-items: center; // centra verticalmente imagen y texto
   }
 }
+.texto-nosotros blockquote {
+    font-weight: $black;
+    font-size: 2.2rem;
+    margin: 0;
+    padding-left: 1rem 0 3rem 0;
+}
 
 h1, h2 {
   text-transform: uppercase;
   text-align: center;
   justify-content: center;
-  color: $amarillo;
+  // color: $amarillo;
 }
 
 
