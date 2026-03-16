@@ -1,0 +1,25 @@
+.no-webp .imagen-canal  {
+      background-image: url("/build/img/pro.jpg");
+
+}
+.webp .imagen-canal  {
+          background-image: url("/build/img/pro.webp");
+
+
+}
+
+.imagen-canal {
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-attachment: fixed;
+    margin:0;
+}
+h1{
+    color: $blanco;
+}
