@@ -1,0 +1,23 @@
+.no-webp .imagen-contacto  {
+      background-image: url("/build/img/03.jpeg");
+
+}
+.webp .imagen-contacto  {
+     background-image: url("/build/img/03.webp");
+
+
+}
+
+.imagen-contacto {
+    background-position: center center;
+    background-size: cover;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+}
+
+
+
