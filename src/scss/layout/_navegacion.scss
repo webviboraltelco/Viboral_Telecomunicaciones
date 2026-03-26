@@ -11,9 +11,15 @@
 
 }
 .navegacion {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s ease-in-out, opacity 0.5s linear;
+  
   @include tablet {
     display: flex;
     align-items: center;
+    opacity: 1;
+    visibility: visible;
   }
     
 
@@ -83,4 +89,23 @@
 //     filter: drop-shadow(0 0 12px rgba(255, 200, 0, 0.7));
 // }
 
+/** Menu Hamburguesa**/
 
+.mobile-menu{
+  @include tablet {
+    display: none;
+  }
+
+  img{
+    width: 5rem;
+    cursor: pointer;
+  }
+}
+.mostrar{
+  
+ opacity: 1;
+ visibility: visible;
+ 
+ 
+  
+}
