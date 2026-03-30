@@ -1,20 +1,27 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener("DOMContentLoaded", function () {
+  envetListeners();
 
-
-    envetListeners();
-
+  darkMode();
 });
 
-function envetListeners(){
-    const mobileMenu = document.querySelector('.mobile-menu');
+function darkMode() {
+  const botonDarkMode = document.querySelector(".dark-mode-boton");
 
-    mobileMenu.addEventListener('click', navegacionResponsive);
-
-    function navegacionResponsive(){
-        const navegacion = document.querySelector('.navegacion');
-
-       navegacion.classList.toggle('mostrar');
-      
-
-    }
+  botonDarkMode.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+   
+  });
 }
+
+  function envetListeners() {
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    mobileMenu.addEventListener("click", navegacionResponsive);
+
+    function navegacionResponsive() {
+      const navegacion = document.querySelector(".navegacion");
+
+      navegacion.classList.toggle("mostrar");
+    }
+  }
+

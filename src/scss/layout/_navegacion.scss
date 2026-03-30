@@ -1,19 +1,53 @@
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton{
+      width: 5rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      filter: invert(100%);
+
+      &:hover {
+        cursor: pointer;
+       
+      }
+
+
+      @include tablet {
+        margin-top: 0;
+        
+      }
+    }
+    
+}
+  
+
 .barra {
     display: flex;
     flex-direction: column;
+    padding-top: 3rem;
     align-items: center;
    
 
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-end;
+
   }
 
 }
 .navegacion {
   visibility: hidden;
   opacity: 0;
-  transition: visibility .3s ease-in-out, opacity 0.5s linear;
+  // height: 0;
+  transition: visibility .3s ease-in-out, opacity 0.5s linear, height .5s linear;
   
   @include tablet {
     display: flex;
@@ -66,28 +100,6 @@
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-// .barra img:hover {
-//     transform: scale(1.1);
-//     filter: drop-shadow(0 0 10px #f9a825);
-// }
-// .barra {
-//     perspective: 800px; 
-// }
-
-// .barra img {
-//     width: 20rem;
-//     height: auto;
-//     transition: transform 0.8s ease;
-//     transform-style: preserve-3d;
-// }
-
-// .barra img:hover {
-//     transform: rotateY(360deg);
-// }
-// .barra img:hover {
-//     transform: rotateY(360deg) scale(1.1);
-//     filter: drop-shadow(0 0 12px rgba(255, 200, 0, 0.7));
-// }
 
 /** Menu Hamburguesa**/
 
@@ -99,13 +111,13 @@
   img{
     width: 5rem;
     cursor: pointer;
+    filter: invert(100%);
   }
 }
 .mostrar{
   
  opacity: 1;
  visibility: visible;
- 
- 
-  
+ height: auto;
+
 }
