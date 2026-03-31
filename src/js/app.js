@@ -25,3 +25,17 @@ function darkMode() {
     }
   }
 
+// archivo: src/js/pdf-viewer.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  const visor = document.querySelector('.pdf-visor');
+  const fallback = document.querySelector('.pdf-fallback');
+
+  if (!visor) return;
+
+  // Si Google Docs no carga (sin internet, bloqueado, etc.)
+  visor.addEventListener('error', () => {
+    visor.style.display = 'none';
+    fallback.style.display = 'block';
+  });
+});
