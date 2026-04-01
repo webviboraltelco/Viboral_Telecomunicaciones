@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!visor) return;
 
-  // Si Google Docs no carga (sin internet, bloqueado, etc.)
   visor.addEventListener('error', () => {
     visor.style.display = 'none';
     fallback.style.display = 'block';
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('cookieConsent', 'aceptado');
     cerrarBanner();
 
-    
+
     console.log('Cookies aceptadas');
   });
 
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Muestra la burbuja automáticamente después de 2 segundos
   setTimeout(() => {
     burbuja.classList.add('visible');
-  }, 2000);
+  }, 8000);
 
   // Al hacer clic en el botón, cierra la burbuja y abre WhatsApp
   btn.addEventListener('click', () => {

@@ -1,33 +1,37 @@
 .dark-mode {
-    background-color: darken($negro, 10%);
+  background-color: darken($negro, 10%);
 
-    p { 
-        color: $blanco;
-    }
-    h1,h2,h3,h4{
-        color: $blanco;
-    }
+  p {
+    color: $blanco;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $blanco;
+  }
 
-   img.icono {
-        filter: brightness(0) saturate(100%) invert(57%) sepia(94%) saturate(600%) hue-rotate(10deg) brightness(105%);
-    }
+  img.icono {
+    filter: brightness(0) saturate(100%) invert(57%) sepia(94%) saturate(600%)
+      hue-rotate(10deg) brightness(105%);
+  }
 
-    .servicio {
-        background-color: $negro;
-        border: 1px solid $amarillo;
-    }
+  .servicio {
+    background-color: $negro;
+    border: 1px solid $amarillo;
+  }
 
-    .texto-nosotros blockquote {
-        color: $blanco;
-    }
-   
-    .wa-burbuja-texto{
-        color: $negro;
-    }
-    .wa-burbuja-nombre{
-        color: $verde;
-    }
-    .wa-burbuja-hora{
-        color: $negro;
-    }
+  .texto-nosotros blockquote {
+    color: $blanco;
+  }
+
+  .wa-burbuja-texto {
+    color: $negro;
+  }
+  .wa-burbuja-nombre {
+    color: $verde;
+  }
+  .wa-burbuja-hora {
+    color: $negro;
+  }
 }
