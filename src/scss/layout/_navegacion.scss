@@ -24,14 +24,11 @@
         
       }
     }
-    
 }
   
-
 .barra {
     display: flex;
     flex-direction: column;
-    padding-top: 3rem;
     align-items: center;
    
 
@@ -46,7 +43,6 @@
 .navegacion {
   visibility: hidden;
   opacity: 0;
-  // height: 0;
   transition: visibility .3s ease-in-out, opacity 0.5s linear, height .5s linear;
   
   @include tablet {

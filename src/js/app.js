@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Muestra la burbuja automáticamente después de 2 segundos
   setTimeout(() => {
     burbuja.classList.add('visible');
-  }, 8000);
+  }, 10000);
 
   // Al hacer clic en el botón, cierra la burbuja y abre WhatsApp
   btn.addEventListener('click', () => {

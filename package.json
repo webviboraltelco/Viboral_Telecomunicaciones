@@ -1,12 +1,12 @@
 {
-  "name": "bienesraices",
+  "name": "Viboral Telecomunicaciones",
   "version": "1.0.0",
-  "description": "Curso Desarrollo Web Completo",
+  "description": "Viboral telecomunicaciones cooperativa",
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp"
   },
-  "author": "Juan De La Torre",
+  "author": "Sebastian Ruiz",
   "license": "ISC",
   "devDependencies": {
     "cssnano": "^5.1.0",
