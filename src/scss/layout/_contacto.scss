@@ -1,22 +1,28 @@
-.no-webp .imagen-contacto  {
-      background-image: url("/build/img/03.jpeg");
-
-}
-.webp .imagen-contacto  {
-     background-image: url("/build/img/03.webp");
-
-
-}
 
 .imagen-contacto {
-    background-position: center center;
-    background-size: cover;
+  background-image: url("../img/03.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  border: 1px solid $grisOscuro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // Mobile
+  height: 20rem;
+
+  @include tablet {
+    height: 40rem;
+  }
+
+  @include desktop {
     height: 50rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin:0;
+  }
 }
 
 .formulario {

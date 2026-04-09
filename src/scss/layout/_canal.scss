@@ -1,58 +1,28 @@
-.no-webp .imagen-canal  {
-      background-image: url("/build/img/pro2.jpg");
-
-}
-.webp .imagen-canal  {
-          background-image: url("/build/img/pro2.webp");
-
-
-}
+// archivo: src/scss/pages/_canal.scss
 
 .imagen-canal {
-    background-position: center center;
-    background-size: cover;
-    height: 50rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  // Imagen directa sin depender de clases webp
+  background-image: url("/build/img/pro2.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  // ⚠️ En móvil fixed no funciona bien en iOS — usamos scroll
+  background-attachment: scroll;
+  height: 30rem;
+
+  @include tablet {
+    height: 40rem;
+    // Activamos parallax solo desde tablet en adelante
     background-attachment: fixed;
-    margin:0;
-}
-h1{
-    font-weight: $regular;
-    text-transform: uppercase;
+  }
 
+  @include desktop {
+    height: 50rem;
+  }
 }
-.texto {
-    
-    border: 1px solid $amarillo;
-    border-radius: 1rem;
-    font-weight: $regular;
-}
-.table-bordered{
-    border-radius: 2rem;
-    border: 1px solid $amarillo;
-
-    th {
-        background-color: antiquewhite;
-        text-transform: uppercase;
-        
-    }
-    
-}
-.imagen2{
-   
-    display: flex;
-    border: 1px solid $amarillo;
-    border-radius: 1rem;
-    height: 30rem;
-    width: 40rem;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-   
-    
-    
-}
-

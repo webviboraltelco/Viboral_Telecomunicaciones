@@ -6,6 +6,7 @@
 }
 .boton-verde {
     @include boton($verde, inline-block);
+    
 }
 
 .alinear-derecha {

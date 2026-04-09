@@ -96,3 +96,71 @@ document.addEventListener('DOMContentLoaded', () => {
     burbuja.classList.remove('visible');
   });
 });
+
+
+// archivo: src/js/contacto.js
+
+(function () {
+  const PUBLIC_KEY  = 'TU_PUBLIC_KEY';
+  const SERVICE_ID  = 'TU_SERVICE_ID';
+  const TEMPLATE_ID = 'TU_TEMPLATE_ID';
+
+  emailjs.init(PUBLIC_KEY);
+
+  const formulario = document.getElementById('formulario-pqrs');
+  if (!formulario) return;
+
+  const boton = formulario.querySelector('input[type="submit"]');
+
+  formulario.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Validación básica del select
+    const tipoPQRS = formulario.querySelector('#servicio').value;
+    if (!tipoPQRS) {
+      mostrarAlerta('Por favor selecciona el tipo de PQRS.', 'error');
+      return;
+    }
+
+    boton.value    = 'Enviando...';
+    boton.disabled = true;
+
+    const templateParams = {
+      nombre:    formulario.querySelector('#nombre').value.trim(),
+      cedula:    formulario.querySelector('#cedula').value.trim(),
+      email:     formulario.querySelector('#email').value.trim(),
+      telefono:  formulario.querySelector('#telefono').value.trim(),
+      tipo_pqrs: tipoPQRS,
+      mensaje:   formulario.querySelector('#mensaje').value.trim(),
+    };
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+      mostrarAlerta('✅ Tu solicitud fue enviada. Te contactaremos pronto.', 'exito');
+      formulario.reset();
+
+    } catch (error) {
+      console.error('Error EmailJS:', error);
+      mostrarAlerta('❌ Error al enviar. Intenta de nuevo.', 'error');
+
+    } finally {
+      boton.value    = 'Enviar';
+      boton.disabled = false;
+    }
+  });
+
+  function mostrarAlerta(mensaje, tipo) {
+    const existente = document.querySelector('.alerta-form');
+    if (existente) existente.remove();
+
+    const alerta = document.createElement('p');
+    alerta.classList.add('alerta-form', `alerta-${tipo}`);
+    alerta.textContent = mensaje;
+
+    formulario.insertAdjacentElement('afterend', alerta);
+    setTimeout(() => alerta.remove(), 5000);
+  }
+})();
+
+
+

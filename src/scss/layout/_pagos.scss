@@ -1,21 +1,26 @@
-.no-webp .imagen-pagos  {
-      background-image: url("../img/04.jpeg");
-
-}
-.webp .imagen-pagos  {
-          background-image: url("../img/04.webp");
-
-
-}
 
 .imagen-pagos {
-    background-position: center center;
-    background-size: cover;
+  background-image: url("../img/04.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  border: 1px solid $grisOscuro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // Mobile
+  height: 15rem;
+
+  @include tablet {
     height: 40rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    
+  }
+
+  @include desktop {
+    height: 50rem;
+  }
 }

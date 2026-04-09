@@ -1,24 +1,22 @@
-.no-webp .inicio{
-  background-image: url("../img/header.jpeg");
-}
-.webp .inicio{
-  background-image: url("../img/header.webp");
-}
-
-
+// _header.scss
 .header {
-    background-color: $negro;
-    padding: 1rem 0 3rem 0;
-
-  &.inicio{
+  background-color: $negro;
+  &.inicio {
+    background-image: url("../img/header.jpeg");
     background-position: center center;
     background-size: cover;
-     
 
+
+    // Mobile
+    min-height: 30rem;
 
     @include tablet {
+      min-height: 50rem;
+    }
+
+    @include desktop {
+    
       min-height: 70rem;
     }
   }
 }
-
