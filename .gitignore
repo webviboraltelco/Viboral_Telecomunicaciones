@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+
+# Archivos de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Variables de entorno
+.env
+
+# Archivos de build (si generas carpeta build o dist)
+build/
+dist/
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Cache
+.cache/
