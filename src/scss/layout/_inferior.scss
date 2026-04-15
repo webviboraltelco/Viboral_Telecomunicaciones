@@ -1,49 +1,275 @@
-@include tablet {
-    .seccion-inferior {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        column-gap: 2rem;
-    }
+// archivo: scss/layout/_inferior.scss
+
+// ─── Variables locales ────────────────────────────────────────────
+$test-verde-claro:  #eef7d6;
+$test-gris-texto:   #555555;
+$test-sombra:       0 4px 24px rgba(0, 0, 0, .09);
+$test-radio:        1.4rem;
+$amarillo-star:     #F5A623;
+
+// ─── Wrapper ──────────────────────────────────────────────────────
+.testimonios {
+  overflow: hidden;
 }
 
-.entrada-blog {
-    margin-bottom: 2rem;
-
-    @include tablet {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        column-gap: 2rem;
-
-    }
-    &:last-of-type {
-        margin-bottom: 0;
-    }
+// ─── Slider ───────────────────────────────────────────────────────
+.testimonios-slider {
+  overflow: hidden;
 }
 
-.texto-entrada {
-    a {
-    color: $negro;
-    margin-top: 2rem;
+.testimonios-track {
+  display: flex;
+  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+  will-change: transform;
+}
+
+// ─── Card ─────────────────────────────────────────────────────────
+.testimonio-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 .8rem;
+  box-sizing: border-box;
+
+  @include tablet {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  @include desktop {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+
+  // ─── Inner wrapper ────────────────────────
+  &__inner {
+    background: $blanco;
+    border: 1px solid $gris;
+    border-radius: $test-radio;
+    overflow: hidden;
+    box-shadow: $test-sombra;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow .25s ease;
+
+    &:hover {
+      box-shadow: 0 12px 36px rgba(0, 0, 0, .14);
+    }
+  }
+
+  // ─── Imagen con overlay Instagram ─────────
+  &__imagen-wrap {
+    position: relative;
     display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
 
-    
-    @include tablet {
-        margin-top: 0;
+    picture {
+      display: block;
+      height: 100%;
     }
- }
 
-    h4 {
-        margin: 0;
-        line-height: 1.4rem;
-
-        &::after {
-            content: '';
-            display: block;
-            // width: 9rem;
-            height: .5rem;
-            margin-top: 1rem;
-            background-color: $amarillo;
-        }
-
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
     }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
+
+    // ✅ overlay como hijo directo de imagen-wrap
+    // así el hover funciona sin selectores invertidos
+    &:hover .testimonio-card__overlay {
+      opacity: 1;
+    }
+  }
+
+  // ─── Overlay Instagram ────────────────────
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    opacity: 0;
+    transition: opacity .3s ease;
+
+    i {
+      font-size: 3.2rem;
+      color: $blanco;
+    }
+
+    span {
+      font-size: 1.3rem;
+      font-weight: $bold;
+      color: $blanco;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+  }
+
+  // ─── Contenido ────────────────────────────
+  &__contenido {
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1.6rem;
+  }
+
+  // ─── Cita ─────────────────────────────────
+  &__quote {
+    position: relative;
+    flex: 1;
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.7;
+      color: $test-gris-texto;
+      text-align: justify;
+      text-justify: inter-word;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__quote-icon {
+    font-size: 2.4rem;
+    color: $verde;
+    opacity: .25;
+    display: block;
+    margin-bottom: .8rem;
+  }
+
+  // ─── Footer ───────────────────────────────
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid $gris;
+  }
+
+  &__avatar {
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    background: $test-verde-claro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    i {
+      font-size: 1.8rem;
+      color: $verde;
+    }
+  }
+
+  &__nombre {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: $black;
+    color: $grisOscuro;
+    line-height: 1.3;
+  }
+
+  &__tipo {
+    display: block;
+    font-size: 1.2rem;
+    color: #888888;
+    margin-top: .2rem;
+  }
+
+  // ─── Estrellas ────────────────────────────
+  &__estrellas {
+    display: flex;
+    gap: .3rem;
+
+    i {
+      font-size: 1.4rem;
+      color: $amarillo-star;
+    }
+  }
+
+} // ← ✅ cierre correcto de .testimonio-card
+
+// ─── Controles (fuera de .testimonio-card) ───────────────────────
+.testimonios-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.testimonios-btn {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  border: 1px solid $gris;
+  background: $blanco;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $test-sombra;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+
+  i {
+    font-size: 1.6rem;
+    color: $grisOscuro;
+    transition: color .2s ease;
+  }
+
+  &:hover {
+    background-color: $verde;
+    border-color: $verde;
+    transform: scale(1.08);
+    i { color: $blanco; }
+  }
+
+  &:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+    transform: none;
+
+    &:hover {
+      background: $blanco;
+      border-color: $gris;
+      i { color: $grisOscuro; }
+    }
+  }
+}
+
+// ─── Dots ─────────────────────────────────────────────────────────
+.testimonios-dots {
+  display: flex;
+  gap: .8rem;
+
+  .dot {
+    width: .9rem;
+    height: .9rem;
+    border-radius: 50%;
+    border: none;
+    background: $gris;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .2s ease;
+
+    &.activo {
+      background: $verde;
+      transform: scale(1.3);
+    }
+
+    &:hover:not(.activo) {
+      background: #bbbbbb;
+    }
+  }
 }

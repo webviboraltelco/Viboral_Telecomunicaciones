@@ -1,226 +1,214 @@
-// .footer-futurista {
-//   background: $amarillo;
-//   padding: 2.5rem 0;
-//   text-align: center;
-//   color: #ffffff;
-//   position: relative;
-//   overflow: hidden;
+// archivo: scss/_footer.scss
 
-//   /* efecto fondo glow animado */
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     width: 600px;
-//     height: 600px;
-//     // background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
-//     top: -200px;
-//     left: -200px;
-//     animation: moveGlow 8s infinite alternate;
-//   }
+// ─── Variables locales ────────────────────────────────────────────
+$footer-bg:       #0d0d0d;
+$footer-border:   rgba($blanco, .08);
+$footer-texto:    rgba($blanco, .65);
+$footer-titulo:   $blanco;
+$icon-size:       4rem;
 
-//   .contenedor-footer {
-//     position: relative;
-//     z-index: 2;
-//     max-width: 120rem;
-//     margin: 0 auto;
-//     padding: 0 2rem;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     gap: 3rem;
-//   }
-
-//   .titulo-footer {
-//     font-size: 2.2rem;
-//     letter-spacing: 2px;
-//     text-transform: uppercase;
-//     // color: #00ffff;
-//     text-shadow: 0 0 10px #00ffff,
-//                  0 0 20px #00ffff,
-//                  0 0 40px #00ffff;
-//   }
-
-//   .redes-sociales {
-//     display: flex;
-//     gap: 30px;
-//     justify-content: center;
-//   }
-
-//   .icon {
-//     width: 60px;
-//     height: 60px;
-//     border-radius: 50%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     font-size: 24px;
-//     color: #fff;
-//     background: rgba(255,255,255,0.05);
-//     border: 1px solid rgba(0,255,255,0.4);
-//     backdrop-filter: blur(8px);
-//     transition: all 0.4s ease;
-//     position: relative;
-
-//     &:hover {
-//       transform: translateY(-8px) scale(1.15);
-//       box-shadow: 0 0 15px currentColor,
-//                   0 0 30px currentColor;
-//     }
-//   }
-
-//   /* COLORES NEÓN */
-
-//   .facebook { color: #1877F2; }
-//   .instagram { color: #ff00cc; }
-//   .whatsapp { color: #00ff88; }
-//   .waze { 
-//     color: #00e1ff;
-//     animation: pulseNeon 2s infinite;
-//   }
-
-//   .copyright {
-//     font-size: 1.4rem;
-//     opacity: 0.7;
-//     color: $blanco;
-//   }
-// }
-
-// /* ANIMACIONES FUTURISTAS */
-
-// @keyframes pulseNeon {
-//   0% { text-shadow: 0 0 5px #00e1ff; }
-//   50% { text-shadow: 0 0 20px #00e1ff, 0 0 40px #00e1ff; }
-//   100% { text-shadow: 0 0 5px #00e1ff; }
-// }
-
-// @keyframes moveGlow {
-//   from { transform: translate(0,0); }
-//   to { transform: translate(150px, 150px); }
-// }
-
-
+// ─── Footer base ──────────────────────────────────────────────────
 .footer-futurista {
-  background: $negro;
-  padding: 2rem 0;
-  color: $blanco;
+  background-color: $footer-bg;
+  border-top: 1px solid $footer-border;
+  padding-top: $separacion;
+}
 
-  .contenedor-footer{
-    @include tablet {
-      width: 150rem;
-    margin: 0 auto;
-    padding: 0 2rem;
+// ─── Grid principal ───────────────────────────────────────────────
+.contenedor-footer {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2rem $separacion;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    }
-    
-    // gap: 4rem;
-  }
+  // Móvil: columna única, cada bloque apilado
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $separacion;
+  text-align: center;
 
-  /* LOGO */
+  // Tablet: logo arriba full, redes y legales lado a lado
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
 
-  .logo-footer img{
-    width: 30rem;
-    
-    
-  }
-
-  /* INFO FOOTER */
-
-  .info-footer{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  /* TITULO */
-
-  .titulo-footer{
-    
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  /* REDES */
-
-  .redes-sociales{
-    display: flex;
-    gap: 1rem;
-  }
-
-  .icon{
-    
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 2.4rem;
-    border: 1px solid rgba(255,255,255,.3);
-
-    transition: all .3s ease;
-
-    &:hover{
-      transform: translateY(-5px) scale(1.1);
+    .logo-footer {
+      grid-column: 1 / -1;  // logo ocupa todo el ancho en tablet
     }
   }
 
-  /* COLORES REDES */
+  // Desktop: tres columnas iguales en una sola fila
+  @include desktop {
+    grid-template-columns: 1.5fr 1fr 1fr;
 
-  .facebook { color: #1877F2; }
-  .instagram { color: #E1306C; }
-  .whatsapp { color: #25D366; }
-  .waze { color: #33CCFF; }
-  .correo { color: #ffcc00; }
+    .logo-footer {
+      grid-column: auto;  // vuelve a su columna normal
+    }
+  }
+}
 
-  /* LINKS LEGALES */
-.documentos-legales{
+// ─── Logo ─────────────────────────────────────────────────────────
+.logo-footer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
+  align-items: center;
+  gap: 1.2rem;
 
-.titulo-legales{
-  font-size: 1.6rem;
-  font-weight: $bold;
-  color: $blanco;
-  margin: 0;
-  
-}
+  @include tablet {
+    align-items: flex-start;
+  }
 
-.links-legales{
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  img {
+    width: 18rem;
+    height: auto;
+    display: block;
+    transition: opacity .3s ease;
 
-  a {
-    font-size: 1.4rem;
-    color: $blanco;
-    text-decoration: none;
-    opacity: .8;
-
-    &:hover{
-      opacity: 1;
-      text-decoration: underline;
+    &:hover {
+      opacity: .85;
     }
   }
 }
 
-  /* COPYRIGHT */
+.footer-slogan {
+  font-size: 1.4rem;
+  color: $footer-texto;
+  line-height: 1.5;
+}
 
-  .copyright{
-    color:$blanco;
-    text-align: center;
-    font-size: 1.4rem;
-    // opacity: .7;
+// ─── Títulos del footer ───────────────────────────────────────────
+.titulo-footer,
+.titulo-legales {
+  font-size: 1.4rem;
+  font-weight: $bold;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: $footer-titulo;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+
+  // Línea decorativa debajo del título
+  &::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background-color: $amarillo;
+    margin-top: .6rem;
+
+    // Centrada en móvil
+    margin-left: auto;
+    margin-right: auto;
+
+    @include tablet {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
-  
+
+// ─── Redes sociales ───────────────────────────────────────────────
+.redes-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    align-items: flex-start;
+  }
+}
+
+.redes-sociales {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @include tablet {
+    justify-content: flex-start;
+  }
+}
+
+.icon {
+  width: $icon-size;
+  height: $icon-size;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: transform .25s ease, filter .25s ease;
+  border: 1px solid $footer-border;
+
+  i { color: $blanco; }
+
+  &:hover {
+    transform: translateY(-4px) scale(1.1);
+    filter: brightness(1.2);
+  }
+
+  // Colores por red
+  &.facebook  { background-color: #1877F2; border-color: #1877F2; }
+  &.instagram { background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF); border-color: #DD2A7B; }
+  &.whatsapp  { background-color: #25D366; border-color: #25D366; }
+  &.waze      { background-color: #33CCFF; border-color: #33CCFF; }
+  &.correo    { background-color: $amarillo; border-color: $amarillo;
+    i { color: $negro; }
+  }
+}
+
+// ─── Documentos legales ───────────────────────────────────────────
+.documentos-legales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    align-items: flex-start;
+  }
+}
+
+.links-legales {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+  @include tablet {
+    align-items: flex-start;
+  }
+
+  a {
+    color: $footer-texto;
+    text-decoration: none;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    transition: color .2s ease, gap .2s ease;
+
+    i {
+      font-size: 1.3rem;
+      color: $amarillo;
+      width: 1.6rem;       // ancho fijo para alinear los textos
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      color: $blanco;
+      gap: 1.2rem;         // el ícono se "separa" un poco al hacer hover
+    }
+  }
+}
+
+// ─── Copyright ────────────────────────────────────────────────────
+.copyright {
+  border-top: 1px solid $footer-border;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: $footer-texto;
+  letter-spacing: .03em;
+}

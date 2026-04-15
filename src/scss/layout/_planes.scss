@@ -1,25 +1,436 @@
-.imagen-planes {
+// archivo: scss/layout/_planes.scss
+// ✅ Sin lighten()/darken() — compatible con todas las versiones de SASS
+
+// ─── Paleta fija derivada de $verde (#71B100) y $amarillo (#E08709) ──
+$plan-verde-bg:       #eef7d6;   // lighten($verde, 52%)
+$plan-verde-bg-dark:  #e4f2c4;   // lighten($verde, 48%)
+$plan-verde-titulo:   #3d6100;   // darken($verde, 15%)
+$plan-amarillo-hover: #c47608;   // darken($amarillo, 8%)
+
+$plan-internet-bg:    #e3edf9;   // lighten(#1565C0, 58%)
+$plan-internet-icon:  #c5d9f0;   // lighten(#1565C0, 45%)
+$plan-tv-bg:          #f0e6f9;   // lighten(#6A1B9A, 60%)
+$plan-tv-icon:        #dfc5f5;   // lighten(#6A1B9A, 50%)
+
+$plan-sombra:         0 4px 24px rgba(0, 0, 0, .08);
+$plan-radio:          1.4rem;
+
+// ─── Filtros ──────────────────────────────────────────────────────
+.planes-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: $separacion;
+}
+
+.filtro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: $blanco;
+  border: 2px solid $gris;
+  border-radius: 10rem;
+  padding: .8rem 2rem;
+  font-size: 1.4rem;
+  font-weight: $bold;
+  color: $grisOscuro;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+
+  i { font-size: 1.3rem; }
+
+  &:hover {
+    border-color: $verde;
+    color: $verde;
+  }
+
+  &.activo {
+    background: $verde;
+    border-color: $verde;
+    color: $blanco;
+  }
+}
+
+// ─── Grid ─────────────────────────────────────────────────────────
+.planes-grid {
+  display: grid;
+  gap: 2.4rem;
+  margin-bottom: $separacion;
+
+  @include tablet {
+    @include grid(2, 2.4rem);
+  }
+
+  @include desktop {
+    @include grid(3, 2.4rem);
+  }
+}
+
+// ─── Card ─────────────────────────────────────────────────────────
+.plan-card {
+  background: $blanco;
+  border: 1px solid $gris;
+  border-radius: $plan-radio;
+  overflow: hidden;
+  box-shadow: $plan-sombra;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+
+  &.oculto  { display: none; }
+  &.visible { animation: fadeInUp .35s ease forwards; }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .13);
+  }
+
+  &--destacado {
+    border: 2px solid $amarillo;
+    transform: translateY(-4px);
+    &:hover { transform: translateY(-10px); }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    background: $amarillo;
+    color: $negro;
+    font-size: 1.1rem;
+    font-weight: $black;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    padding: .4rem 1.2rem;
+    border-radius: 10rem;
+    z-index: 1;
+  }
+
+  // ─── Headers por tipo ─────────────────────
+  &__header {
+    padding: 2.8rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+    text-align: center;
+  }
+
+  &__header--internet {
+    background: $plan-internet-bg;
+    .plan-card__icono {
+      background: $plan-internet-icon;
+      i { color: #1565C0; }
+    }
+    .plan-card__tipo { color: #1565C0; }
+  }
+
+  &__header--tv {
+    background: $plan-tv-bg;
+    .plan-card__icono {
+      background: $plan-tv-icon;
+      i { color: #6A1B9A; }
+    }
+    .plan-card__tipo { color: #6A1B9A; }
+  }
+
+  &__header--combo {
+    background: $plan-verde-bg;
+    .plan-card__icono {
+      background: $plan-verde-bg-dark;
+      i { color: $verde; }
+    }
+    .plan-card__tipo { color: $plan-verde-titulo; }
+  }
+
+  &__icono {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: .4rem;
+    i { font-size: 2.4rem; }
+  }
+
+  &__tipo {
+    font-size: 1.1rem;
+    font-weight: $bold;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  &__nombre {
+    font-size: 2rem;
+    font-weight: $black;
+    color: $grisOscuro;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  // ─── Precio ───────────────────────────────
+  &__precio {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: .3rem;
+    padding: 2rem;
+    border-bottom: 1px solid $gris;
+  }
+
+  &__moneda {
+    font-size: 2rem;
+    font-weight: $bold;
+    color: $grisOscuro;
+  }
+
+  &__valor {
+    font-size: 4rem;
+    font-weight: $black;
+    color: $grisOscuro;
+    line-height: 1;
+  }
+
+  &__periodo {
+    font-size: 1.4rem;
+    color: #888;
+  }
+
+  // ─── Features ─────────────────────────────
+  &__features {
+    list-style: none;
+    padding: 2rem 2.4rem;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.4rem;
+      color: $grisOscuro;
+
+      i {
+        font-size: 1.2rem;
+        color: $verde;
+        flex-shrink: 0;
+        width: 1.6rem;
+      }
+    }
+  }
+
+  // ─── Íconos decorativos ───────────────────
+  &__iconos {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+    padding: 0 2rem 1.6rem;
+
+    img {
+      width: 3.6rem;
+      height: 3.6rem;
+      object-fit: contain;
+      opacity: .7;
+      transition: opacity .2s ease, transform .2s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  // ─── Botón ────────────────────────────────
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    margin: 0 2rem 2rem;
+    padding: 1.2rem 2rem;
+    background: $verde;
+    color: $blanco;
+    font-size: 1.5rem;
+    font-weight: $black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    border-radius: .8rem;
+    transition: background-color .2s ease, transform .2s ease;
+
+    i { font-size: 1.8rem; }
+
+    &:hover {
+      background: #4d7a00;   // darken(#71B100, 8%) — valor fijo
+      transform: translateY(-2px);
+    }
+
+    &--destacado {
+      background: $amarillo;
+      color: $negro;
+
+      &:hover { background: $plan-amarillo-hover; }
+    }
+  }
+}
+
+// ─── Animación ────────────────────────────────────────────────────
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+// ─── Banner CTA ───────────────────────────────────────────────────
+.planes-cta {
+  border-radius: $plan-radio;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    border-radius: $plan-radio;
+  }
+
+  &__contenido {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: $black;
+      color: $blanco;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+      color: rgba(255, 255, 255, .85);
+      margin-bottom: 2.4rem;
+      padding: 0;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    background: #25D366;
+    color: $blanco;
+    font-size: 1.6rem;
+    font-weight: $black;
+    text-decoration: none;
+    padding: 1.2rem 3rem;
+    border-radius: 10rem;
+    transition: background-color .2s ease, transform .2s ease;
+
+    i { font-size: 2rem; }
+
+    &:hover {
+      background: #1da851;   // darken(#25D366, 8%) — valor fijo
+      transform: translateY(-2px);
+    }
+  }
+}
+// ─── Banner CTA full width ────────────────────────────────────────
+.planes-cta {
+  // ✅ Ocupa todo el ancho de la pantalla
+  width: 100%;
+  position: relative;
+
+  // Imagen de fondo
   background-image: url("../img/02.jpeg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  text-transform: uppercase;
-  border-radius: 1rem;
-  border: 1px solid $grisOscuro;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  // Mobile
-  height: 30rem;
+  // Altura responsive
+  min-height: 30rem;
 
   @include tablet {
-    height: 40rem;
+    min-height: 40rem;
   }
 
   @include desktop {
-    height: 50rem;
+    min-height: 50rem;
+  }
+
+  // Overlay oscuro para legibilidad del texto
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    z-index: 0;
+  }
+
+  // Contenido centrado sobre el overlay
+  &__contenido {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    min-height: inherit;
+
+    h2 {
+      font-size: 2.8rem;
+      font-weight: $black;
+      color: $blanco;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+
+      @include tablet {
+        font-size: 3.6rem;
+      }
+    }
+
+    p {
+      font-size: 1.6rem;
+      color: rgba(255, 255, 255, .85);
+      margin-bottom: 2.8rem;
+      padding: 0;
+      max-width: 60rem;   // limita el ancho del texto para legibilidad
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    background: #25D366;
+    color: $blanco;
+    font-size: 1.6rem;
+    font-weight: $black;
+    text-decoration: none;
+    padding: 1.4rem 3.2rem;
+    border-radius: 10rem;
+    transition: background-color .2s ease, transform .2s ease;
+
+    i { font-size: 2rem; }
+
+    &:hover {
+      background: #1da851;
+      transform: translateY(-3px);
+    }
   }
 }

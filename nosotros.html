@@ -12,32 +12,48 @@
     <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
   </head>
   <body>
-  <header class="header">  
-    <div class="contenedor contenido-header">
-      <div class="barra">
-        <a href="/">
-          <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+  <header class="header " id="header">  
+  <div class="contenedor contenido">
+
+    <div class="barra">
+
+      <!-- Logo -->
+      <a href="/" class="barra__logo">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+
+      <!-- ✅ Nav DENTRO de .barra para que esté en la misma fila -->
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos</span>
         </a>
+        <a href="#" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
 
-         <div class="mobile-menu">
-          <img src="build/img/casa.png" alt="icono menu">
-          </div>
+      <!-- Acciones: solo visibles en móvil -->
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu" 
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
 
-        <div class="derecha">
-           <img class="dark-mode-boton" src="build/img/dark.png" alt="Modo oscuro">
-           
-          <nav class="navegacion">
-            <a href="nosotros.html">Nosotros</a>
-            <!-- <a href="servicios.html">Servicios</a> -->
-            <a href="planes.html">Planes</a>
-            <a href="canal.html">Canal Local</a>
-            <a href="contacto.html">Contactanos</a>
-            <a href="https://pse.viboraltelecomunicaciones.com/">Pagos</a>
-            
-          </nav>
-       </div>
-    </div>
-  </header>
+    </div><!-- .barra -->
+  </div>
+</header>
 
     <main class="contenedor seccion nosotros-page">
 
@@ -248,65 +264,63 @@
     
     
 <footer class="footer-futurista">
-
   <div class="contenedor-footer">
 
     <!-- LOGO -->
     <div class="logo-footer">
-        <a href="/">
-          <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
-        </a>
+      <a href="/">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+      <p class="footer-slogan">Conectando comunidades desde 1998</p>
     </div>
 
     <!-- REDES -->
     <div class="redes-footer">
       <h3 class="titulo-footer">Conéctate con nosotros</h3>
-
       <div class="redes-sociales">
-
-        <a href="#" class="icon facebook">
+        <a href="#" class="icon facebook" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
-
-        <a href="#" class="icon instagram">
+        <a href="#" class="icon instagram" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-
-        <a href="https://wa.me/573147258728" class="icon whatsapp">
+        <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp">
           <i class="fab fa-whatsapp"></i>
         </a>
-
-         <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze">
+        <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze" aria-label="Waze">
           <i class="fab fa-waze"></i>
         </a>
-
-        <a href="mailto:servicioasociado@viboral.tv" class="icon correo">
+        <a href="mailto:soporte@viboraltelecomunicaciones.com" class="icon correo" aria-label="Correo electrónico">
           <i class="fas fa-envelope"></i>
         </a>
-
       </div>
     </div>
 
     <!-- LINKS LEGALES -->
     <div class="documentos-legales">
-
-  <h3 class="titulo-legales">Documentos legales</h3>
-
-  <div class="links-legales">
-    <a href="derecho-asociado.html">Derecho del Asociado</a>
-    <a href="politica-cookies.html">Política de cookies</a>
-    <a href="norma-estatutaria.html">Norma Estatutaria</a>
-  </div>
-
-</div>
+      <h3 class="titulo-legales">Documentos legales</h3>
+      <div class="links-legales">
+        <a href="derecho-asociado.html">
+          <i class="fas fa-file-alt"></i> Derecho del Asociado
+        </a>
+        <a href="politica-cookies.html">
+          <i class="fas fa-cookie-bite"></i> Política de cookies
+        </a>
+        <a href="https://drive.google.com/file/d/1WF9erkJQymyCbJkmMbb72_KifQlKXpEI/view?usp=drive_link" target="_blank" rel="noopener">
+          <i class="fas fa-landmark"></i> Norma Estatutaria
+        </a>
+        <a href="politicadatos.html">
+          <i class="fas fa-shield-alt"></i> Política de privacidad
+        </a>
+      </div>
+    </div>
 
   </div>
 
   <!-- COPYRIGHT -->
   <div class="copyright">
-    Viboral Telecomunicaciones © 2026 Todos los derechos reservados
+    Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
   </div>
-
 </footer>
 <div class="wa-widget">
   

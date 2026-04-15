@@ -1,22 +1,279 @@
-// _header.scss
+// archivo: scss/_header.scss
+
+$header-fondo:  rgba(0, 0, 0, .82);
+
+// ─── Header ───────────────────────────────────────────────────────
 .header {
-  background-color: $negro;
+  background-color: $header-fondo;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba($blanco, .08);
+
   &.inicio {
     background-image: url("../img/header.jpeg");
     background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
 
+    // ✅ Alturas responsive correctas
+    min-height: 48rem;
 
-    // Mobile
-    min-height: 30rem;
+    @include tablet  { min-height: 58rem; }
+    @include desktop { min-height: 75rem; }
 
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba($negro, .72) 0%,
+        rgba($negro, .20) 55%,
+        rgba($negro, .00) 100%
+      );
+      z-index: 0;
+    }
+  }
+}
+
+.contenido-header {
+  position: relative;
+  z-index: 1;
+}
+
+// ─── Barra principal ──────────────────────────────────────────────
+// ✅ Una sola fila: logo | nav | acciones
+.barra {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 0;
+  gap: 1.6rem;
+
+  // ─── Logo ──────────────────────────────────
+  &__logo {
+    flex-shrink: 0;
+    display: block;
+    line-height: 0;
+
+    img {
+      width: 13rem;
+      height: auto;
+      display: block;
+      animation: aparecerLogo 1s ease-out forwards;
+      transition: opacity .3s ease;
+
+      @include tablet  { width: 15rem; }
+      @include desktop { width: 17rem; }
+
+      &:hover { opacity: .85; }
+    }
+  }
+
+  // ─── Acciones móvil ────────────────────────
+// ─── Acciones: dark mode + hamburguesa ───────────────────────────
+.barra__acciones {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  flex-shrink: 0;
+  // ✅ NUNCA se oculta — siempre visible en todos los breakpoints
+}
+
+// ─── Dark mode: siempre visible ───────────────────────────────────
+.dark-mode-boton {
+  background: rgba($blanco, .1);
+  border: 1px solid rgba($blanco, .25);
+  border-radius: .6rem;
+  padding: .55rem .7rem;
+  cursor: pointer;
+  display: flex;              // ✅ siempre flex — nunca none
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s ease;
+
+  img {
+    width: 2.2rem;
+    height: 2.2rem;
+    filter: invert(100%);
+    display: block;
+    transition: transform .4s ease;
+  }
+
+  &:hover {
+    background: rgba($blanco, .2);
+    img { transform: rotate(25deg); }
+  }
+}
+
+// ─── Hamburguesa: solo en móvil ───────────────────────────────────
+.mobile-menu {
+  background: rgba($blanco, .1);
+  border: 1px solid rgba($blanco, .25);
+  border-radius: .6rem;
+  padding: .7rem .9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s ease;
+
+  &:hover { background: rgba($blanco, .2); }
+
+  // ✅ Solo el hamburguesa desaparece en tablet+
+  @include tablet { display: none; }
+}
+}
+
+.hamburguesa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 20px;
+  height: 16px;
+
+  span {
+    display: block;
+    height: 2px;
+    background: $blanco;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease, width .3s ease;
+
+    &:nth-child(3) { width: 13px; }
+  }
+}
+
+.mobile-menu.activo .hamburguesa {
+  span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 20px; }
+}
+
+// ─── Navegación ───────────────────────────────────────────────────
+.navegacion {
+
+  // ── MÓVIL: oculto, se despliega como panel ──
+  // Ocupa todo el ancho saliendo de .barra
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba($negro, .97);
+  border-top: 1px solid rgba($blanco, .08);
+  padding: .8rem 0;
+  z-index: 50;
+
+  &.mostrar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // ── TABLET+: fila horizontal dentro de .barra ──
+  @include tablet {
+    display: flex !important;       // siempre visible
+    position: static;
+    width: auto;
+    background: transparent;
+    border-top: none;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: .2rem;
+    flex: 1;                        // ocupa el espacio entre logo y acciones
+    justify-content: flex-end;      // links pegados a la derecha
+  }
+
+  // ─── Links ──────────────────────────────────
+  a {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    color: rgba($blanco, .88);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: $bold;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: 1.4rem 2.4rem;
+    border-bottom: 1px solid rgba($blanco, .06);
+    transition: color .2s ease,
+                background-color .2s ease,
+                padding-left .2s ease;
+
+    i {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      opacity: .65;
+      transition: opacity .2s ease;
+    }
+
+    &:hover {
+      color: $amarillo;
+      background: rgba($blanco, .05);
+      padding-left: 3.2rem;         // deslizamiento sutil en móvil
+      i { opacity: 1; }
+    }
+
+    // Tablet+: estilos compactos sin ícono
     @include tablet {
-      min-height: 50rem;
+      padding: .6rem .9rem;
+      border-bottom: none;
+      border-radius: .6rem;
+      font-size: 1.35rem;
+
+      i    { display: none; }       // íconos solo en móvil
+      span { display: inline; }
+
+      &:hover {
+        color: $amarillo;
+        background: rgba($amarillo, .1);
+        padding-left: .9rem;        // reset deslizamiento
+      }
     }
 
     @include desktop {
-    
-      min-height: 70rem;
+      font-size: 1.4rem;
+      padding: .7rem 1rem;
     }
+  }
+}
+
+// ─── Botón Oficina Virtual ────────────────────────────────────────
+.nav-btn-oficina {
+  background: $amarillo !important;
+  color: $negro !important;
+  border-bottom: none !important;
+  border-radius: .8rem !important;
+  margin: .8rem 1.6rem !important;
+  padding: 1rem 1.6rem !important;
+  justify-content: center !important;
+
+  i {
+    display: flex !important;
+    opacity: 1 !important;
+    color: $negro !important;
+  }
+
+  &:hover {
+    background: #c47608 !important;
+    color: $negro !important;
+    padding-left: 1.6rem !important;
+    transform: translateY(-2px);
+  }
+
+  @include tablet {
+    margin: 0 0 0 .6rem !important;
+    padding: .7rem 1.2rem !important;
+
+    i    { display: flex !important; }
+    span { display: inline !important; }
   }
 }

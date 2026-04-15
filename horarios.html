@@ -15,549 +15,171 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="contenedor">
-      <div class="barra">
-        <a href="/">
-          <img src="build/img/logocanal.png" alt="Viboral Telecomunicaciones" />
+  <header class="header " id="header">  
+  <div class="contenedor contenido">
+
+    <div class="barra">
+
+      <!-- Logo -->
+      <a href="/" class="barra__logo">
+        <img src="build/img/logocanal.webp" alt="Viboral Telecomunicaciones" />
+      </a>
+
+      <!-- ✅ Nav DENTRO de .barra para que esté en la misma fila -->
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos</span>
         </a>
+        <a href="#" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
 
-        <div class="mobile-menu">
-          <img src="build/img/casa.png" alt="icono menu">
-        </div>
-
-        <div class="derecha">
-          <img class="dark-mode-boton" src="build/img/dark.png" alt="Modo oscuro">
-
-          <nav class="navegacion">
-            <a href="nosotros.html">Nosotros</a>
-            <!-- <a href="servicios.html">Servicios</a> -->
-            <a href="planes.html">Planes</a>
-            <a href="canal.html">Canal Local</a>
-            <a href="contacto.html">Contactanos</a>
-            <a href="https://pse.viboraltelecomunicaciones.com/">Pagos</a>
-
-          </nav>
-        </div>
+      <!-- Acciones: solo visibles en móvil -->
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu" 
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
-  </header>
 
-  <main class="contenedor seccion">
-    <h1>Nuestros horarios De programas</h1>
+    </div><!-- .barra -->
+  </div>
+</header>
 
-    <!-- archivo: canal.html — reemplaza tu <table> actual -->
+  <main class="contenedor seccion horarios-page">
 
-    <table class="table table-bordered table-hover table-striped">
-      <thead class="table">
-        <tr>
-          <th>HORA</th>
-          <th>LUNES</th>
-          <th>MARTES</th>
-          <th>MIÉRCOLES</th>
-          <th>JUEVES</th>
-          <th>VIERNES</th>
-          <th>SÁBADO</th>
-          <th>DOMINGO</th>
+  <span class="seccion-label">Canal Local</span>
+  <h1 class="seccion-titulo">Grilla de Programación</h1>
+
+  <!-- Filtros por día -->
+  <div class="horarios-filtros">
+    <button class="dia-btn activo" data-dia="todos">Todos</button>
+    <button class="dia-btn" data-dia="0">Lunes</button>
+    <button class="dia-btn" data-dia="1">Martes</button>
+    <button class="dia-btn" data-dia="2">Miércoles</button>
+    <button class="dia-btn" data-dia="3">Jueves</button>
+    <button class="dia-btn" data-dia="4">Viernes</button>
+    <button class="dia-btn" data-dia="5">Sábado</button>
+    <button class="dia-btn" data-dia="6">Domingo</button>
+  </div>
+
+  <!-- Buscador -->
+  <div class="horarios-buscar">
+    <i class="fas fa-search"></i>
+    <input 
+      type="text" 
+      id="buscadorHorario"
+      placeholder="Buscar programa..." 
+    />
+  </div>
+
+  <!-- Leyenda de categorías -->
+  <div class="horarios-leyenda">
+    <span class="leyenda-item leyenda-noticiero">Noticiero</span>
+    <span class="leyenda-item leyenda-rosario">Rosario / Misa</span>
+    <span class="leyenda-item leyenda-musical">Musical</span>
+    <span class="leyenda-item leyenda-infantil">Infantil</span>
+    <span class="leyenda-item leyenda-cultural">Cultural / Doc.</span>
+    <span class="leyenda-item leyenda-espiritual">Espiritual</span>
+    <span class="leyenda-item leyenda-variedades">Variedades</span>
+    <span class="leyenda-item leyenda-uhit">U.HIT</span>
+  </div>
+
+  <!-- Tabla -->
+  <div class="horarios-tabla-wrap">
+    <table class="horarios-tabla" id="tablaHorarios">
+      <thead>
+        <tr id="theadRow">
+          <th>Hora</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+          <th>Sábado</th>
+          <th>Domingo</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td class="hora">07:00 AM</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-        </tr>
-        <tr>
-          <td class="hora">07:30 AM</td>
-          <td>Tom Sawyer</td>
-          <td>C. Hnos. Grimm</td>
-          <td>El Mago de Oz</td>
-          <td>Tom Sawyer</td>
-          <td>C. Hnos. Grimm</td>
-          <td>El Mago de Oz</td>
-          <td>El Libro de la Selva</td>
-        </tr>
-        <tr>
-          <td class="hora">08:00 AM</td>
-          <td>Batman</td>
-          <td>Los Pitufos</td>
-          <td>Batman</td>
-          <td>Zenki</td>
-          <td>Batman</td>
-          <td>Los Pitufos</td>
-          <td>EUCARISTIA ©</td>
-        </tr>
-        <tr>
-          <td class="hora">08:30 AM</td>
-          <td>Franja Documental</td>
-          <td>El Libro de la Selva</td>
-          <td>Especial Retro</td>
-          <td>Happy English ®</td>
-          <td>Especial Retro</td>
-          <td>Zenki</td>
-          <td>EUCARISTIA ©</td>
-        </tr>
-        <tr>
-          <td class="hora">09:00 AM</td>
-          <td>Especial Retro</td>
-          <td>Especial Retro</td>
-          <td>Franja Documental</td>
-          <td>Franja Documental</td>
-          <td>Testigo Directo</td>
-          <td>Mañana en Vibo ©</td>
-          <td>De la mano con Jesús</td>
-        </tr>
-        <tr>
-          <td class="hora">09:30 AM</td>
-          <td>Especial Retro</td>
-          <td>Manos Creativas ®</td>
-          <td>Franja Documental</td>
-          <td>Franja Documental</td>
-          <td>Hogar en Forma</td>
-          <td>Mañana en Vibo ©</td>
-          <td>Mañana en Vibo ©</td>
-        </tr>
-        <tr>
-          <td class="hora">10:00 AM</td>
-          <td>U.HIT E.M.P.</td>
-          <td>San Alejo Musical ®</td>
-          <td>Los Clásicos</td>
-          <td>Mañana en Vibo ®</td>
-          <td>Salud y Movimiento</td>
-          <td>Mañana en Vibo ©</td>
-          <td>Mañana en Vibo ©</td>
-        </tr>
-        <tr>
-          <td class="hora">10:30 AM</td>
-          <td>Happy English</td>
-          <td>San Alejo Musical ®</td>
-          <td>Los Clásicos</td>
-          <td>Mañana en Vibo ®</td>
-          <td>U. HIT. AR</td>
-          <td>Mañana en Vibo ©</td>
-          <td>Mañana en Vibo ©</td>
-        </tr>
-        <tr>
-          <td class="hora">11:00 AM</td>
-          <td>De la mano con Jesús</td>
-          <td>San Alejo Musical ®</td>
-          <td>Manos Creativas</td>
-          <td>Mañana en Vibo ®</td>
-          <td>U. HIT. EMP</td>
-          <td>Happy English ®</td>
-          <td>Mañana en Vibo ©</td>
-        </tr>
-        <tr>
-          <td class="hora">11:30 AM</td>
-          <td>U.HIT.GTV</td>
-          <td>San Alejo Musical ®</td>
-          <td>Desafío Agropecuario ®</td>
-          <td>Mañana en Vibo ®</td>
-          <td>Franja Documental</td>
-          <td>Pizarra ®</td>
-          <td>Happy English ®</td>
-        </tr>
-        <tr>
-          <td class="hora">12:00 PM</td>
-          <td>Salud y Movimiento</td>
-          <td>U.HIT U.HIT</td>
-          <td>Testigo Directo</td>
-          <td>Primer Plano</td>
-          <td>Franja Documental</td>
-          <td>Pizarra ®</td>
-          <td>EUCARISTIA ©</td>
-        </tr>
-        <tr>
-          <td class="hora">12:30 PM</td>
-          <td>U.HIT U.HIT</td>
-          <td>Pop Star</td>
-          <td>U. HIT. HDP</td>
-          <td>Primer Plano</td>
-          <td>A Volar</td>
-          <td>Antesala ®</td>
-          <td>EUCARISTIA ©</td>
-        </tr>
-        <tr class="table-warning">
-          <td class="hora">01:00 PM</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-        </tr>
-        <tr>
-          <td class="hora">01:30 PM</td>
-          <td>NOTICIERO ®</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>NOTICIERO ®</td>
-        </tr>
-        <tr>
-          <td class="hora">02:00 PM</td>
-          <td>Los Clásicos ®</td>
-          <td>U.HIT E.M.P.</td>
-          <td>U. HIT. RDS</td>
-          <td>U. HIT. RDS</td>
-          <td>Creciendo en la Fe</td>
-          <td>Pop Star ®</td>
-          <td>Los Clásicos ®</td>
-        </tr>
-        <tr>
-          <td class="hora">02:30 PM</td>
-          <td>Los Clásicos ®</td>
-          <td>Especial Retro</td>
-          <td>U. HIT. GTV</td>
-          <td>Testigo Directo Archivo</td>
-          <td>U.HIT. GUASCA TV.</td>
-          <td>Franja Documental</td>
-          <td>Los Clásicos ®</td>
-        </tr>
-        <tr>
-          <td class="hora">03:00 PM</td>
-          <td>U. HIT. AR</td>
-          <td>U. HIT. HDP</td>
-          <td>Especial Retro</td>
-          <td>Especial Retro</td>
-          <td>SAN ALEJO ©</td>
-          <td>Franja Documental</td>
-          <td>Testigo Directo FULL</td>
-        </tr>
-        <tr>
-          <td class="hora">03:30 PM</td>
-          <td>U.HIT C.A.L.F.</td>
-          <td>La Tocata y la Tocadera ®</td>
-          <td>Multiritmos ©</td>
-          <td>Retratos de mi Tierra ®</td>
-          <td>SAN ALEJO ©</td>
-          <td>Manos Creativas</td>
-          <td>Testigo Directo FULL</td>
-        </tr>
-        <tr class="table-warning">
-          <td class="hora">04:00 PM</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>SAN ALEJO ©</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-        </tr>
-        <tr>
-          <td class="hora">04:30 PM</td>
-          <td>NOTICIERO ®</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>SAN ALEJO ©</td>
-          <td>Especiales Viboral</td>
-          <td>NOTICIERO ®</td>
-        </tr>
-        <tr>
-          <td class="hora">05:00 PM</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-          <td>ROSARIO</td>
-        </tr>
-        <tr>
-          <td class="hora">05:30 PM</td>
-          <td>MISA</td>
-          <td>MISA</td>
-          <td>MISA</td>
-          <td>MISA</td>
-          <td>MISA</td>
-          <td>Creciendo en la Fe ®</td>
-          <td>EUCARISTIA ©</td>
-        </tr>
-        <tr>
-          <td class="hora">06:00 PM</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>Especiales Viboral</td>
-          <td>San Alejo Musical ®</td>
-          <td>EUCARISTIA ©</td>
-        </tr>
-        <tr>
-          <td class="hora">06:30 PM</td>
-          <td>Multiritmos</td>
-          <td>A Volar</td>
-          <td>De la mano con Jesús</td>
-          <td>La Tocata y la Tocadera ©</td>
-          <td>Los Clásicos ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>Desafío Agropecuario ©</td>
-        </tr>
-        <tr>
-          <td class="hora">07:00 PM</td>
-          <td>Franja Documental</td>
-          <td>Hogar en Forma ©</td>
-          <td>U. HIT. TDLR</td>
-          <td>ALCALDIA</td>
-          <td>Los Clásicos ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>Retratos de mi Tierra ®</td>
-        </tr>
-        <tr>
-          <td class="hora">07:30 PM</td>
-          <td>Retratos de mi Tierra ®</td>
-          <td>Creciendo en la Fe ©</td>
-          <td>Retratos de mi Tierra ®</td>
-          <td>ALCALDIA</td>
-          <td>Antesala</td>
-          <td>San Alejo Musical ®</td>
-          <td>ALCALDIA</td>
-        </tr>
-        <tr class="table-warning">
-          <td class="hora">08:00 PM</td>
-          <td>NOTICIERO ©</td>
-          <td>NOTICIERO ©</td>
-          <td>NOTICIERO ©</td>
-          <td>NOTICIERO ©</td>
-          <td>NOTICIERO ©</td>
-          <td>NOTICIERO ©</td>
-          <td>NOTICIERO ©</td>
-        </tr>
-        <tr>
-          <td class="hora">08:30 PM</td>
-          <td>Testigo Directo</td>
-          <td>Testigo Directo</td>
-          <td>Testigo Directo</td>
-          <td>Testigo Directo</td>
-          <td>Testigo Directo</td>
-          <td>NOTICIERO ©</td>
-          <td>NOTICIERO ©</td>
-        </tr>
-        <tr>
-          <td class="hora">09:00 PM</td>
-          <td>Desafío Agropecuario ®</td>
-          <td>Primer Plano ©</td>
-          <td>Pizarra ©</td>
-          <td>La Tocata y la Tocadera ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>Especial Retro</td>
-          <td>Retros Viboral</td>
-        </tr>
-        <tr>
-          <td class="hora">09:30 PM</td>
-          <td>Antesala ®</td>
-          <td>Primer Plano ©</td>
-          <td>Pizarra ©</td>
-          <td>Pop Star ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>Especial Retro</td>
-          <td>Retros Viboral</td>
-        </tr>
-        <tr class="table-warning">
-          <td class="hora">10:00 PM</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-        </tr>
-        <tr>
-          <td class="hora">10:30 PM</td>
-          <td>Especial Retro</td>
-          <td>Pop Star</td>
-          <td>Franja Documental</td>
-          <td>Desafío Agropecuario ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-        </tr>
-        <tr>
-          <td class="hora">11:00 PM</td>
-          <td>Especial Retro</td>
-          <td>Los Clásicos ®</td>
-          <td>Franja Documental</td>
-          <td>Primer Plano ®</td>
-          <td>NOTICIERO ®</td>
-          <td>La Tocata y la Tocadera ®</td>
-          <td>Pizarra ®</td>
-        </tr>
-        <tr>
-          <td class="hora">11:30 PM</td>
-          <td>U. HIT. RDS</td>
-          <td>Los Clásicos ®</td>
-          <td>Salud y Movimiento</td>
-          <td>Primer Plano ®</td>
-          <td>Franja Documental</td>
-          <td>Primer Plano ®</td>
-          <td>Pizarra ®</td>
-        </tr>
-        <tr>
-          <td class="hora">12:00 AM</td>
-          <td>U.HIT E.M.P.</td>
-          <td>La Tocata y la Tocadera ®</td>
-          <td>De la mano con Jesús</td>
-          <td>Especial Retro</td>
-          <td>Franja Documental</td>
-          <td>Primer Plano ®</td>
-          <td>Desafío Agropecuario ®</td>
-        </tr>
-        <tr>
-          <td class="hora">12:30 AM</td>
-          <td>Pop Star</td>
-          <td>U.HIT. HDP</td>
-          <td>Desafío Agropecuario ®</td>
-          <td>Especial Retro</td>
-          <td>U. HIT. GTV</td>
-          <td>Pizarra ®</td>
-          <td>Franja Documental ®</td>
-        </tr>
-        <tr>
-          <td class="hora">01:00 AM</td>
-          <td>U. HIT U. HIT</td>
-          <td>Hogar en Forma (R)</td>
-          <td>Especial Retro</td>
-          <td>U. HIT. AR</td>
-          <td>U. HIT. AR</td>
-          <td>Pizarra ®</td>
-          <td>Franja Documental ®</td>
-        </tr>
-        <tr>
-          <td class="hora">01:30 AM</td>
-          <td>Los Clásicos ®</td>
-          <td>A Volar</td>
-          <td>Pizarra ®</td>
-          <td>Retratos de mi Tierra ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>Antesala ®</td>
-          <td>Primer Plano ®</td>
-        </tr>
-        <tr>
-          <td class="hora">02:00 AM</td>
-          <td>Los Clásicos ®</td>
-          <td>Primer Plano ®</td>
-          <td>Pizarra ®</td>
-          <td>Multiritmos ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>U. HIT. U. HIT.</td>
-          <td>Primer Plano ®</td>
-        </tr>
-        <tr>
-          <td class="hora">02:30 AM</td>
-          <td>U.HIT C.A.L.F.</td>
-          <td>Primer Plano ®</td>
-          <td>Los Clásicos</td>
-          <td>U. HIT. U. HIT.</td>
-          <td>San Alejo Musical ®</td>
-          <td>La Tocata y la Tocadera ®</td>
-          <td>Pizarra ®</td>
-        </tr>
-        <tr>
-          <td class="hora">03:00 AM</td>
-          <td>Retratos de mi Tierra ®</td>
-          <td>U. HIT. AR</td>
-          <td>Los Clásicos</td>
-          <td>La Tocata y la Tocadera ®</td>
-          <td>San Alejo Musical ®</td>
-          <td>A Volar</td>
-          <td>Pizarra ®</td>
-        </tr>
-        <tr class="table-warning">
-          <td class="hora">03:30 AM</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-          <td>NOTICIERO ®</td>
-        </tr>
-        <tr>
-          <td class="hora">04:00 AM</td>
-          <td>HIMNOS</td>
-          <td>HIMNOS</td>
-          <td>HIMNOS</td>
-          <td>HIMNOS</td>
-          <td>HIMNOS</td>
-          <td>HIMNOS</td>
-          <td>HIMNOS</td>
-        </tr>
-      </tbody>
+      <tbody id="tbodyHorarios"></tbody>
     </table>
+    <p class="horarios-sin-res" id="sinResultados" style="display:none">
+      No se encontraron programas con ese nombre.
+    </p>
+  </div>
 
-
-  </main>
+</main>
 
   <footer class="footer-futurista">
+  <div class="contenedor-footer">
 
-    <div class="contenedor-footer">
+    <!-- LOGO -->
+    <div class="logo-footer">
+      <a href="/">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+      <p class="footer-slogan">Conectando comunidades desde 1998</p>
+    </div>
 
-      <!-- LOGO -->
-      <div class="logo-footer">
-        <a href="/">
-          <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+    <!-- REDES -->
+    <div class="redes-footer">
+      <h3 class="titulo-footer">Conéctate con nosotros</h3>
+      <div class="redes-sociales">
+        <a href="#" class="icon facebook" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="icon instagram" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze" aria-label="Waze">
+          <i class="fab fa-waze"></i>
+        </a>
+        <a href="mailto:soporte@viboraltelecomunicaciones.com" class="icon correo" aria-label="Correo electrónico">
+          <i class="fas fa-envelope"></i>
         </a>
       </div>
-
-      <!-- REDES -->
-      <div class="redes-footer">
-        <h3 class="titulo-footer">Conéctate con nosotros</h3>
-
-        <div class="redes-sociales">
-
-          <a href="#" class="icon facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" class="icon instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://wa.me/573147258728" class="icon whatsapp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-
-          <a href="#" class="icon waze">
-            <i class="fab fa-waze"></i>
-          </a>
-
-          <a href="mailto:soporte@viboraltelecomunicaciones.com" class="icon correo">
-            <i class="fas fa-envelope"></i>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- LINKS LEGALES -->
-      <div class="documentos-legales">
-
-        <h3 class="titulo-legales">Documentos legales</h3>
-
-        <div class="links-legales">
-          <a href="derecho-asociado.html">Derecho del Asociado</a>
-          <a href="politica-cookies.html">Política de cookies</a>
-          <a href="norma-estatutaria.html">Norma Estatutaria</a>
-        </div>
-
-      </div>
-
     </div>
 
-    <!-- COPYRIGHT -->
-    <div class="copyright">
-      Viboral Telecomunicaciones © 2026 Todos los derechos reservados
+    <!-- LINKS LEGALES -->
+    <div class="documentos-legales">
+      <h3 class="titulo-legales">Documentos legales</h3>
+      <div class="links-legales">
+        <a href="derecho-asociado.html">
+          <i class="fas fa-file-alt"></i> Derecho del Asociado
+        </a>
+        <a href="politica-cookies.html">
+          <i class="fas fa-cookie-bite"></i> Política de cookies
+        </a>
+        <a href="https://drive.google.com/file/d/1WF9erkJQymyCbJkmMbb72_KifQlKXpEI/view?usp=drive_link" target="_blank" rel="noopener">
+          <i class="fas fa-landmark"></i> Norma Estatutaria
+        </a>
+        <a href="politicadatos.html">
+          <i class="fas fa-shield-alt"></i> Política de privacidad
+        </a>
+      </div>
     </div>
 
-  </footer>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="copyright">
+    Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
+  </div>
+</footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>

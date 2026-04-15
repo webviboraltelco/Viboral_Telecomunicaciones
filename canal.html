@@ -1,338 +1,341 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="build/css/app.css" />
     <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
-    <title>Viboral Telecomunicaciones</title>
+    <title>Canal Local · Viboral Telecomunicaciones</title>
   </head>
   <body>
-    <header class="header">
-      <div class="contenedor contenido-header">
-        <div class="barra">
-          <a href="/">
-            <img
-              src="build/img/logocanal.png"
-              alt="Viboral Telecomunicaciones"
-            />
-          </a>
 
-         <div class="mobile-menu">
-          <img src="build/img/casa.png" alt="icono menu">
-         </div>
+   <header class="header " id="header">  
+  <div class="contenedor contenido">
 
-        <div class="derecha">
-           <img class="dark-mode-boton" src="build/img/dark.png" alt="Modo oscuro">
-           
-          <nav class="navegacion">
-            <a href="nosotros.html">Nosotros</a>
-            <!-- <a href="servicios.html">Servicios</a> -->
-            <a href="planes.html">Planes</a>
-            <a href="canal.html">Canal Local</a>
-            <a href="contacto.html">Contactanos</a>
-            <a href="https://pse.viboraltelecomunicaciones.com/">Pagos</a>
-            
-          </nav>
-        </div>
-       </div>
-    </header>
+    <div class="barra">
 
-    <main class="contenedor seccion">
-      <h1>Nuestra Producción Local</h1>
+      <!-- Logo -->
+      <a href="/" class="barra__logo">
+        <img src="build/img/logocanal.webp" alt="Viboral Telecomunicaciones" />
+      </a>
 
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/noticias.webp" type="image/webp" />
-            <source srcset="build/img/noticiero.png" type="image/png" />
-            <img loading="lazy" src="build/img/noticias.png" alt="noticias" />
-          </picture>
-        </div>
+      <!-- ✅ Nav DENTRO de .barra para que esté en la misma fila -->
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos</span>
+        </a>
+        <a href="#" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
 
-        <div class="texto-entrada">
-          <h4>Noticiero</h4>
+      <!-- Acciones: solo visibles en móvil -->
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu" 
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
 
-          <p class="texto">
-            Nuestro canal comunitario cuenta con un noticiero local que informa de manera oportuna, veraz y cercana sobre los hechos más 
-            relevantes de nuestra comunidad. Un espacio creado para dar voz a la gente, fortalecer la participación ciudadana y
-             mantenernos conectados con lo que realmente importa en nuestro entorno.
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
-          </p>
-           
-        </div>
-      </article>
-     
+    </div><!-- .barra -->
+  </div>
+</header>
 
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/creciendo.webp" type="image/webp" />
-            <source srcset="build/img/creciendo.png" type="image/png" />
-            <img
-              loading="lazy"
-              src="build/img/creciendo.png"
-              alt="Creciendo en la fe"
-            />
-          </picture>
-        </div>
-        <div class="texto-entrada">
-          <h4>Creciendo en la fé</h4>
-          <p class="texto">
-            “Creciendo en la Fe” es un espacio dedicado a fortalecer los valores espirituales y la esperanza en nuestra comunidad. Un programa que,
-             a través de mensajes inspiradores y reflexiones, acompaña a nuestros televidentes en su camino de crecimiento personal y
-              conexión con la fe.
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
-
-          </p>
-        </div>
-      </article>
-     
-
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/mañana.webp" type="image/webp" />
-            <source srcset="build/img/mañana.png" type="image/png" />
-            <img
-              loading="lazy"
-              src="build/img/mañana.png"
-              alt="Creciendo en la fe"
-            />
-          </picture>
-        </div>
-        <div class="texto-entrada">
-          <h4>Mañana en vibo☀️</h4>
-          <p class="texto">
-            ¡Mañana en Vibo te esperamos con toda la energía! Disfruta de un espacio lleno de alegría, 
-            información, buena compañía y lo mejor del entretenimiento para nuestra comunidad. ¡Conéctate y vive con nosotros 
-            un programa hecho para ti!
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
-
-          </p>
-        </div>
-      </article>
-     
-
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/desafio.webp" type="image/webp" />
-            <source srcset="build/img/desafio.png" type="image/png" />
-            <img loading="lazy" src="build/img/desafio.png" alt="noticias" />
-          </picture>
-        </div>
-
-        <div class="texto-entrada">
-          <h4>Desafio Agropecuario 🚜</h4>
-
-          <p class="texto">
-           “Desafío Agropecuario” es el espacio donde se vive y se siente todo lo del campo. Un programa que resalta el trabajo, 
-           la tradición y el esfuerzo de nuestra gente rural, mostrando lo mejor del agro y conectando a la comunidad con sus raíces. 🌱🚜
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
-
-          </p>
-        </div>
-      </article>
-    </main>
-
-    <section class="imagen-canal">
-      <!-- <a href="horarios.html" class=" boton-verde">Conoce nuestra Grilla</a> -->
+    <!-- ════════════ HERO CANAL ════════════ -->
+    <section class="canal-hero">
+      <div class="canal-hero__contenido">
+        <span class="canal-hero__badge">
+          <i class="fas fa-satellite-dish"></i> En el aire
+        </span>
+        <h1>Nuestra Producción Local</h1>
+        <p>Contenido hecho por y para la comunidad de El Carmen de Viboral</p>
+        <a href="horarios.html" class="canal-hero__btn">
+          <i class="fas fa-calendar-alt"></i> Ver grilla de programación
+        </a>
+      </div>
     </section>
 
-    <main class="contenedor seccion">
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/sana.webp" type="image/webp" />
-            <source srcset="build/img/sana.png" type="image/png" />
-            <img loading="lazy" src="build/img/sana.png" alt="San Alejo" />
-          </picture>
-        </div>
+    <!-- ════════════ PROGRAMAS ════════════ -->
+    <main class="contenedor seccion canal-page">
 
-        <div class="texto-entrada">
-          <h4>San Alejo Musical</h4>
+      <span class="seccion-label">Lo que producimos</span>
+      <h2 class="seccion-titulo">Nuestros programas</h2>
 
-          <p class="texto">
-            “San Alejo” es el espacio donde la música popular llega a todos los hogares, llevando alegría, 
-            tradición y sentimiento a cada rincón de nuestra comunidad. Un programa pensado para disfrutar, 
-            cantar y recordar esas canciones que hacen parte de nuestra historia, conectando generaciones a 
-            través de los sonidos que nos identifican y nos unen. 🎶📺
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
+      <div class="programas-grid">
 
-          </p>
-        </div>
-      </article>
-    
+        <!-- Noticiero -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/noticias.webp" type="image/webp" />
+              <source srcset="build/img/noticiero.png" type="image/png" />
+              <img loading="lazy" src="build/img/noticias.png" alt="Noticiero" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-newspaper"></i> Noticias
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>Noticiero</h3>
+            <p>
+              Informamos de manera oportuna, veraz y cercana sobre los hechos
+              más relevantes de nuestra comunidad. Un espacio para dar voz a
+              la gente y fortalecer la participación ciudadana.
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/retratos.webp" type="image/webp" />
-            <source srcset="build/img/retratos.png" type="image/png" />
-            <img
-              loading="lazy"
-              src="build/img/retratos.png"
-              alt="Retratos de mi tierra"
-            />
-          </picture>
-        </div>
-        <div class="texto-entrada">
-          <h4>Retratos de mi tierra</h4>
-          <p class="texto">
-            “Retratos de mi Tierra” es un espacio que exalta la belleza, las historias y las tradiciones de nuestra región.
-             Un programa que recorre cada rincón para mostrar el talento, la cultura y la esencia de nuestra gente,
-              fortaleciendo el orgullo por lo que somos y de dónde venimos. 🌄📺
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
+        <!-- Creciendo en la Fe -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/creciendo.webp" type="image/webp" />
+              <source srcset="build/img/creciendo.png" type="image/png" />
+              <img loading="lazy" src="build/img/creciendo.png" alt="Creciendo en la Fe" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-pray"></i> Espiritual
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>Creciendo en la Fe</h3>
+            <p>
+              Un espacio dedicado a fortalecer los valores espirituales y la
+              esperanza en nuestra comunidad, con mensajes inspiradores y
+              reflexiones que acompañan el crecimiento personal.
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-          </p>
-        </div>
-      </article>
+        <!-- Mañana en Vibo -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/mañana.webp" type="image/webp" />
+              <source srcset="build/img/mañana.png" type="image/png" />
+              <img loading="lazy" src="build/img/mañana.png" alt="Mañana en Vibo" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-sun"></i> Entretenimiento
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>Mañana en Vibo ☀️</h3>
+            <p>
+              ¡Toda la energía para empezar el día! Alegría, información,
+              buena compañía y lo mejor del entretenimiento para nuestra
+              comunidad. Un programa hecho para ti.
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-      
-   
+        <!-- Desafío Agropecuario -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/desafio.webp" type="image/webp" />
+              <source srcset="build/img/desafio.png" type="image/png" />
+              <img loading="lazy" src="build/img/desafio.png" alt="Desafío Agropecuario" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-tractor"></i> Campo
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>Desafío Agropecuario 🚜</h3>
+            <p>
+              El espacio donde se vive y se siente todo lo del campo. Resalta
+              el trabajo, la tradición y el esfuerzo de nuestra gente rural,
+              conectando la comunidad con sus raíces.
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/mano.webp" type="image/webp" />
-            <source srcset="build/img/mano.png" type="image/png" />
-            <img
-              loading="lazy"
-              src="build/img/mano.png"
-              alt="Manos Creativas"
-            />
-          </picture>
-        </div>
-        <div class="texto-entrada">
-          <h4>Manos Creativas</h4>
-          <p class="texto">
-            Descansa, navega y conéctate sin límites 🌐 En Hotel Alfahar
-            contamos con los servicios de Viboral Telecomunicaciones, porque una
-            buena estadía también necesita una excelente conexión.
-            <br />
-            📡 Viboral, calidad que se siente.
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
+        <!-- San Alejo Musical -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/sana.webp" type="image/webp" />
+              <source srcset="build/img/sana.png" type="image/png" />
+              <img loading="lazy" src="build/img/sana.png" alt="San Alejo Musical" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-music"></i> Música
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>San Alejo Musical</h3>
+            <p>
+              La música popular llega a todos los hogares con alegría,
+              tradición y sentimiento. Canciones que conectan generaciones
+              y nos identifican como comunidad. 🎶
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-          </p>
-        </div>
-      </article>
-      
+        <!-- Retratos de mi Tierra -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/retratos.webp" type="image/webp" />
+              <source srcset="build/img/retratos.png" type="image/png" />
+              <img loading="lazy" src="build/img/retratos.png" alt="Retratos de mi Tierra" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-camera"></i> Cultura
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>Retratos de mi Tierra</h3>
+            <p>
+              Un recorrido por cada rincón para mostrar el talento, la
+              cultura y la esencia de nuestra gente, fortaleciendo el
+              orgullo por lo que somos y de dónde venimos. 🌄
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-      <article class="entrada-blog">
-        <div class="imagen2">
-          <picture>
-            <source srcset="build/img/tocata.webp" type="image/webp" />
-            <source srcset="build/img/tocata.png" type="image/png" />
-            <img loading="lazy" src="build/img/tocata.png" alt="tocata" />
-          </picture>
-        </div>
+        <!-- Manos Creativas -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/mano.webp" type="image/webp" />
+              <source srcset="build/img/mano.png" type="image/png" />
+              <img loading="lazy" src="build/img/mano.png" alt="Manos Creativas" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-paint-brush"></i> Arte
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>Manos Creativas</h3>
+            <p>
+              Un espacio dedicado al arte, las manualidades y la creatividad
+              de nuestra región. Mostramos el talento local y enseñamos
+              técnicas que enriquecen nuestra cultura.
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-        <div class="texto-entrada">
-          <h4>La tocata y la tocadera</h4>
+        <!-- La Tocata -->
+        <article class="programa-card">
+          <div class="programa-card__imagen">
+            <picture>
+              <source srcset="build/img/tocata.webp" type="image/webp" />
+              <source srcset="build/img/tocata.png" type="image/png" />
+              <img loading="lazy" src="build/img/tocata.png" alt="La Tocata" />
+            </picture>
+            <div class="programa-card__categoria">
+              <i class="fas fa-guitar"></i> Música
+            </div>
+          </div>
+          <div class="programa-card__contenido">
+            <h3>La Tocata y la Tocadera</h3>
+            <p>
+              El programa donde la música en vivo toma el protagonismo.
+              Artistas locales y regionales se unen para compartir su
+              talento con toda nuestra comunidad. 🎸
+            </p>
+            <a href="horarios.html" class="programa-card__btn">
+              <i class="fas fa-clock"></i> Ver horario
+            </a>
+          </div>
+        </article>
 
-          <p class="texto">
-            🍽️ En La Fogática confiamos en Viboral Telecomunicaciones por su
-            estabilidad, velocidad y excelente atención. Una conexión que
-            respalda nuestro trabajo y mejora la experiencia de quienes nos
-            visitan.
-             <a href="horarios.html" class="boton-amarillo ">HORARIO</a>
-
-          </p>
-        </div>
-      </article>
-      
+      </div><!-- .programas-grid -->
     </main>
 
-    
+    <!-- ════════════ BANNER GRILLA FULL WIDTH ════════════ -->
+    <section class="canal-cta imagen-canal">
+      <div class="canal-cta__contenido">
+        <h2>¿Quieres saber cuándo transmitimos?</h2>
+        <p>Consulta nuestra grilla completa de programación y no te pierdas ningún programa.</p>
+        <a href="horarios.html" class="canal-cta__btn">
+          <i class="fas fa-calendar-alt"></i> Ver grilla completa
+        </a>
+      </div>
+    </section>
 
     <footer class="footer-futurista">
       <div class="contenedor-footer">
-        <!-- LOGO -->
         <div class="logo-footer">
-          <a href="/">
-            <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
-          </a>
+          <a href="/"><img src="build/img/logo.png" alt="Viboral Telecomunicaciones" /></a>
+          <p class="footer-slogan">Conectando comunidades desde 1998</p>
         </div>
-
-        <!-- REDES -->
         <div class="redes-footer">
           <h3 class="titulo-footer">Conéctate con nosotros</h3>
-
           <div class="redes-sociales">
-            <a href="#" class="icon facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-
-            <a href="#" class="icon instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="https://wa.me/573147258728" class="icon whatsapp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-
-            <a
-              href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes"
-              class="icon waze"
-            >
-              <i class="fab fa-waze"></i>
-            </a>
-
-            <a href="mailto:servicioasociado@viboral.tv" class="icon correo">
-              <i class="fas fa-envelope"></i>
-            </a>
+            <a href="#" class="icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze" aria-label="Waze"><i class="fab fa-waze"></i></a>
+            <a href="mailto:servicioasociado@viboral.tv" class="icon correo" aria-label="Correo"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
-
-        <!-- LINKS LEGALES -->
         <div class="documentos-legales">
           <h3 class="titulo-legales">Documentos legales</h3>
-
           <div class="links-legales">
-            <a href="https://colombiatic.mintic.gov.co/679/articles-62266_doc_norma.pdf">Derecho del Asociado</a>
-            <a href="politica-cookies.html">Política de cookies</a>
-            <a href="norma-estatutaria.html">Norma Estatutaria</a>
+            <a href="derecho-asociado.html"><i class="fas fa-file-alt"></i> Derecho del Asociado</a>
+            <a href="politica-cookies.html"><i class="fas fa-cookie-bite"></i> Política de cookies</a>
+            <a href="norma-estatutaria.html"><i class="fas fa-landmark"></i> Norma Estatutaria</a>
           </div>
         </div>
       </div>
-
-      <!-- COPYRIGHT -->
-      <div class="copyright">
-        Viboral Telecomunicaciones © 2026 Todos los derechos reservados
-      </div>
+      <div class="copyright">Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados</div>
     </footer>
-    
-<div class="wa-widget">
-  
-  
-  <div class="wa-burbuja" id="waBurbuja">
-    <p class="wa-burbuja-nombre">Viboral Telecomunicaciones</p>
-    <p class="wa-burbuja-texto">¡Hola! 👋 ¿En qué podemos ayudarte?</p>
-    <p class="wa-burbuja-hora">En línea</p>
-  </div>
 
- 
-  <div class="wa-btn-wrap">
-    <div class="wa-pulse"></div>
-    <a 
-      class="wa-btn"
-      id="waBtn"
-      href="https://wa.me/573147258728?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contactar por WhatsApp"
-    >
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.81A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm6.406 16.594c-.27.757-1.578 1.445-2.156 1.528-.547.078-1.234.11-1.992-.125a18.3 18.3 0 01-1.804-.668c-3.17-1.37-5.24-4.57-5.398-4.781-.156-.211-1.273-1.695-1.273-3.234 0-1.54.805-2.297 1.09-2.61.285-.312.621-.39.828-.39.207 0 .414.002.594.01.191.008.449-.072.703.537.262.625.89 2.164.969 2.32.078.157.13.34.026.547-.103.207-.156.336-.312.516-.156.18-.328.402-.469.54-.156.155-.32.324-.137.634.183.31.812 1.34 1.742 2.171 1.195 1.066 2.203 1.395 2.516 1.55.312.157.496.133.679-.078.183-.211.781-.914 1.992-1.125.156-.027.527.035.996.234l2.07.922c.39.172.742.289.85.55.105.263-.163 1.015-.434 1.772z"/>
-      </svg>
-      <span class="wa-badge">1</span>
-    </a>
-  </div>
+    <div class="wa-widget">
+      <div class="wa-burbuja" id="waBurbuja">
+        <p class="wa-burbuja-nombre">Viboral Telecomunicaciones</p>
+        <p class="wa-burbuja-texto">¡Hola! 👋 ¿En qué podemos ayudarte?</p>
+        <p class="wa-burbuja-hora">En línea</p>
+      </div>
+      <div class="wa-btn-wrap">
+        <div class="wa-pulse"></div>
+        <a class="wa-btn" id="waBtn"
+           href="https://wa.me/573147258728?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+           target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.81A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm6.406 16.594c-.27.757-1.578 1.445-2.156 1.528-.547.078-1.234.11-1.992-.125a18.3 18.3 0 01-1.804-.668c-3.17-1.37-5.24-4.57-5.398-4.781-.156-.211-1.273-1.695-1.273-3.234 0-1.54.805-2.297 1.09-2.61.285-.312.621-.39.828-.39.207 0 .414.002.594.01.191.008.449-.072.703.537.262.625.89 2.164.969 2.32.078.157.13.34.026.547-.103.207-.156.336-.312.516-.156.18-.328.402-.469.54-.156.155-.32.324-.137.634.183.31.812 1.34 1.742 2.171 1.195 1.066 2.203 1.395 2.516 1.55.312.157.496.133.679-.078.183-.211.781-.914 1.992-1.125.156-.027.527.035.996.234l2.07.922c.39.172.742.289.85.55.105.263-.163 1.015-.434 1.772z"/>
+          </svg>
+          <span class="wa-badge">1</span>
+        </a>
+      </div>
+    </div>
+
     <script src="build/js/bundle.min.js"></script>
   </body>
 </html>

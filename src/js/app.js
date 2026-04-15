@@ -1,166 +1,340 @@
 document.addEventListener("DOMContentLoaded", function () {
-  envetListeners();
-
+  eventListeners();
   darkMode();
+  headerScroll();
 });
 
+// ─── Dark Mode ────────────────────────────────────────────────────
 function darkMode() {
-  const botonDarkMode = document.querySelector(".dark-mode-boton");
+  const boton = document.querySelector(".dark-mode-boton");
+  if (!boton) return;
 
-  botonDarkMode.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-   
+  // Recupera preferencia guardada
+  const guardado = localStorage.getItem('darkMode');
+  if (guardado === 'activo') {
+    document.body.classList.add('dark-mode');
+  }
+
+  boton.addEventListener("click", function () {
+    const activo = document.body.classList.toggle("dark-mode");
+    // Guarda preferencia
+    localStorage.setItem('darkMode', activo ? 'activo' : 'inactivo');
   });
 }
 
-  function envetListeners() {
-    const mobileMenu = document.querySelector(".mobile-menu");
+// ─── Menú responsive ──────────────────────────────────────────────
+function eventListeners() {
+  const mobileMenu = document.getElementById("mobileMenu");
+  const navegacion = document.getElementById("navegacion");
 
-    mobileMenu.addEventListener("click", navegacionResponsive);
+  if (!mobileMenu || !navegacion) return;
 
-    function navegacionResponsive() {
-      const navegacion = document.querySelector(".navegacion");
+  mobileMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const abierto = navegacion.classList.toggle("mostrar");
+    mobileMenu.classList.toggle("activo", abierto);
+    mobileMenu.setAttribute("aria-expanded", abierto);
+  });
 
-      navegacion.classList.toggle("mostrar");
+  // Cierra al hacer clic fuera
+  document.addEventListener("click", (e) => {
+    const dentroHeader = e.target.closest(".header");
+    if (!dentroHeader && navegacion.classList.contains("mostrar")) {
+      navegacion.classList.remove("mostrar");
+      mobileMenu.classList.remove("activo");
+      mobileMenu.setAttribute("aria-expanded", false);
     }
-  }
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const visor = document.querySelector('.pdf-visor');
-  const fallback = document.querySelector('.pdf-fallback');
-
-  if (!visor) return;
-
-  visor.addEventListener('error', () => {
-    visor.style.display = 'none';
-    fallback.style.display = 'block';
-  });
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const banner   = document.getElementById('cookieBanner');
-  const btnAceptar  = document.getElementById('cookieAceptar');
-  const btnRechazar = document.getElementById('cookieRechazar');
-
-  // Si el usuario ya tomó una decisión antes, no mostramos el banner
-  const decision = localStorage.getItem('cookieConsent');
-  if (decision) return;
-
- 
-  setTimeout(() => {
-    banner.classList.add('visible');
-  }, 800);
-
-  btnAceptar.addEventListener('click', () => {
-    localStorage.setItem('cookieConsent', 'aceptado');
-    cerrarBanner();
-
-
-    console.log('Cookies aceptadas');
   });
 
-  
-  btnRechazar.addEventListener('click', () => {
-    localStorage.setItem('cookieConsent', 'rechazado');
-    cerrarBanner();
-    console.log('Cookies rechazadas');
+  // Cierra al hacer clic en un link del menú (móvil)
+  navegacion.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth < 768) {
+        navegacion.classList.remove("mostrar");
+        mobileMenu.classList.remove("activo");
+        mobileMenu.setAttribute("aria-expanded", false);
+      }
+    });
   });
+}
 
-  function cerrarBanner() {
-    banner.classList.remove('visible');
-    banner.classList.add('oculto');
-  }
-});
+// ─── Header cambia al hacer scroll ───────────────────────────────
+function headerScroll() {
+  const header = document.getElementById("header");
+  if (!header) return;
 
+  // Solo aplica en páginas sin imagen de fondo (no .inicio)
+  if (header.classList.contains("inicio")) return;
 
-// archivo: src/js/whatsapp.js
-
-document.addEventListener('DOMContentLoaded', () => {
-  const burbuja = document.getElementById('waBurbuja');
-  const btn     = document.getElementById('waBtn');
-
-  if (!burbuja || !btn) return;
-
-  // Muestra la burbuja automáticamente después de 2 segundos
-  setTimeout(() => {
-    burbuja.classList.add('visible');
-  }, 10000);
-
-  // Al hacer clic en el botón, cierra la burbuja y abre WhatsApp
-  btn.addEventListener('click', () => {
-    burbuja.classList.remove('visible');
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 50);
   });
-});
+}
 
 
-// archivo: src/js/contacto.js
 
+// ─── Slider de Testimonios ────────────────────────────────────────
 (function () {
-  const PUBLIC_KEY  = 'TU_PUBLIC_KEY';
-  const SERVICE_ID  = 'TU_SERVICE_ID';
-  const TEMPLATE_ID = 'TU_TEMPLATE_ID';
+  const track     = document.getElementById('testimoniosTrack');
+  const btnPrev   = document.getElementById('testimonioPrev');
+  const btnNext   = document.getElementById('testimonioNext');
+  const dots      = document.querySelectorAll('.testimonios-dots .dot');
+  const controles = document.querySelector('.testimonios-controles');
 
-  emailjs.init(PUBLIC_KEY);
+  if (!track || !btnPrev || !btnNext) return;
 
-  const formulario = document.getElementById('formulario-pqrs');
-  if (!formulario) return;
+  const cards = track.querySelectorAll('.testimonio-card');
+  const total = cards.length;
+  let indice   = 0;
+  let intervalo = null;
 
-  const boton = formulario.querySelector('input[type="submit"]');
+  function visibles() {
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 768)  return 2;
+    return 1;
+  }
 
-  formulario.addEventListener('submit', async function (e) {
-    e.preventDefault();
+  function maxIndice() {
+    return Math.max(0, total - visibles());
+  }
 
-    // Validación básica del select
-    const tipoPQRS = formulario.querySelector('#servicio').value;
-    if (!tipoPQRS) {
-      mostrarAlerta('Por favor selecciona el tipo de PQRS.', 'error');
-      return;
+  function verificarControles() {
+    const hayQueNavegar = visibles() < total;
+    if (controles) {
+      controles.style.visibility = hayQueNavegar ? 'visible' : 'hidden';
     }
+    return hayQueNavegar;
+  }
 
-    boton.value    = 'Enviando...';
-    boton.disabled = true;
+  function irA(nuevoIndice) {
+    verificarControles();
 
-    const templateParams = {
-      nombre:    formulario.querySelector('#nombre').value.trim(),
-      cedula:    formulario.querySelector('#cedula').value.trim(),
-      email:     formulario.querySelector('#email').value.trim(),
-      telefono:  formulario.querySelector('#telefono').value.trim(),
-      tipo_pqrs: tipoPQRS,
-      mensaje:   formulario.querySelector('#mensaje').value.trim(),
-    };
+    // Loop circular
+    if (nuevoIndice > maxIndice())  indice = 0;
+    else if (nuevoIndice < 0)       indice = maxIndice();
+    else                            indice = nuevoIndice;
 
-    try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
-      mostrarAlerta('✅ Tu solicitud fue enviada. Te contactaremos pronto.', 'exito');
-      formulario.reset();
+    // ✅ Traducción en porcentaje — no depende de offsetWidth
+    // Cada card ocupa (100 / visibles())% del slider
+    // → mover 1 card = mover (100 / visibles())% del track
+    const porcentajePorCard = 100 / visibles();
+    track.style.transform = `translateX(-${indice * porcentajePorCard}%)`;
 
-    } catch (error) {
-      console.error('Error EmailJS:', error);
-      mostrarAlerta('❌ Error al enviar. Intenta de nuevo.', 'error');
+    // Actualiza dots
+    dots.forEach((d, i) => d.classList.toggle('activo', i === indice));
 
-    } finally {
-      boton.value    = 'Enviar';
-      boton.disabled = false;
-    }
+    btnPrev.disabled = false;
+    btnNext.disabled = false;
+  }
+
+  function iniciarAutoplay() {
+    if (!verificarControles()) return;
+    intervalo = setInterval(() => irA(indice + 1), 5000);
+  }
+
+  function resetAutoplay() {
+    clearInterval(intervalo);
+    iniciarAutoplay();
+  }
+
+  btnNext.addEventListener('click', () => { irA(indice + 1); resetAutoplay(); });
+  btnPrev.addEventListener('click', () => { irA(indice - 1); resetAutoplay(); });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      irA(parseInt(dot.dataset.index));
+      resetAutoplay();
+    });
   });
 
-  function mostrarAlerta(mensaje, tipo) {
-    const existente = document.querySelector('.alerta-form');
-    if (existente) existente.remove();
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
 
-    const alerta = document.createElement('p');
-    alerta.classList.add('alerta-form', `alerta-${tipo}`);
-    alerta.textContent = mensaje;
+  track.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) < 50) return;
+    diff > 0 ? irA(indice + 1) : irA(indice - 1);
+    resetAutoplay();
+  });
 
-    formulario.insertAdjacentElement('afterend', alerta);
-    setTimeout(() => alerta.remove(), 5000);
-  }
+  window.addEventListener('resize', () => { irA(0); resetAutoplay(); });
+
+  track.addEventListener('mouseenter', () => clearInterval(intervalo));
+  track.addEventListener('mouseleave', iniciarAutoplay);
+
+  irA(0);
+  iniciarAutoplay();
 })();
 
+// ─── Filtro de Planes ─────────────────────────────────────────────
+(function () {
+  const botones = document.querySelectorAll('.filtro-btn');
+  const cards   = document.querySelectorAll('.plan-card');
 
+  if (!botones.length || !cards.length) return;
 
+  botones.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filtro = btn.dataset.filtro;
+
+      // Actualiza botón activo
+      botones.forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+
+      // Filtra las cards con animación
+      cards.forEach(card => {
+        const categoria = card.dataset.categoria;
+        const mostrar   = filtro === 'todos' || categoria === filtro;
+
+        card.classList.remove('visible', 'oculto');
+
+        if (mostrar) {
+          card.classList.remove('oculto');
+          // pequeño delay para que la animación se vea
+          requestAnimationFrame(() => card.classList.add('visible'));
+        } else {
+          card.classList.add('oculto');
+        }
+      });
+    });
+  });
+})();
+
+// ─── Grilla de Horarios ───────────────────────────────────────────
+(function () {
+  const tbody   = document.getElementById('tbodyHorarios');
+  const theadR  = document.getElementById('theadRow');
+  const buscador = document.getElementById('buscadorHorario');
+  const sinRes  = document.getElementById('sinResultados');
+
+  if (!tbody) return;
+
+  const diasNombres = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+
+  const horarios = [
+    ['07:00 AM','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO'],
+    ['07:30 AM','Tom Sawyer','C. Hnos. Grimm','El Mago de Oz','Tom Sawyer','C. Hnos. Grimm','El Mago de Oz','El Libro de la Selva'],
+    ['08:00 AM','Batman','Los Pitufos','Batman','Zenki','Batman','Los Pitufos','EUCARISTIA'],
+    ['08:30 AM','Franja Documental','El Libro de la Selva','Especial Retro','Happy English','Especial Retro','Zenki','EUCARISTIA'],
+    ['09:00 AM','Especial Retro','Especial Retro','Franja Documental','Franja Documental','Testigo Directo','Mañana en Vibo','De la mano con Jesús'],
+    ['09:30 AM','Especial Retro','Manos Creativas','Franja Documental','Franja Documental','Hogar en Forma','Mañana en Vibo','Mañana en Vibo'],
+    ['10:00 AM','U.HIT E.M.P.','San Alejo Musical','Los Clásicos','Mañana en Vibo','Salud y Movimiento','Mañana en Vibo','Mañana en Vibo'],
+    ['10:30 AM','Happy English','San Alejo Musical','Los Clásicos','Mañana en Vibo','U.HIT AR','Mañana en Vibo','Mañana en Vibo'],
+    ['11:00 AM','De la mano con Jesús','San Alejo Musical','Manos Creativas','Mañana en Vibo','U.HIT EMP','Happy English','Mañana en Vibo'],
+    ['11:30 AM','U.HIT GTV','San Alejo Musical','Desafío Agropecuario','Mañana en Vibo','Franja Documental','Pizarra','Happy English'],
+    ['12:00 PM','Salud y Movimiento','U.HIT U.HIT','Testigo Directo','Primer Plano','Franja Documental','Pizarra','EUCARISTIA'],
+    ['12:30 PM','U.HIT U.HIT','Pop Star','U.HIT HDP','Primer Plano','A Volar','Antesala','EUCARISTIA'],
+    ['01:00 PM','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO'],
+    ['01:30 PM','NOTICIERO','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','NOTICIERO'],
+    ['02:00 PM','Los Clásicos','U.HIT E.M.P.','U.HIT RDS','U.HIT RDS','Creciendo en la Fe','Pop Star','Los Clásicos'],
+    ['02:30 PM','Los Clásicos','Especial Retro','U.HIT GTV','Testigo Directo Archivo','U.HIT GUASCA TV','Franja Documental','Los Clásicos'],
+    ['03:00 PM','U.HIT AR','U.HIT HDP','Especial Retro','Especial Retro','SAN ALEJO','Franja Documental','Testigo Directo FULL'],
+    ['03:30 PM','U.HIT CALF','La Tocata y la Tocadera','Multiritmos','Retratos de mi Tierra','SAN ALEJO','Manos Creativas','Testigo Directo FULL'],
+    ['04:00 PM','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','SAN ALEJO','NOTICIERO','NOTICIERO'],
+    ['04:30 PM','NOTICIERO','Especiales Viboral','Especiales Viboral','Especiales Viboral','SAN ALEJO','Especiales Viboral','NOTICIERO'],
+    ['05:00 PM','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO'],
+    ['05:30 PM','MISA','MISA','MISA','MISA','MISA','Creciendo en la Fe','EUCARISTIA'],
+    ['06:00 PM','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','San Alejo Musical','EUCARISTIA'],
+    ['06:30 PM','Multiritmos','A Volar','De la mano con Jesús','La Tocata y la Tocadera','Los Clásicos','San Alejo Musical','Desafío Agropecuario'],
+    ['07:00 PM','Franja Documental','Hogar en Forma','U.HIT TDLR','ALCALDIA','Los Clásicos','San Alejo Musical','Retratos de mi Tierra'],
+    ['07:30 PM','Retratos de mi Tierra','Creciendo en la Fe','Retratos de mi Tierra','ALCALDIA','Antesala','San Alejo Musical','ALCALDIA'],
+    ['08:00 PM','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO'],
+    ['08:30 PM','Testigo Directo','Testigo Directo','Testigo Directo','Testigo Directo','Testigo Directo','NOTICIERO','NOTICIERO'],
+    ['09:00 PM','Desafío Agropecuario','Primer Plano','Pizarra','La Tocata y la Tocadera','San Alejo Musical','Especial Retro','Retros Viboral'],
+    ['09:30 PM','Antesala','Primer Plano','Pizarra','Pop Star','San Alejo Musical','Especial Retro','Retros Viboral'],
+    ['10:00 PM','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','San Alejo Musical','NOTICIERO','NOTICIERO'],
+    ['10:30 PM','Especial Retro','Pop Star','Franja Documental','Desafío Agropecuario','San Alejo Musical','NOTICIERO','NOTICIERO'],
+    ['11:00 PM','Especial Retro','Los Clásicos','Franja Documental','Primer Plano','NOTICIERO','La Tocata y la Tocadera','Pizarra'],
+    ['11:30 PM','U.HIT RDS','Los Clásicos','Salud y Movimiento','Primer Plano','Franja Documental','Primer Plano','Pizarra'],
+    ['12:00 AM','U.HIT E.M.P.','La Tocata y la Tocadera','De la mano con Jesús','Especial Retro','Franja Documental','Primer Plano','Desafío Agropecuario'],
+    ['12:30 AM','Pop Star','U.HIT HDP','Desafío Agropecuario','Especial Retro','U.HIT GTV','Pizarra','Franja Documental'],
+    ['03:30 AM','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO'],
+    ['04:00 AM','HIMNOS','HIMNOS','HIMNOS','HIMNOS','HIMNOS','HIMNOS','HIMNOS'],
+  ];
+
+  function categoria(nombre) {
+    const n = nombre.toUpperCase();
+    if (n.includes('NOTICIERO'))                                       return 'noticiero';
+    if (n.includes('ROSARIO')||n.includes('MISA')||n.includes('EUCARISTIA')||n.includes('HIMNO')) return 'rosario';
+    if (n.includes('SAN ALEJO')||n.includes('MUSICAL')||n.includes('TOCATA')||n.includes('MULTIRITMO')||n.includes('POP STAR')||n.includes('CLÁSICO')) return 'musical';
+    if (n.includes('TOM')||n.includes('BATMAN')||n.includes('PITUFO')||n.includes('ZENKI')||n.includes('MAGO')||n.includes('LIBRO')||n.includes('GRIMM')) return 'infantil';
+    if (n.includes('DOCUMENTAL')||n.includes('RETRATO')||n.includes('DESAFÍO')||n.includes('TESTIGO')||n.includes('PIZARRA')||n.includes('ANTESALA')||n.includes('PRIMER PLANO')||n.includes('ESPECIAL')) return 'cultural';
+    if (n.includes('FE')||n.includes('JESÚS')||n.includes('CRECIENDO')||n.includes('VOLAR')||n.includes('SALUD')||n.includes('HOGAR')||n.includes('HAPPY')) return 'espiritual';
+    if (n.includes('U.HIT')||n.includes('UHIT'))                      return 'uhit';
+    return 'variedades';
+  }
+
+  let diaActivo = 'todos';
+  let busqueda  = '';
+
+  function actualizarCabecera() {
+    const cols = diaActivo === 'todos'
+      ? ['Hora', ...diasNombres]
+      : ['Hora', diasNombres[parseInt(diaActivo)]];
+
+    theadR.innerHTML = '';
+    cols.forEach(c => {
+      const th = document.createElement('th');
+      th.textContent = c;
+      theadR.appendChild(th);
+    });
+  }
+
+  function renderTabla() {
+    actualizarCabecera();
+    tbody.innerHTML = '';
+    let visibles = 0;
+
+    horarios.forEach(fila => {
+      const hora = fila[0];
+      const celdas = diaActivo === 'todos'
+        ? fila
+        : [hora, fila[parseInt(diaActivo) + 1]];
+
+      const coincide = busqueda === '' ||
+        celdas.some(c => c.toLowerCase().includes(busqueda.toLowerCase()));
+
+      if (!coincide) return;
+      visibles++;
+
+      const tr = document.createElement('tr');
+      celdas.forEach((val, i) => {
+        const td = document.createElement('td');
+        if (i === 0) {
+          td.textContent = val;
+        } else {
+          const span = document.createElement('span');
+          span.className = `prog-pill prog-${categoria(val)}`;
+          span.textContent = val;
+          td.appendChild(span);
+        }
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+
+    if (sinRes) sinRes.style.display = visibles === 0 ? 'block' : 'none';
+  }
+
+  // Filtros de día
+  document.querySelectorAll('.dia-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.dia-btn').forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+      diaActivo = btn.dataset.dia;
+      renderTabla();
+    });
+  });
+
+  // Buscador
+  if (buscador) {
+    buscador.addEventListener('input', e => {
+      busqueda = e.target.value;
+      renderTabla();
+    });
+  }
+
+  renderTabla();
+})();
