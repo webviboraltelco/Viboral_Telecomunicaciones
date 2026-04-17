@@ -338,3 +338,143 @@ function headerScroll() {
 
   renderTabla();
 })();
+
+
+// ─── Formulario PQRS (EmailJS) ────────────────────────────────────
+(function () {
+  const formulario = document.getElementById('formulario-pqrs');
+  if (!formulario) return;
+
+  if (typeof emailjs === 'undefined') {
+    console.warn('EmailJS no está cargado');
+    return;
+  }
+
+  // ✅ Reemplazá estos tres valores con los tuyos de emailjs.com
+  const PUBLIC_KEY  = '_8EyGv2IKkK3p90L9';
+  const SERVICE_ID  = 'service_n9bwx8p';
+  const TEMPLATE_ID = 'template_mtmfj4r';
+
+  emailjs.init({ publicKey: PUBLIC_KEY });
+
+  const btnEnviar = document.getElementById('btnEnviar');
+
+  // ─── Validación de campos ─────────────────────────────────────
+  function validarCampo(input) {
+    const grupo = input.closest('.formulario__grupo');
+    const error = grupo.querySelector('.campo-error');
+
+    if (!input.value.trim()) {
+      input.classList.add('invalido');
+      if (!error) {
+        const msg = document.createElement('span');
+        msg.className = 'campo-error';
+        msg.textContent = 'Este campo es obligatorio';
+        grupo.appendChild(msg);
+      }
+      return false;
+    }
+
+    if (input.type === 'email') {
+      const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      if (!emailValido) {
+        input.classList.add('invalido');
+        if (!error) {
+          const msg = document.createElement('span');
+          msg.className = 'campo-error';
+          msg.textContent = 'Ingresá un correo válido';
+          grupo.appendChild(msg);
+        }
+        return false;
+      }
+    }
+
+    // Campo válido — limpia el error
+    input.classList.remove('invalido');
+    if (error) error.remove();
+    return true;
+  }
+
+  function validarFormulario() {
+    const campos = formulario.querySelectorAll('input[required], select[required], textarea[required]');
+    let valido = true;
+    campos.forEach(campo => {
+      if (!validarCampo(campo)) valido = false;
+    });
+    return valido;
+  }
+
+  // Validación en tiempo real al salir de cada campo
+  formulario.querySelectorAll('input, select, textarea').forEach(campo => {
+    campo.addEventListener('blur', () => validarCampo(campo));
+    campo.addEventListener('input', () => {
+      if (campo.classList.contains('invalido')) validarCampo(campo);
+    });
+  });
+
+  // ─── Envío ────────────────────────────────────────────────────
+  formulario.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    if (!validarFormulario()) {
+      mostrarAlerta('Por favor corregí los campos marcados en rojo.', 'error');
+      return;
+    }
+
+    // Estado de carga
+    btnEnviar.disabled = true;
+    btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+    const params = {
+      nombre:    formulario.querySelector('#nombre').value.trim(),
+      cedula:    formulario.querySelector('#cedula').value.trim(),
+      email:     formulario.querySelector('#email').value.trim(),
+      telefono:  formulario.querySelector('#telefono').value.trim(),
+      tipo_pqrs: formulario.querySelector('#servicio').value,
+      mensaje:   formulario.querySelector('#mensaje').value.trim(),
+    };
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, params);
+
+      mostrarAlerta('✅ Tu solicitud fue enviada exitosamente. Te contactaremos pronto.', 'exito');
+      formulario.reset();
+
+      // Limpia clases de validación
+      formulario.querySelectorAll('.invalido').forEach(el => el.classList.remove('invalido'));
+      formulario.querySelectorAll('.campo-error').forEach(el => el.remove());
+
+    } catch (error) {
+      console.error('Error EmailJS:', error);
+      mostrarAlerta('❌ No se pudo enviar. Verificá tu conexión e intentá de nuevo.', 'error');
+
+    } finally {
+      btnEnviar.disabled = false;
+      btnEnviar.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar solicitud';
+    }
+  });
+
+  // ─── Alerta visual ────────────────────────────────────────────
+  function mostrarAlerta(mensaje, tipo) {
+    const existente = document.querySelector('.alerta-form');
+    if (existente) existente.remove();
+
+    const alerta = document.createElement('div');
+    alerta.className = `alerta-form alerta-${tipo}`;
+    alerta.innerHTML = mensaje;
+
+    // La inserta después del botón de envío
+    btnEnviar.insertAdjacentElement('afterend', alerta);
+
+    // Scroll suave hacia la alerta
+    alerta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Se auto-elimina a los 6 segundos
+    setTimeout(() => {
+      alerta.style.opacity = '0';
+      alerta.style.transition = 'opacity .4s ease';
+      setTimeout(() => alerta.remove(), 400);
+    }, 6000);
+  }
+
+})();
