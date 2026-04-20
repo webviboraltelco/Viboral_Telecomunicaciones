@@ -1,6 +1,6 @@
-// archivo: scss/_header.scss
+// archivo: scss/layout/_header.scss
 
-$header-fondo:  rgba(0, 0, 0, .82);
+$header-fondo: rgba(0, 0, 0, .82);
 
 // ─── Header ───────────────────────────────────────────────────────
 .header {
@@ -19,12 +19,10 @@ $header-fondo:  rgba(0, 0, 0, .82);
     background-repeat: no-repeat;
     background-attachment: scroll;
     position: relative;
+    min-height: 17rem;
 
-    // ✅ Alturas responsive correctas
-    min-height: 48rem;
-
-    @include tablet  { min-height: 58rem; }
-    @include desktop { min-height: 75rem; }
+    @include tablet  { min-height: 30rem; }
+    @include desktop { min-height: 55rem; }
 
     &::before {
       content: '';
@@ -46,8 +44,7 @@ $header-fondo:  rgba(0, 0, 0, .82);
   z-index: 1;
 }
 
-// ─── Barra principal ──────────────────────────────────────────────
-// ✅ Una sola fila: logo | nav | acciones
+// ─── Barra ────────────────────────────────────────────────────────
 .barra {
   display: flex;
   flex-direction: row;
@@ -56,7 +53,6 @@ $header-fondo:  rgba(0, 0, 0, .82);
   padding: 1.6rem 0;
   gap: 1.6rem;
 
-  // ─── Logo ──────────────────────────────────
   &__logo {
     flex-shrink: 0;
     display: block;
@@ -66,34 +62,72 @@ $header-fondo:  rgba(0, 0, 0, .82);
       width: 13rem;
       height: auto;
       display: block;
-      animation: aparecerLogo 1s ease-out forwards;
-      transition: opacity .3s ease;
+
+      // ✅ Animación de entrada moderna
+      animation: logoEntrada 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
 
       @include tablet  { width: 15rem; }
       @include desktop { width: 17rem; }
 
-      &:hover { opacity: .85; }
+      &:hover {
+        animation: logoPulse 1.5s ease-in-out infinite;
+      }
     }
   }
+}
 
-  // ─── Acciones móvil ────────────────────────
+// ─── Animación de entrada del logo ───────────────────────────────
+// Efecto: aparece desde abajo con fade + ligero rebote
+@keyframes logoEntrada {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(.85);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(-4px) scale(1.03);
+  }
+  80% {
+    transform: translateY(2px) scale(.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+// Efecto hover: pulso suave
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.06);
+    filter: brightness(1.15);
+  }
+}
+
 // ─── Acciones: dark mode + hamburguesa ───────────────────────────
+// ✅ FIX: fuera de .barra, al nivel raíz
 .barra__acciones {
   display: flex;
   align-items: center;
   gap: .8rem;
   flex-shrink: 0;
-  // ✅ NUNCA se oculta — siempre visible en todos los breakpoints
 }
 
-// ─── Dark mode: siempre visible ───────────────────────────────────
+// ─── Dark mode ────────────────────────────────────────────────────
 .dark-mode-boton {
   background: rgba($blanco, .1);
   border: 1px solid rgba($blanco, .25);
   border-radius: .6rem;
   padding: .55rem .7rem;
   cursor: pointer;
-  display: flex;              // ✅ siempre flex — nunca none
+  display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color .2s ease;
@@ -112,7 +146,7 @@ $header-fondo:  rgba(0, 0, 0, .82);
   }
 }
 
-// ─── Hamburguesa: solo en móvil ───────────────────────────────────
+// ─── Hamburguesa ──────────────────────────────────────────────────
 .mobile-menu {
   background: rgba($blanco, .1);
   border: 1px solid rgba($blanco, .25);
@@ -126,9 +160,7 @@ $header-fondo:  rgba(0, 0, 0, .82);
 
   &:hover { background: rgba($blanco, .2); }
 
-  // ✅ Solo el hamburguesa desaparece en tablet+
   @include tablet { display: none; }
-}
 }
 
 .hamburguesa {
@@ -158,9 +190,6 @@ $header-fondo:  rgba(0, 0, 0, .82);
 
 // ─── Navegación ───────────────────────────────────────────────────
 .navegacion {
-
-  // ── MÓVIL: oculto, se despliega como panel ──
-  // Ocupa todo el ancho saliendo de .barra
   display: none;
   position: absolute;
   top: 100%;
@@ -174,11 +203,11 @@ $header-fondo:  rgba(0, 0, 0, .82);
   &.mostrar {
     display: flex;
     flex-direction: column;
+    animation: navDeslizar .3s ease forwards;
   }
 
-  // ── TABLET+: fila horizontal dentro de .barra ──
   @include tablet {
-    display: flex !important;       // siempre visible
+    display: flex !important;
     position: static;
     width: auto;
     background: transparent;
@@ -187,11 +216,11 @@ $header-fondo:  rgba(0, 0, 0, .82);
     flex-direction: row;
     align-items: center;
     gap: .2rem;
-    flex: 1;                        // ocupa el espacio entre logo y acciones
-    justify-content: flex-end;      // links pegados a la derecha
+    flex: 1;
+    justify-content: flex-end;
+    animation: none !important;
   }
 
-  // ─── Links ──────────────────────────────────
   a {
     display: flex;
     align-items: center;
@@ -204,9 +233,7 @@ $header-fondo:  rgba(0, 0, 0, .82);
     letter-spacing: .04em;
     padding: 1.4rem 2.4rem;
     border-bottom: 1px solid rgba($blanco, .06);
-    transition: color .2s ease,
-                background-color .2s ease,
-                padding-left .2s ease;
+    transition: color .2s ease, background-color .2s ease, padding-left .2s ease;
 
     i {
       font-size: 1.4rem;
@@ -218,24 +245,23 @@ $header-fondo:  rgba(0, 0, 0, .82);
     &:hover {
       color: $amarillo;
       background: rgba($blanco, .05);
-      padding-left: 3.2rem;         // deslizamiento sutil en móvil
+      padding-left: 3.2rem;
       i { opacity: 1; }
     }
 
-    // Tablet+: estilos compactos sin ícono
     @include tablet {
       padding: .6rem .9rem;
       border-bottom: none;
       border-radius: .6rem;
       font-size: 1.35rem;
 
-      i    { display: none; }       // íconos solo en móvil
+      i    { display: none; }
       span { display: inline; }
 
       &:hover {
         color: $amarillo;
         background: rgba($amarillo, .1);
-        padding-left: .9rem;        // reset deslizamiento
+        padding-left: .9rem;
       }
     }
 
@@ -243,6 +269,18 @@ $header-fondo:  rgba(0, 0, 0, .82);
       font-size: 1.4rem;
       padding: .7rem 1rem;
     }
+  }
+}
+
+// Animación del menú móvil al abrirse
+@keyframes navDeslizar {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

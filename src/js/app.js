@@ -339,6 +339,185 @@ function headerScroll() {
   renderTabla();
 })();
 
+// ─── Modal "En el aire" ───────────────────────────────────────────
+(function () {
+  const btnBadge  = document.getElementById('btnEnElAire');
+  const modal     = document.getElementById('enAireModal');
+  const overlay   = document.getElementById('enAireOverlay');
+  const btnCerrar = document.getElementById('enAireCerrar');
+
+  if (!btnBadge || !modal) return;
+
+  const horarios = [
+    ['07:00','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO'],
+    ['07:30','Tom Sawyer','C. Hnos. Grimm','El Mago de Oz','Tom Sawyer','C. Hnos. Grimm','El Mago de Oz','El Libro de la Selva'],
+    ['08:00','Batman','Los Pitufos','Batman','Zenki','Batman','Los Pitufos','EUCARISTIA'],
+    ['08:30','Franja Documental','El Libro de la Selva','Especial Retro','Happy English','Especial Retro','Zenki','EUCARISTIA'],
+    ['09:00','Especial Retro','Especial Retro','Franja Documental','Franja Documental','Testigo Directo','Mañana en Vibo','De la mano con Jesús'],
+    ['09:30','Especial Retro','Manos Creativas','Franja Documental','Franja Documental','Hogar en Forma','Mañana en Vibo','Mañana en Vibo'],
+    ['10:00','U.HIT E.M.P.','San Alejo Musical','Los Clásicos','Mañana en Vibo','Salud y Movimiento','Mañana en Vibo','Mañana en Vibo'],
+    ['10:30','Happy English','San Alejo Musical','Los Clásicos','Mañana en Vibo','U.HIT AR','Mañana en Vibo','Mañana en Vibo'],
+    ['11:00','De la mano con Jesús','San Alejo Musical','Manos Creativas','Mañana en Vibo','U.HIT EMP','Happy English','Mañana en Vibo'],
+    ['11:30','U.HIT GTV','San Alejo Musical','Desafío Agropecuario','Mañana en Vibo','Franja Documental','Pizarra','Happy English'],
+    ['12:00','Salud y Movimiento','U.HIT U.HIT','Testigo Directo','Primer Plano','Franja Documental','Pizarra','EUCARISTIA'],
+    ['12:30','U.HIT U.HIT','Pop Star','U.HIT HDP','Primer Plano','A Volar','Antesala','EUCARISTIA'],
+    ['13:00','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO'],
+    ['13:30','NOTICIERO','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','NOTICIERO'],
+    ['14:00','Los Clásicos','U.HIT E.M.P.','U.HIT RDS','U.HIT RDS','Creciendo en la Fe','Pop Star','Los Clásicos'],
+    ['14:30','Los Clásicos','Especial Retro','U.HIT GTV','Testigo Directo Archivo','U.HIT GUASCA TV','Franja Documental','Los Clásicos'],
+    ['15:00','U.HIT AR','U.HIT HDP','Especial Retro','Especial Retro','SAN ALEJO','Franja Documental','Testigo Directo FULL'],
+    ['15:30','U.HIT CALF','La Tocata y la Tocadera','Multiritmos','Retratos de mi Tierra','SAN ALEJO','Manos Creativas','Testigo Directo FULL'],
+    ['16:00','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','SAN ALEJO','NOTICIERO','NOTICIERO'],
+    ['16:30','NOTICIERO','Especiales Viboral','Especiales Viboral','Especiales Viboral','SAN ALEJO','Especiales Viboral','NOTICIERO'],
+    ['17:00','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO','ROSARIO'],
+    ['17:30','MISA','MISA','MISA','MISA','MISA','Creciendo en la Fe','EUCARISTIA'],
+    ['18:00','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','Especiales Viboral','San Alejo Musical','EUCARISTIA'],
+    ['18:30','Multiritmos','A Volar','De la mano con Jesús','La Tocata y la Tocadera','Los Clásicos','San Alejo Musical','Desafío Agropecuario'],
+    ['19:00','Franja Documental','Hogar en Forma','U.HIT TDLR','ALCALDIA','Los Clásicos','San Alejo Musical','Retratos de mi Tierra'],
+    ['19:30','Retratos de mi Tierra','Creciendo en la Fe','Retratos de mi Tierra','ALCALDIA','Antesala','San Alejo Musical','ALCALDIA'],
+    ['20:00','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO'],
+    ['20:30','Testigo Directo','Testigo Directo','Testigo Directo','Testigo Directo','Testigo Directo','NOTICIERO','NOTICIERO'],
+    ['21:00','Desafío Agropecuario','Primer Plano','Pizarra','La Tocata y la Tocadera','San Alejo Musical','Especial Retro','Retros Viboral'],
+    ['21:30','Antesala','Primer Plano','Pizarra','Pop Star','San Alejo Musical','Especial Retro','Retros Viboral'],
+    ['22:00','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','San Alejo Musical','NOTICIERO','NOTICIERO'],
+    ['22:30','Especial Retro','Pop Star','Franja Documental','Desafío Agropecuario','San Alejo Musical','NOTICIERO','NOTICIERO'],
+    ['23:00','Especial Retro','Los Clásicos','Franja Documental','Primer Plano','NOTICIERO','La Tocata y la Tocadera','Pizarra'],
+    ['23:30','U.HIT RDS','Los Clásicos','Salud y Movimiento','Primer Plano','Franja Documental','Primer Plano','Pizarra'],
+    ['00:00','U.HIT E.M.P.','La Tocata y la Tocadera','De la mano con Jesús','Especial Retro','Franja Documental','Primer Plano','Desafío Agropecuario'],
+    ['00:30','Pop Star','U.HIT HDP','Desafío Agropecuario','Especial Retro','U.HIT GTV','Pizarra','Franja Documental'],
+    ['03:30','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO','NOTICIERO'],
+    ['04:00','HIMNOS','HIMNOS','HIMNOS','HIMNOS','HIMNOS','HIMNOS','HIMNOS'],
+  ];
+
+  const iconos = {
+    noticiero:  'fas fa-newspaper',
+    rosario:    'fas fa-pray',
+    musical:    'fas fa-music',
+    infantil:   'fas fa-child',
+    cultural:   'fas fa-film',
+    espiritual: 'fas fa-heart',
+    uhit:       'fas fa-headphones',
+    variedades: 'fas fa-star',
+  };
+
+  const colores = {
+    noticiero:  { bg: '#faeeda', txt: '#633806' },
+    rosario:    { bg: '#EEEDFE', txt: '#26215C' },
+    musical:    { bg: '#EAF3DE', txt: '#173404' },
+    infantil:   { bg: '#E6F1FB', txt: '#042C53' },
+    cultural:   { bg: '#E1F5EE', txt: '#04342C' },
+    espiritual: { bg: '#FBEAF0', txt: '#4B1528' },
+    uhit:       { bg: '#FAECE7', txt: '#4A1B0C' },
+    variedades: { bg: '#F1EFE8', txt: '#2C2C2A' },
+  };
+
+  const nombresCategoria = {
+    noticiero:  'Noticias',
+    rosario:    'Religioso',
+    musical:    'Musical',
+    infantil:   'Infantil',
+    cultural:   'Cultural / Documental',
+    espiritual: 'Espiritual',
+    uhit:       'U.HIT',
+    variedades: 'Variedades',
+  };
+
+  function categorizar(nombre) {
+    const n = nombre.toUpperCase();
+    if (n.includes('NOTICIERO'))                                        return 'noticiero';
+    if (n.includes('ROSARIO')||n.includes('MISA')||n.includes('EUCARISTIA')||n.includes('HIMNO')) return 'rosario';
+    if (n.includes('SAN ALEJO')||n.includes('MUSICAL')||n.includes('TOCATA')||n.includes('MULTIRITMO')||n.includes('POP STAR')||n.includes('CLÁSICO')) return 'musical';
+    if (n.includes('TOM')||n.includes('BATMAN')||n.includes('PITUFO')||n.includes('ZENKI')||n.includes('MAGO')||n.includes('LIBRO')||n.includes('GRIMM')) return 'infantil';
+    if (n.includes('DOCUMENTAL')||n.includes('RETRATO')||n.includes('DESAFÍO')||n.includes('TESTIGO')||n.includes('PIZARRA')||n.includes('ANTESALA')||n.includes('PRIMER PLANO')||n.includes('ESPECIAL')) return 'cultural';
+    if (n.includes('FE')||n.includes('JESÚS')||n.includes('CRECIENDO')||n.includes('VOLAR')||n.includes('SALUD')||n.includes('HOGAR')||n.includes('HAPPY')) return 'espiritual';
+    if (n.includes('U.HIT')||n.includes('UHIT'))                       return 'uhit';
+    return 'variedades';
+  }
+
+  function programaActual() {
+    const ahora  = new Date();
+    const dia    = ahora.getDay();
+    const colDia = dia === 0 ? 7 : dia; // dom=7, lun=1 ... sab=6
+
+    const minAhora = ahora.getHours() * 60 + ahora.getMinutes();
+
+    // ✅ FIX: busca la franja que empezó hace menos tiempo
+    // usando diferencia circular (módulo 1440) para manejar
+    // correctamente el cruce de medianoche
+    let indiceActual = 0;
+    let menorDiff    = Infinity;
+
+    horarios.forEach((fila, i) => {
+      const [hh, mm]  = fila[0].split(':').map(Number);
+      const minFranja = hh * 60 + mm;
+
+      // ¿Hace cuántos minutos empezó esta franja?
+      // Si da negativo (la franja es "futura" en el mismo día),
+      // sumamos 1440 para tratarla como "ayer"
+      let diff = minAhora - minFranja;
+      if (diff < 0) diff += 1440;
+
+      // La franja correcta es la que empezó hace menos tiempo
+      if (diff < menorDiff) {
+        menorDiff    = diff;
+        indiceActual = i;
+      }
+    });
+
+    const actual    = horarios[indiceActual][colDia];
+    const siguiente = horarios[indiceActual + 1]
+      ? horarios[indiceActual + 1][colDia]
+      : horarios[0][colDia];
+
+    const horaFormateada = ahora.toLocaleTimeString('es-CO', {
+      hour:   '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+
+    return { actual, siguiente, hora: horaFormateada };
+  }
+
+  function abrirModal() {
+    const { actual, siguiente, hora } = programaActual();
+    const cat   = categorizar(actual);
+    const color = colores[cat];
+
+    document.getElementById('enAireNombre').textContent    = actual;
+    document.getElementById('enAireSiguiente').textContent = siguiente;
+    document.getElementById('enAireHora').textContent      = hora;
+
+    const iconoEl     = document.getElementById('enAireIcono');
+    const categoriaEl = document.getElementById('enAireCategoria');
+
+    iconoEl.style.background = color.bg;
+    iconoEl.innerHTML = `<i class="${iconos[cat]}" style="font-size:2.4rem;color:${color.txt}"></i>`;
+
+    categoriaEl.textContent      = nombresCategoria[cat];
+    categoriaEl.style.background = color.bg;
+    categoriaEl.style.color      = color.txt;
+
+    modal.classList.add('visible');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarModal() {
+    modal.classList.remove('visible');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  btnBadge.addEventListener('click', abrirModal);
+  btnCerrar.addEventListener('click', cerrarModal);
+  overlay.addEventListener('click', cerrarModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') cerrarModal();
+  });
+
+})();
+
 
 // ─── Formulario PQRS (EmailJS) ────────────────────────────────────
 (function () {

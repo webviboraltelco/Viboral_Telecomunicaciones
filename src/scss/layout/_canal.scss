@@ -347,3 +347,248 @@ $cat-arte:        #AD1457;
     min-height: 50rem;
   }
 }
+
+// ─── Badge "En el aire" interactivo ──────────────────────────────
+.canal-hero__badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: $amarillo;
+  color: $negro;
+  font-size: 1.2rem;
+  font-weight: $black;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: .6rem 1.6rem .6rem 1rem;
+  border-radius: 10rem;
+  margin-bottom: 2rem;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  overflow: visible;
+
+  i { animation: pulse-icon 1.5s ease-in-out infinite; }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 6px rgba($amarillo, .25);
+  }
+}
+
+// Pulso de fondo animado
+.canal-hero__badge-pulso {
+  position: absolute;
+  inset: 0;
+  border-radius: 10rem;
+  background: $amarillo;
+  animation: badgePulso 2s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes badgePulso {
+  0%   { transform: scale(1);   opacity: .7; }
+  70%  { transform: scale(1.5); opacity: 0;  }
+  100% { transform: scale(1.5); opacity: 0;  }
+}
+
+// ─── Modal "En el aire" ───────────────────────────────────────────
+.en-aire-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s ease;
+
+  &.visible {
+    pointer-events: all;
+    opacity: 1;
+
+    .en-aire-modal__caja {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($negro, .7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  &__caja {
+    position: relative;
+    z-index: 1;
+    background: $blanco;
+    border-radius: 1.6rem;
+    padding: 2.8rem;
+    width: 100%;
+    max-width: 44rem;
+    box-shadow: 0 24px 60px rgba($negro, .25);
+    transform: translateY(20px) scale(.96);
+    transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  &__cerrar {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    background: $gris;
+    border: none;
+    border-radius: 50%;
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .2s ease;
+
+    i { font-size: 1.4rem; color: $grisOscuro; }
+
+    &:hover { background: darken($gris, 10%); }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  &__vivo {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    background: #fdecea;
+    color: #A32D2D;
+    font-size: 1.2rem;
+    font-weight: $black;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: .4rem 1rem;
+    border-radius: 10rem;
+  }
+
+  &__dot {
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    background: #E24B4A;
+    animation: dotPulso .9s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  &__hora {
+    font-size: 1.3rem;
+    color: lighten($grisOscuro, 35%);
+    font-weight: $bold;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__programa {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    background: #f7faf0;
+    border: 1px solid darken(#eef7d6, 6%);
+    border-radius: 1.2rem;
+    padding: 1.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__icono {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 1rem;
+    background: #eef7d6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    i { font-size: 2.4rem; color: $verde; }
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: $bold;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: $verde;
+    margin-bottom: .4rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: $black;
+    color: $grisOscuro;
+    line-height: 1.2;
+    margin: 0 0 .6rem;
+  }
+
+  &__categoria {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: $bold;
+    padding: .3rem .8rem;
+    border-radius: 10rem;
+    background: $gris;
+    color: $grisOscuro;
+  }
+
+  &__siguiente {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: 1.3rem;
+    color: lighten($grisOscuro, 25%);
+    margin-bottom: 2rem;
+    padding: 1rem 1.4rem;
+    background: #fafafa;
+    border-radius: .8rem;
+    border: 1px solid $gris;
+
+    i { color: $amarillo; font-size: 1.4rem; }
+
+    strong { color: $grisOscuro; }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    background: $verde;
+    color: $blanco;
+    font-size: 1.4rem;
+    font-weight: $black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding: 1.2rem 2rem;
+    border-radius: .8rem;
+    transition: background-color .2s ease;
+
+    i { font-size: 1.4rem; }
+
+    &:hover { background: #4d7a00; }
+  }
+}
+
+@keyframes dotPulso {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .4; transform: scale(.7); }
+}
