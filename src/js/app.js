@@ -657,3 +657,34 @@ function headerScroll() {
   }
 
 })();
+
+// ─── Filtro de Normatividad ───────────────────────────────────────
+(function () {
+  const botones = document.querySelectorAll('.norma-filtro');
+  const cards   = document.querySelectorAll('.norma-card');
+
+  if (!botones.length || !cards.length) return;
+
+  botones.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filtro = btn.dataset.filtro;
+
+      botones.forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+
+      cards.forEach(card => {
+        const cat    = card.dataset.categoria;
+        const mostrar = filtro === 'todos' || cat === filtro;
+
+        card.classList.remove('visible', 'oculto');
+
+        if (mostrar) {
+          card.classList.remove('oculto');
+          requestAnimationFrame(() => card.classList.add('visible'));
+        } else {
+          card.classList.add('oculto');
+        }
+      });
+    });
+  });
+})();
