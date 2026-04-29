@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="build/css/app.css" />
+    <title>Viboral Telecomunicaciones </title>
+   <link rel="icon" type="image/x-icon" href="build/img/logo.png">
+
+  </head>
+  <body>
+    <header class="header " id="header">  
+  <div class="contenedor contenido">
+
+    <div class="barra">
+
+      <!-- Logo -->
+      <a href="/" class="barra__logo">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+
+      <!-- ✅ Nav DENTRO de .barra para que esté en la misma fila -->
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
+
+        </a>
+        <a href="#" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
+
+      <!-- Acciones: solo visibles en móvil -->
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu" 
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+
+    </div><!-- .barra -->
+  </div>
+</header> 
+
+
+   <!-- Banner superior -->
+<section class="imagen-contacto contacto-hero">
+  <div class="contacto-hero__contenido">
+    <span class="badge-verde">
+      <i class="fas fa-headset"></i> Estamos para ayudarte
+    </span>
+    <h1>Contáctanos</h1>
+    <p>Escríbenos, visítanos o llena el formulario. Responderemos lo antes posible.</p>
+  </div>
+</section>
+
+<main class="contenedor seccion contacto-page">
+
+  <!-- ════ INFO + FORMULARIO ════ -->
+  <div class="contacto-grid">
+
+    <!-- ─── Columna izquierda: información ─── -->
+    <aside class="contacto-info">
+
+      <h2>¿Cómo contactarnos?</h2>
+      <p class="contacto-info__intro">
+        Estamos disponibles para atender tus peticiones, quejas, reclamos,
+        sugerencias o felicitaciones. Elige el canal que más te convenga.
+      </p>
+
+      <!-- Tarjetas de contacto -->
+      <div class="contacto-cards">
+
+        <div class="contacto-card">
+          <div class="contacto-card__icono">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div>
+            <strong>Oficinas</strong>
+            <p>Cr 30 #29-24, El Carmen de Viboral, Antioquia</p>
+          </div>
+        </div>
+
+        <div class="contacto-card">
+          <div class="contacto-card__icono">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div>
+            <strong>Horario de atención</strong>
+            <p>Lun – Jue: 8:00am – 12:00pm / 1:30pm – 5:30pm</p>
+            <p>Viernes: 7:45am – 12:00pm / 1:30pm – 5:30pm</p>
+          </div>
+        </div>
+
+        <div class="contacto-card">
+          <div class="contacto-card__icono">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <strong>Correo electrónico</strong>
+            <a href="mailto:servicioasociado@viboral.tv">
+              servicioasociado@viboral.tv
+            </a>
+          </div>
+        </div>
+
+        <div class="contacto-card">
+          <div class="contacto-card__icono">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div>
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/573147258728" target="_blank" rel="noopener">
+              +57 314 725 8728
+            </a>
+          </div>
+        </div>
+
+      </div><!-- .contacto-cards -->
+
+      <!-- Mapa -->
+      <div class="contacto-mapa">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d-75.3343036!3d6.0824437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDQnNTcuNiJOIDc1wrAyMCcwMy41Ilc!5e0!3m2!1ses!2sco!4v1620000000000"
+          width="100%"
+          height="220"
+          style="border:0; border-radius: 1rem;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Viboral Telecomunicaciones"
+        ></iframe>
+      </div>
+
+    </aside>
+
+    <!-- ─── Columna derecha: formulario ─── -->
+    <div class="contacto-formulario-wrap">
+
+      <div class="contacto-formulario-header">
+        <h2>Formulario PQRS</h2>
+        <p>Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+      </div>
+
+      <form class="formulario" id="formulario-pqrs" novalidate>
+
+        <!-- Fila: nombre + cédula -->
+        <div class="formulario__fila">
+          <div class="formulario__grupo">
+            <label for="nombre">
+              <i class="fas fa-user"></i> Nombre completo
+            </label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre"
+              placeholder="Ej: Juan Pérez"
+              required
+            />
+          </div>
+
+          <div class="formulario__grupo">
+            <label for="cedula">
+              <i class="fas fa-id-card"></i> Documento (CC / NIT)
+            </label>
+            <input 
+              type="tel" 
+              id="cedula" 
+              name="cedula"
+              placeholder="Ej: 1234567890"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Fila: correo + celular -->
+        <div class="formulario__fila">
+          <div class="formulario__grupo">
+            <label for="email">
+              <i class="fas fa-envelope"></i> Correo electrónico
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              placeholder="Ej: correo@email.com"
+              required
+            />
+          </div>
+
+          <div class="formulario__grupo">
+            <label for="telefono">
+              <i class="fas fa-mobile-alt"></i> Celular
+            </label>
+            <input 
+              type="tel" 
+              id="telefono" 
+              name="telefono"
+              placeholder="Ej: 300 000 0000"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Tipo de PQRS -->
+        <div class="formulario__grupo">
+          <label for="servicio">
+            <i class="fas fa-tag"></i> Tipo de PQRS
+          </label>
+          <select id="servicio" name="servicio" required>
+            <option value="" disabled selected>-- Selecciona el tipo --</option>
+            <option value="Pregunta">💬 Pregunta</option>
+            <option value="Queja">😟 Queja</option>
+            <option value="Reclamo">⚠️ Reclamo</option>
+            <option value="Sugerencia">💡 Sugerencia</option>
+            <option value="Felicitacion">🎉 Felicitación</option>
+          </select>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="formulario__grupo">
+          <label for="mensaje">
+            <i class="fas fa-comment-alt"></i> Describe tu solicitud
+          </label>
+          <textarea 
+            id="mensaje" 
+            name="mensaje"
+            placeholder="Escribe aquí tu petición, queja, reclamo o sugerencia con el mayor detalle posible..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Info privacidad -->
+        <p class="formulario__privacidad">
+          <i class="fas fa-lock"></i>
+          Tu información es confidencial y será usada únicamente para atender tu solicitud.
+          Consulta nuestra <a href="politica-datos.html">política de privacidad</a>.
+        </p>
+
+        <button type="submit" class="formulario__btn" id="btnEnviar">
+          <i class="fas fa-paper-plane"></i> Enviar solicitud
+        </button>
+
+      </form>
+
+    </div><!-- .contacto-formulario-wrap -->
+
+  </div><!-- .contacto-grid -->
+
+</main>
+
+
+   <footer class="footer-futurista">
+  <div class="contenedor-footer">
+
+    <!-- LOGO -->
+    <div class="logo-footer">
+      <a href="/">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+      <p class="footer-slogan">Conectando comunidades desde 1998</p>
+    </div>
+
+    <!-- REDES -->
+    <div class="redes-footer">
+      <h3 class="titulo-footer">Conéctate con nosotros</h3>
+      <div class="redes-sociales">
+        <a href="#" class="icon facebook" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="icon instagram" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze" aria-label="Waze">
+          <i class="fab fa-waze"></i>
+        </a>
+        <a href="mailto:servicioasociado@viboral.tv" class="icon correo" aria-label="Correo electrónico">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- LINKS LEGALES -->
+    <div class="documentos-legales">
+      <h3 class="titulo-legales">Documentos legales</h3>
+      <div class="links-legales">
+        <a href="https://colombiatic.mintic.gov.co/679/articles-62266_doc_norma.pdf">
+          <i class="fas fa-file-alt"></i> Derechos del Asociado
+        </a>
+        <a href="politica-cookies.html">
+          <i class="fas fa-cookie-bite"></i> Política de cookies
+        </a>
+        <a href="https://drive.google.com/file/d/1WF9erkJQymyCbJkmMbb72_KifQlKXpEI/view?usp=drive_link" target="_blank" rel="noopener">
+          <i class="fas fa-landmark"></i> Norma Estatutaria
+        </a>
+        <a href="politica-datos.html">
+          <i class="fas fa-shield-alt"></i> Política de privacidad
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="copyright">
+    Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
+  </div>
+</footer>
+<div class="wa-widget">
+  
+  
+  <div class="wa-burbuja" id="waBurbuja">
+    <p class="wa-burbuja-nombre">Viboral Telecomunicaciones</p>
+    <p class="wa-burbuja-texto">¡Hola! 👋 ¿En qué podemos ayudarte?</p>
+    <p class="wa-burbuja-hora">En línea</p>
+  </div>
+
+ 
+  <div class="wa-btn-wrap">
+    <div class="wa-pulse"></div>
+    <a 
+      class="wa-btn"
+      id="waBtn"
+      href="https://wa.me/573147258728?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.81A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm6.406 16.594c-.27.757-1.578 1.445-2.156 1.528-.547.078-1.234.11-1.992-.125a18.3 18.3 0 01-1.804-.668c-3.17-1.37-5.24-4.57-5.398-4.781-.156-.211-1.273-1.695-1.273-3.234 0-1.54.805-2.297 1.09-2.61.285-.312.621-.39.828-.39.207 0 .414.002.594.01.191.008.449-.072.703.537.262.625.89 2.164.969 2.32.078.157.13.34.026.547-.103.207-.156.336-.312.516-.156.18-.328.402-.469.54-.156.155-.32.324-.137.634.183.31.812 1.34 1.742 2.171 1.195 1.066 2.203 1.395 2.516 1.55.312.157.496.133.679-.078.183-.211.781-.914 1.992-1.125.156-.027.527.035.996.234l2.07.922c.39.172.742.289.85.55.105.263-.163 1.015-.434 1.772z"/>
+      </svg>
+      <span class="wa-badge">1</span>
+    </a>
+  </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="build/js/bundle.min.js"></script>
+    
+  </body>
+</html>

@@ -14,8 +14,6 @@ Thumbs.db
 .env
 
 # Archivos de build (si generas carpeta build o dist)
-build/
-dist/
 
 # Archivos temporales
 *.tmp

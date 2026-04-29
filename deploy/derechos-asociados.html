@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="build/css/app.css" />
+    <title>Viboral Telecomunicaciones</title>
+    <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
+  </head>
+  <body>
+  <header class="header " id="header">  
+  <div class="contenedor contenido">
+
+    <div class="barra">
+
+      <!-- Logo -->
+      <a href="/" class="barra__logo">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+
+      <!-- ✅ Nav DENTRO de .barra para que esté en la misma fila -->
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
+
+        </a>
+        <a href="#" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
+
+      <!-- Acciones: solo visibles en móvil -->
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu" 
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+
+    </div><!-- .barra -->
+  </div>
+</header>
+
+<main class="contenedor seccion normas-page">
+
+  <span class="seccion-label">Marco legal</span>
+  <h1 class="seccion-titulo">Normatividad vigente</h1>
+  <p class="normas-intro">
+    Viboral Telecomunicaciones opera bajo el marco regulatorio de la
+    <strong>Comisión de Regulación de Comunicaciones (CRC)</strong> y el
+    <strong>Ministerio de Tecnologías de la Información y las Comunicaciones (MinTIC)</strong>.
+    A continuación encontrás los documentos normativos que rigen nuestra actividad.
+  </p>
+
+  <!-- Filtros -->
+  <div class="normas-filtros">
+    <button class="norma-filtro activo" data-filtro="todos">
+      <i class="fas fa-th-large"></i> Todos
+    </button>
+    <button class="norma-filtro" data-filtro="crc">
+      <i class="fas fa-broadcast-tower"></i> CRC
+    </button>
+    <button class="norma-filtro" data-filtro="mintic">
+      <i class="fas fa-laptop-code"></i> MinTIC
+    </button>
+  </div>
+
+  <!-- Grid de normas -->
+  <div class="normas-grid">
+
+    <!-- 1 -->
+    <article class="norma-card" data-categoria="crc">
+      <div class="norma-card__header norma-card__header--azul">
+        <div class="norma-card__tipo">
+          <i class="fas fa-file-alt"></i>
+          <span>Resolución CRC</span>
+        </div>
+        <span class="norma-card__numero">6242</span>
+      </div>
+      <div class="norma-card__cuerpo">
+        <span class="norma-card__entidad">
+          <i class="fas fa-landmark"></i> CRC — Comisión de Regulación de Comunicaciones
+        </span>
+        <h3>Digitalización del Registro Público Único (RPU)</h3>
+        <p>
+          Establece las disposiciones para la digitalización del Registro Público
+          Único de proveedores de redes y servicios de telecomunicaciones.
+        </p>
+        <div class="norma-card__meta">
+          <span class="norma-card__badge norma-card__badge--azul">
+            <i class="fas fa-tag"></i> Telecomunicaciones
+          </span>
+          <span class="norma-card__badge norma-card__badge--gris">
+            <i class="fas fa-calendar"></i> CRC
+          </span>
+        </div>
+      </div>
+      <a href="https://www.crcom.gov.co/sites/default/files/normatividad/00006242%20Digitaliza%20RPU.pdf"
+         target="_blank" rel="noopener"
+         class="norma-card__btn">
+        <i class="fas fa-download"></i> Descargar PDF
+      </a>
+    </article>
+
+    <!-- 2 -->
+    <article class="norma-card" data-categoria="crc">
+      <div class="norma-card__header norma-card__header--azul">
+        <div class="norma-card__tipo">
+          <i class="fas fa-file-alt"></i>
+          <span>Resolución CRC</span>
+        </div>
+        <span class="norma-card__numero">5050</span>
+      </div>
+      <div class="norma-card__cuerpo">
+        <span class="norma-card__entidad">
+          <i class="fas fa-landmark"></i> CRC — Comisión de Regulación de Comunicaciones
+        </span>
+        <h3>Compilación normativa — Régimen de telecomunicaciones</h3>
+        <p>
+          Norma compilatoria del régimen de acceso, uso e interconexión de redes
+          y servicios de telecomunicaciones. Marco regulatorio general del sector.
+        </p>
+        <div class="norma-card__meta">
+          <span class="norma-card__badge norma-card__badge--azul">
+            <i class="fas fa-tag"></i> Marco general
+          </span>
+          <span class="norma-card__badge norma-card__badge--gris">
+            <i class="fas fa-calendar"></i> 2016
+          </span>
+        </div>
+      </div>
+      <a href="https://www.crcom.gov.co/sites/default/files/normatividad/Compilada_2016_11_11.pdf"
+         target="_blank" rel="noopener"
+         class="norma-card__btn">
+        <i class="fas fa-download"></i> Descargar PDF
+      </a>
+    </article>
+
+    <!-- 3 -->
+    <article class="norma-card" data-categoria="mintic">
+      <div class="norma-card__header norma-card__header--verde">
+        <div class="norma-card__tipo">
+          <i class="fas fa-file-contract"></i>
+          <span>MinTIC</span>
+        </div>
+        <span class="norma-card__numero">Art. 62266</span>
+      </div>
+      <div class="norma-card__cuerpo">
+        <span class="norma-card__entidad">
+          <i class="fas fa-landmark"></i> MinTIC — Ministerio de TIC
+        </span>
+        <h3>Derechos de los usuarios de servicios de comunicaciones</h3>
+        <p>
+          Establece los derechos y deberes de los usuarios y proveedores de
+          servicios de comunicaciones en Colombia. Régimen de protección al usuario.
+        </p>
+        <div class="norma-card__meta">
+          <span class="norma-card__badge norma-card__badge--verde">
+            <i class="fas fa-tag"></i> Derechos usuario
+          </span>
+          <span class="norma-card__badge norma-card__badge--gris">
+            <i class="fas fa-calendar"></i> MinTIC
+          </span>
+        </div>
+      </div>
+      <a href="https://colombiatic.mintic.gov.co/679/articles-62266_doc_norma.pdf"
+         target="_blank" rel="noopener"
+         class="norma-card__btn norma-card__btn--verde">
+        <i class="fas fa-download"></i> Descargar PDF
+      </a>
+    </article>
+
+    <!-- 4 -->
+    <article class="norma-card" data-categoria="crc">
+      <div class="norma-card__header norma-card__header--azul">
+        <div class="norma-card__tipo">
+          <i class="fas fa-file-alt"></i>
+          <span>Resolución CRC</span>
+        </div>
+        <span class="norma-card__numero">5930</span>
+      </div>
+      <div class="norma-card__cuerpo">
+        <span class="norma-card__entidad">
+          <i class="fas fa-landmark"></i> CRC — Comisión de Regulación de Comunicaciones
+        </span>
+        <h3>Modificaciones al régimen de protección de usuarios</h3>
+        <p>
+          Modifica y adiciona disposiciones al régimen integral de protección
+          de los derechos de los usuarios de servicios de comunicaciones.
+        </p>
+        <div class="norma-card__meta">
+          <span class="norma-card__badge norma-card__badge--azul">
+            <i class="fas fa-tag"></i> Protección usuario
+          </span>
+          <span class="norma-card__badge norma-card__badge--gris">
+            <i class="fas fa-calendar"></i> 2020
+          </span>
+        </div>
+      </div>
+      <a href="https://normograma.mintic.gov.co/mintic/compilacion/docs/resolucion_crc_5930_2020.htm"
+         target="_blank" rel="noopener"
+         class="norma-card__btn">
+        <i class="fas fa-external-link-alt"></i> Ver documento
+      </a>
+    </article>
+
+    <!-- 5 -->
+    <article class="norma-card norma-card--destacada" data-categoria="crc">
+      <div class="norma-card__badge-top">Compilación TV</div>
+      <div class="norma-card__header norma-card__header--morado">
+        <div class="norma-card__tipo">
+          <i class="fas fa-tv"></i>
+          <span>Resolución CRC</span>
+        </div>
+        <span class="norma-card__numero">6383</span>
+      </div>
+      <div class="norma-card__cuerpo">
+        <span class="norma-card__entidad">
+          <i class="fas fa-landmark"></i> CRC — Sesión de Comunicaciones
+        </span>
+        <h3>Compilación normas de televisión — CNTV y ANTV</h3>
+        <p>
+          Compila y simplifica disposiciones de la extinta Comisión Nacional de
+          Televisión (CNTV) y la Autoridad Nacional de Televisión (ANTV).
+          Adiciona el Título XVI a la Resolución CRC 5050 de 2016.
+        </p>
+        <div class="norma-card__meta">
+          <span class="norma-card__badge norma-card__badge--morado">
+            <i class="fas fa-tag"></i> Televisión
+          </span>
+          <span class="norma-card__badge norma-card__badge--gris">
+            <i class="fas fa-calendar"></i> 2021
+          </span>
+        </div>
+      </div>
+      <a href="https://www.crcom.gov.co/sites/default/files/normatividad/00006383.pdf"
+         target="_blank" rel="noopener"
+         class="norma-card__btn norma-card__btn--morado">
+        <i class="fas fa-download"></i> Descargar PDF
+      </a>
+    </article>
+
+    <!-- 6 -->
+    <article class="norma-card" data-categoria="crc">
+      <div class="norma-card__header norma-card__header--azul">
+        <div class="norma-card__tipo">
+          <i class="fas fa-file-alt"></i>
+          <span>Resolución CRC</span>
+        </div>
+        <span class="norma-card__numero">6755</span>
+      </div>
+      <div class="norma-card__cuerpo">
+        <span class="norma-card__entidad">
+          <i class="fas fa-landmark"></i> CRC — Comisión de Regulación de Comunicaciones
+        </span>
+        <h3>Disposiciones sobre calidad de servicios de telecomunicaciones</h3>
+        <p>
+          Establece y actualiza indicadores y parámetros de calidad aplicables
+          a los proveedores de redes y servicios de telecomunicaciones.
+        </p>
+        <div class="norma-card__meta">
+          <span class="norma-card__badge norma-card__badge--azul">
+            <i class="fas fa-tag"></i> Calidad de servicio
+          </span>
+          <span class="norma-card__badge norma-card__badge--gris">
+            <i class="fas fa-calendar"></i> 2022
+          </span>
+        </div>
+      </div>
+      <a href="https://www.crcom.gov.co/sites/default/files/normatividad/RESOLUCION-6755-DE-2022.pdf"
+         target="_blank" rel="noopener"
+         class="norma-card__btn">
+        <i class="fas fa-download"></i> Descargar PDF
+      </a>
+    </article>
+
+    <!-- 7 -->
+    <article class="norma-card" data-categoria="crc">
+      <div class="norma-card__header norma-card__header--azul">
+        <div class="norma-card__tipo">
+          <i class="fas fa-file-alt"></i>
+          <span>Resolución CRC</span>
+        </div>
+        <span class="norma-card__numero">6890</span>
+      </div>
+      <div class="norma-card__cuerpo">
+        <span class="norma-card__entidad">
+          <i class="fas fa-landmark"></i> CRC — Comisión de Regulación de Comunicaciones
+        </span>
+        <h3>Modificaciones al régimen regulatorio de comunicaciones</h3>
+        <p>
+          Actualiza y modifica disposiciones del marco regulatorio de acceso,
+          interconexión y uso de redes y servicios de telecomunicaciones.
+        </p>
+        <div class="norma-card__meta">
+          <span class="norma-card__badge norma-card__badge--azul">
+            <i class="fas fa-tag"></i> Regulación
+          </span>
+          <span class="norma-card__badge norma-card__badge--gris">
+            <i class="fas fa-calendar"></i> 2022
+          </span>
+        </div>
+      </div>
+      <a href="https://www.crcom.gov.co/sites/default/files/normatividad/Resolucion-CRC-6890-de-2022.pdf"
+         target="_blank" rel="noopener"
+         class="norma-card__btn">
+        <i class="fas fa-download"></i> Descargar PDF
+      </a>
+    </article>
+
+  </div><!-- .normas-grid -->
+
+  <!-- Banner CRC -->
+  <div class="normas-crc-banner">
+    <div class="normas-crc-banner__icono">
+      <i class="fas fa-broadcast-tower"></i>
+    </div>
+    <div class="normas-crc-banner__texto">
+      <strong>¿Necesitás más información normativa?</strong>
+      <p>Visitá el portal oficial de la Comisión de Regulación de Comunicaciones.</p>
+    </div>
+    <a href="https://www.crcom.gov.co" target="_blank" rel="noopener"
+       class="normas-crc-banner__btn">
+      <i class="fas fa-external-link-alt"></i> Visitar CRC
+    </a>
+  </div>
+
+  <div class="normas-crc-banner">
+    <div class="normas-crc-banner__icono">
+      <i class="fas fa-broadcast-tower"></i>
+    </div>
+    <div class="normas-crc-banner__texto">
+      <strong>¿Necesitás más información normativa?</strong>
+      <p>Visitá el portal oficial del Ministerio de Tecnologías de la Información y las Comunicaciones.</p>
+    </div>
+    <a href="https://www.mintic.gov.co/portal/inicio/" target="_blank" rel="noopener"
+       class="normas-crc-banner__btn">
+      <i class="fas fa-external-link-alt"></i> Visitar MINTIC
+    </a>
+  </div>
+
+  <!-- Links legales -->
+  <div class="cookies-footer-links">
+    <a href="politicadatos.html">
+      <i class="fas fa-shield-alt"></i> Política de privacidad
+    </a>
+    <a href="politica-cookies.html">
+      <i class="fas fa-cookie-bite"></i> Política de cookies
+    </a>
+    <a href="derechos-asociados.html">
+      <i class="fas fa-file-alt"></i> Derechos del Asociado
+    </a>
+  </div>
+
+</main>
+
+
+
+  <div class="wa-widget">
+  
+  
+  <div class="wa-burbuja" id="waBurbuja">
+    <p class="wa-burbuja-nombre">Viboral Telecomunicaciones</p>
+    <p class="wa-burbuja-texto">¡Hola! 👋 ¿En qué podemos ayudarte?</p>
+    <p class="wa-burbuja-hora">En línea</p>
+  </div>
+
+ 
+  <div class="wa-btn-wrap">
+    <div class="wa-pulse"></div>
+    <a 
+      class="wa-btn"
+      id="waBtn"
+      href="https://wa.me/573147258728?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.81A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm6.406 16.594c-.27.757-1.578 1.445-2.156 1.528-.547.078-1.234.11-1.992-.125a18.3 18.3 0 01-1.804-.668c-3.17-1.37-5.24-4.57-5.398-4.781-.156-.211-1.273-1.695-1.273-3.234 0-1.54.805-2.297 1.09-2.61.285-.312.621-.39.828-.39.207 0 .414.002.594.01.191.008.449-.072.703.537.262.625.89 2.164.969 2.32.078.157.13.34.026.547-.103.207-.156.336-.312.516-.156.18-.328.402-.469.54-.156.155-.32.324-.137.634.183.31.812 1.34 1.742 2.171 1.195 1.066 2.203 1.395 2.516 1.55.312.157.496.133.679-.078.183-.211.781-.914 1.992-1.125.156-.027.527.035.996.234l2.07.922c.39.172.742.289.85.55.105.263-.163 1.015-.434 1.772z"/>
+      </svg>
+      <span class="wa-badge">1</span>
+    </a>
+  </div>
+
+</div>
+     
+<footer class="footer-futurista">
+  <div class="contenedor-footer">
+
+    <!-- LOGO -->
+    <div class="logo-footer">
+      <a href="/">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+      <p class="footer-slogan">Conectando comunidades desde 1998</p>
+    </div>
+
+    <!-- REDES -->
+    <div class="redes-footer">
+      <h3 class="titulo-footer">Conéctate con nosotros</h3>
+      <div class="redes-sociales">
+        <a href="#" class="icon facebook" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="icon instagram" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze" aria-label="Waze">
+          <i class="fab fa-waze"></i>
+        </a>
+        <a href="mailto:soporte@viboraltelecomunicaciones.com" class="icon correo" aria-label="Correo electrónico">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- LINKS LEGALES -->
+    <div class="documentos-legales">
+      <h3 class="titulo-legales">Documentos legales</h3>
+      <div class="links-legales">
+        <a href="derecho-asociado.html">
+          <i class="fas fa-file-alt"></i> Derecho del Asociado
+        </a>
+        <a href="politica-cookies.html">
+          <i class="fas fa-cookie-bite"></i> Política de cookies
+        </a>
+        <a href="https://drive.google.com/file/d/1WF9erkJQymyCbJkmMbb72_KifQlKXpEI/view?usp=drive_link" target="_blank" rel="noopener">
+          <i class="fas fa-landmark"></i> Norma Estatutaria
+        </a>
+        <a href="politicadatos.html">
+          <i class="fas fa-shield-alt"></i> Política de privacidad
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="copyright">
+    Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
+  </div>
+</footer>
+
+  <script src="build/js/bundle.min.js"></script>
+
+
+  <div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-contenido">
+    <span class="cookie-icono">🍪</span>
+    <div class="cookie-texto">
+      <h3 class="cookie-titulo">Usamos cookies</h3>
+      <p class="cookie-descripcion">
+        Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. 
+        Puedes aceptarlas o rechazarlas.
+      </p>
+    </div>
+  </div>
+  <div class="cookie-acciones">
+    <button class="cookie-btn cookie-btn--rechazar" id="cookieRechazar">
+      Rechazar
+    </button>
+    <button class="cookie-btn cookie-btn--aceptar" id="cookieAceptar">
+      Aceptar todas
+    </button>
+  </div>
+</div>
+
+</body>
+
+</html>
