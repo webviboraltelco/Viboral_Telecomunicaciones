@@ -45,10 +45,16 @@
 // ─── Barra ────────────────────────────────────────────────────────
 .barra {
   display: flex;
-  flex-direction: row;      // ✅ SIEMPRE en fila
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 0;        // ✅ padding reducido en móvil
+
+  // ✅ Padding reducido en móvil, normal en tablet+
+  padding: .6rem 0;
+
+  @include tablet  { padding: 1.2rem 0; }
+  @include desktop { padding: 1.6rem 0; }
+
   gap: 1rem;
 
   &__logo {
@@ -57,7 +63,7 @@
     line-height: 0;
 
     img {
-      width: 9rem;           // ✅ móvil — pequeño
+      width: 9rem;
       height: auto;
       display: block;
       animation: logoEntrada 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
