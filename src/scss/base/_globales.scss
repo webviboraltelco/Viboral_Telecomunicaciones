@@ -48,10 +48,10 @@ h1, h2, h3 {
 }
 
 h1 {
-    
+
   font-size: 2.8rem;    // más pequeño en móvil
   line-height: 1.2;
-  word-break: break-word;  // evita que se corte
+  text-align: center;
 
   @include tablet {
     font-size: 3.6rem;
