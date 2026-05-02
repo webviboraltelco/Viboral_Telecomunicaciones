@@ -12,9 +12,8 @@ $radio-card:    1.4rem;
   padding-bottom: $separacion;
 }
 
-// ════════════════════════════════════════
+
 // SECCIÓN INTRO
-// ════════════════════════════════════════
 .intro-section {
   display: grid;
   gap: $separacion;
@@ -26,20 +25,20 @@ $radio-card:    1.4rem;
     align-items: center;
   }
 
-  // ─── Texto izquierdo ───────────────────
+  // ✅ Agregar esto dentro del bloque existente
   &__texto {
 
     h1 {
-      font-size: 3.2rem;
+      font-size: 2.6rem;
       font-weight: $black;
       line-height: 1.2;
       color: $grisOscuro;
       margin-bottom: 1.6rem;
       text-transform: uppercase;
+      word-break: break-word;   // ✅ evita que se corte en móvil
 
-      @include tablet {
-        font-size: 3.8rem;
-      }
+      @include tablet  { font-size: 3.2rem; }
+      @include desktop { font-size: 3.8rem; }
     }
 
     p {
@@ -52,34 +51,23 @@ $radio-card:    1.4rem;
     }
   }
 
-  // ─── Botones CTA ───────────────────────
   &__acciones {
     display: flex;
     flex-wrap: wrap;
     gap: 1.2rem;
     justify-content: center;
 
-    @include tablet {
-      justify-content: flex-start;
-    }
+    @include tablet { justify-content: flex-start; }
   }
 
-  // ─── Stats derecha ─────────────────────
   &__stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+    max-width: 80rem;
+    margin: 0 auto;
 
-    @include tablet {
-      grid-template-columns: 1fr;   // columna en tablet: apiladas
-      max-width: 28rem;
-      margin-left: auto;
-    }
-
-    @include desktop {
-      grid-template-columns: repeat(3, 1fr);  // vuelve a fila en desktop
-      max-width: none;
-    }
+    @include tablet { grid-template-columns: repeat(4, 1fr); }
   }
 }
 

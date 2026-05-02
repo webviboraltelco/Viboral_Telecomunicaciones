@@ -19,21 +19,26 @@ $header-fondo: rgba(0, 0, 0, .82);
     background-repeat: no-repeat;
     background-attachment: scroll;
     position: relative;
-    min-height: 17rem;
 
-    @include tablet  { min-height: 30rem; }
-    @include desktop { min-height: 55rem; }
+    // ✅ Más altura en móvil para que la imagen se vea
+    min-height: 40rem;
+
+    @include tablet {
+      min-height: 50rem;
+    }
+
+    @include desktop {
+      min-height: 55rem;
+    }
 
     &::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba($negro, .72) 0%,
-        rgba($negro, .20) 55%,
-        rgba($negro, .00) 100%
-      );
+      background: linear-gradient(to bottom,
+          rgba($negro, .72) 0%,
+          rgba($negro, .20) 55%,
+          rgba($negro, .00) 100%);
       z-index: 0;
     }
   }
@@ -43,7 +48,6 @@ $header-fondo: rgba(0, 0, 0, .82);
   position: relative;
   z-index: 1;
 }
-
 
 // ─── Barra ────────────────────────────────────────────────────────
 .barra {
@@ -61,21 +65,21 @@ $header-fondo: rgba(0, 0, 0, .82);
 
     img {
       // ✅ Tamaños responsive del logo
-      width: 10rem;        // móvil — compacto para que quede espacio al hamburguesa
+      width: 10rem; // móvil — compacto para que quede espacio al hamburguesa
       height: auto;
       display: block;
       animation: logoEntrada 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
 
       @include telefono {
-        width: 11rem;      // teléfonos grandes (480px+)
+        width: 11rem; // teléfonos grandes (480px+)
       }
 
       @include tablet {
-        width: 14rem;      // tablet
+        width: 14rem; // tablet
       }
 
       @include desktop {
-        width: 17rem;      // desktop
+        width: 17rem; // desktop
       }
 
       &:hover {
@@ -93,14 +97,17 @@ $header-fondo: rgba(0, 0, 0, .82);
     transform: translateY(20px) scale(.85);
     filter: blur(6px);
   }
+
   60% {
     opacity: 1;
     filter: blur(0px);
     transform: translateY(-4px) scale(1.03);
   }
+
   80% {
     transform: translateY(2px) scale(.99);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -110,10 +117,13 @@ $header-fondo: rgba(0, 0, 0, .82);
 
 // Efecto hover: pulso suave
 @keyframes logoPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     filter: brightness(1);
   }
+
   50% {
     transform: scale(1.06);
     filter: brightness(1.15);
@@ -151,7 +161,10 @@ $header-fondo: rgba(0, 0, 0, .82);
 
   &:hover {
     background: rgba($blanco, .2);
-    img { transform: rotate(25deg); }
+
+    img {
+      transform: rotate(25deg);
+    }
   }
 }
 
@@ -167,9 +180,13 @@ $header-fondo: rgba(0, 0, 0, .82);
   justify-content: center;
   transition: background-color .2s ease;
 
-  &:hover { background: rgba($blanco, .2); }
+  &:hover {
+    background: rgba($blanco, .2);
+  }
 
-  @include tablet { display: none; }
+  @include tablet {
+    display: none;
+  }
 }
 
 .hamburguesa {
@@ -187,14 +204,26 @@ $header-fondo: rgba(0, 0, 0, .82);
     border-radius: 2px;
     transition: transform .3s ease, opacity .3s ease, width .3s ease;
 
-    &:nth-child(3) { width: 13px; }
+    &:nth-child(3) {
+      width: 13px;
+    }
   }
 }
 
 .mobile-menu.activo .hamburguesa {
-  span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 20px; }
+  span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    width: 20px;
+  }
 }
 
 // ─── Navegación ───────────────────────────────────────────────────
@@ -255,7 +284,10 @@ $header-fondo: rgba(0, 0, 0, .82);
       color: $amarillo;
       background: rgba($blanco, .05);
       padding-left: 3.2rem;
-      i { opacity: 1; }
+
+      i {
+        opacity: 1;
+      }
     }
 
     @include tablet {
@@ -264,8 +296,13 @@ $header-fondo: rgba(0, 0, 0, .82);
       border-radius: .6rem;
       font-size: 1.35rem;
 
-      i    { display: none; }
-      span { display: inline; }
+      i {
+        display: none;
+      }
+
+      span {
+        display: inline;
+      }
 
       &:hover {
         color: $amarillo;
@@ -287,6 +324,7 @@ $header-fondo: rgba(0, 0, 0, .82);
     opacity: 0;
     transform: translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -320,7 +358,12 @@ $header-fondo: rgba(0, 0, 0, .82);
     margin: 0 0 0 .6rem !important;
     padding: .7rem 1.2rem !important;
 
-    i    { display: flex !important; }
-    span { display: inline !important; }
+    i {
+      display: flex !important;
+    }
+
+    span {
+      display: inline !important;
+    }
   }
 }
