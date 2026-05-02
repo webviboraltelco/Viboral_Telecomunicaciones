@@ -44,6 +44,7 @@ $header-fondo: rgba(0, 0, 0, .82);
   z-index: 1;
 }
 
+
 // ─── Barra ────────────────────────────────────────────────────────
 .barra {
   display: flex;
@@ -59,15 +60,23 @@ $header-fondo: rgba(0, 0, 0, .82);
     line-height: 0;
 
     img {
-      width: 13rem;
+      // ✅ Tamaños responsive del logo
+      width: 10rem;        // móvil — compacto para que quede espacio al hamburguesa
       height: auto;
       display: block;
-
-      // ✅ Animación de entrada moderna
       animation: logoEntrada 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
 
-      @include tablet  { width: 15rem; }
-      @include desktop { width: 17rem; }
+      @include telefono {
+        width: 11rem;      // teléfonos grandes (480px+)
+      }
+
+      @include tablet {
+        width: 14rem;      // tablet
+      }
+
+      @include desktop {
+        width: 17rem;      // desktop
+      }
 
       &:hover {
         animation: logoPulse 1.5s ease-in-out infinite;
