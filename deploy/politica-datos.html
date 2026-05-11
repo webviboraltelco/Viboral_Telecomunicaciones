@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="build/css/app.css" />
+    <title>Viboral Telecomunicaciones</title>
+    <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
+  </head>
+  <body>
+   <header class="header " id="header">  
+  <div class="contenedor contenido">
+
+    <div class="barra">
+
+      <!-- Logo -->
+      <a href="/" class="barra__logo">
+        <img src="build/img/logo.webp" alt="Viboral Telecomunicaciones" />
+      </a>
+
+      <!-- ✅ Nav DENTRO de .barra para que esté en la misma fila -->
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos</span>
+        </a>
+        <a href="#" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
+
+      <!-- Acciones: solo visibles en móvil -->
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu" 
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+
+    </div><!-- .barra -->
+  </div>
+</header>
+<main class="contenedor seccion privacidad-page">
+
+  <!-- ════ HERO ════ -->
+  <div class="privacidad-hero">
+    <div class="privacidad-hero__icono">
+      <i class="fas fa-shield-alt"></i>
+    </div>
+    <span class="seccion-label">Información legal</span>
+    <h1 class="seccion-titulo">Política de Tratamiento de Datos</h1>
+    <div class="privacidad-hero__entidad">
+      <strong>Cooperativa Multiactiva de Telecomunicaciones y Telemáticos</strong>
+      <span>Viboral Telecomunicaciones · NIT 811.013.014-1</span>
+    </div>
+    <p class="privacidad-hero__intro">
+      Con el fin de garantizar el derecho a la privacidad y proteger los datos
+      personales de nuestros asociados, empleados y proveedores, hemos
+      implementado la presente política de conformidad con la
+      <strong>Ley 1581 de 2012</strong>, el Decreto 1377 de 2013 y demás
+      normativas aplicables en Colombia.
+    </p>
+    <span class="privacidad-hero__fecha">
+      <i class="fas fa-calendar-alt"></i> Última actualización: enero 2026
+    </span>
+  </div>
+
+  <!-- ════ CONTACTO RÁPIDO ════ -->
+  <div class="privacidad-contacto">
+    <div class="privacidad-contacto__texto">
+      <i class="fas fa-headset"></i>
+      <span>¿Tienes dudas sobre tus datos? Contáctanos directamente:</span>
+    </div>
+    <div class="privacidad-contacto__acciones">
+      <a href="https://wa.me/573147258728" target="_blank" rel="noopener" class="privacidad-contacto__btn privacidad-contacto__btn--wa">
+        <i class="fab fa-whatsapp"></i> 314 725 8728
+      </a>
+      <a href="mailto:servicioasociado@viboral.tv" class="privacidad-contacto__btn privacidad-contacto__btn--email">
+        <i class="fas fa-envelope"></i> servicioasociado@viboral.tv
+      </a>
+    </div>
+  </div>
+
+  <!-- ════ SECCIONES ════ -->
+
+  <!-- 1. Qué son los datos personales -->
+  <article class="privacidad-seccion">
+    <div class="privacidad-seccion__icono privacidad-seccion__icono--azul">
+      <i class="fas fa-user-shield"></i>
+    </div>
+    <div class="privacidad-seccion__contenido">
+      <h2>¿Qué son los datos personales?</h2>
+      <p>
+        Son toda aquella información asociada a una persona que permite su
+        identificación: documento de identidad, lugar de nacimiento, estado
+        civil, edad, residencia, trayectoria académica o laboral.
+      </p>
+      <div class="privacidad-destacado privacidad-destacado--azul">
+        <i class="fas fa-landmark"></i>
+        <p>
+          La Constitución Política de Colombia establece en el
+          <strong>Artículo 15</strong> el derecho de toda persona a conocer,
+          actualizar, rectificar y cancelar sus datos personales en bases de
+          datos públicas o privadas — conocido como <strong>Habeas Data</strong>.
+        </p>
+      </div>
+
+      <div class="privacidad-normas">
+        <div class="privacidad-norma">
+          <span class="privacidad-norma__badge">Ley 1581/2012</span>
+          <p>Disposiciones Generales para la Protección de Datos Personales en Colombia</p>
+        </div>
+        <div class="privacidad-norma">
+          <span class="privacidad-norma__badge">Decreto 1377/2013</span>
+          <p>Reglamentación del tratamiento de datos personales en el sector privado</p>
+        </div>
+        <div class="privacidad-norma">
+          <span class="privacidad-norma__badge">Decreto 1074/2015</span>
+          <p>Decreto Único Reglamentario del Sector Comercio, Industria y Turismo</p>
+        </div>
+        <div class="privacidad-norma">
+          <span class="privacidad-norma__badge">Resolución 3495/2023</span>
+          <p>Regulación del tratamiento de datos biométricos — normativa más reciente</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 2. Derechos del titular -->
+  <article class="privacidad-seccion">
+    <div class="privacidad-seccion__icono privacidad-seccion__icono--verde">
+      <i class="fas fa-hand-holding-heart"></i>
+    </div>
+    <div class="privacidad-seccion__contenido">
+      <h2>Tus derechos como Asociado</h2>
+      <p>
+        Como Asociado y dueño de tus datos personales, tienes el derecho a conocer, actualizar,
+        rectificar y suprimir la información que has proporcionado a Viboral
+        Telecomunicaciones. También puedes revocar tu autorización para el
+        tratamiento de tus datos y presentar quejas ante la Superintendencia de
+        Industria y Comercio si consideras que se han vulnerado tus derechos.
+      </p>
+
+      <div class="privacidad-derechos">
+        <div class="privacidad-derecho">
+          <div class="privacidad-derecho__icono">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div>
+            <strong>Conocer</strong>
+            <p>Acceder gratuitamente a tus datos personales que han sido recopilados.</p>
+          </div>
+        </div>
+        <div class="privacidad-derecho">
+          <div class="privacidad-derecho__icono">
+            <i class="fas fa-edit"></i>
+          </div>
+          <div>
+            <strong>Actualizar y rectificar</strong>
+            <p>Corregir datos parciales, inexactos, incompletos o fraccionados.</p>
+          </div>
+        </div>
+        <div class="privacidad-derecho">
+          <div class="privacidad-derecho__icono">
+            <i class="fas fa-trash-alt"></i>
+          </div>
+          <div>
+            <strong>Suprimir</strong>
+            <p>Solicitar la eliminación de tus datos cuando no sean necesarios para la finalidad autorizada.</p>
+          </div>
+        </div>
+        <div class="privacidad-derecho">
+          <div class="privacidad-derecho__icono">
+            <i class="fas fa-ban"></i>
+          </div>
+          <div>
+            <strong>Revocar la autorización</strong>
+            <p>Retirar el consentimiento otorgado para el tratamiento de tus datos.</p>
+          </div>
+        </div>
+        <div class="privacidad-derecho">
+          <div class="privacidad-derecho__icono">
+            <i class="fas fa-exclamation-circle"></i>
+          </div>
+          <div>
+            <strong>Presentar quejas</strong>
+            <p>Ante la Superintendencia de Industria y Comercio por infracciones a la ley.</p>
+          </div>
+        </div>
+        <div class="privacidad-derecho">
+          <div class="privacidad-derecho__icono">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div>
+            <strong>No ser objeto de decisiones automatizadas</strong>
+            <p>Derecho a no ser perfilado únicamente con base en tratamiento automatizado de datos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 3. Uso de cookies -->
+  <article class="privacidad-seccion">
+    <div class="privacidad-seccion__icono privacidad-seccion__icono--amarillo">
+      <i class="fas fa-cookie-bite"></i>
+    </div>
+    <div class="privacidad-seccion__contenido">
+      <h2>Uso de cookies</h2>
+      <p>
+        Nuestro sitio web emplea cookies para identificar las páginas visitadas
+        y su frecuencia. Esta información se usa exclusivamente para análisis
+        estadístico y se elimina de forma permanente después.
+      </p>
+      <div class="privacidad-destacado privacidad-destacado--amarillo">
+        <i class="fas fa-info-circle"></i>
+        <p>
+          Las cookies <strong>no dan acceso a información de tu equipo ni a
+          datos personales</strong> a menos que tú los proporciones directamente.
+          Podés aceptar, negar o configurar su uso desde tu navegador en cualquier momento.
+        </p>
+      </div>
+      <a href="politica-cookies.html" class="privacidad-link-btn">
+        <i class="fas fa-arrow-right"></i> Ver política de cookies completa
+      </a>
+    </div>
+  </article>
+
+  <!-- 4. Enlaces a terceros -->
+  <article class="privacidad-seccion">
+    <div class="privacidad-seccion__icono privacidad-seccion__icono--morado">
+      <i class="fas fa-external-link-alt"></i>
+    </div>
+    <div class="privacidad-seccion__contenido">
+      <h2>Enlaces a terceros</h2>
+      <p>
+        Este sitio web puede contener enlaces a otros sitios de tu interés.
+        Una vez que abandonás nuestra página haciendo clic en esos enlaces,
+        <strong>ya no tenemos control</strong> sobre el sitio al que serás redirigido.
+      </p>
+      <div class="privacidad-destacado privacidad-destacado--rojo">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>
+          Viboral Telecomunicaciones <strong>no es responsable</strong> de los términos,
+          privacidad ni protección de datos en sitios de terceros. Te recomendamos
+          consultar sus políticas de privacidad antes de proporcionar cualquier dato.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 5. Control de tu información -->
+  <article class="privacidad-seccion">
+    <div class="privacidad-seccion__icono privacidad-seccion__icono--teal">
+      <i class="fas fa-sliders-h"></i>
+    </div>
+    <div class="privacidad-seccion__contenido">
+      <h2>Control de tu información personal</h2>
+      <p>
+        En cualquier momento puedes restringir la recopilación o uso de tu
+        información personal:
+      </p>
+
+      <ul class="privacidad-lista">
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Al rellenar formularios puedes marcar o desmarcar la opción de recibir
+          información por correo electrónico.
+        </li>
+        <li>
+          <i class="fas fa-check-circle"></i>
+          Si te suscribiste a nuestro boletín o publicidad, puedes cancelarlo
+          en cualquier momento escribiéndonos.
+        </li>
+        <li>
+          <i class="fas fa-check-circle"></i>
+          <strong>Viboral Telecomunicaciones no venderá, cederá ni distribuirá
+          tu información personal</strong> sin tu consentimiento, salvo requerimiento
+          judicial expreso.
+        </li>
+      </ul>
+
+      <div class="privacidad-destacado privacidad-destacado--verde">
+        <i class="fas fa-shield-alt"></i>
+        <p>
+          Para ejercer cualquiera de tus derechos, contáctanos en nuestra oficina:
+          <strong>Carrera 30 #29-24, El Carmen de Viboral, Antioquia</strong> en
+          horario Lun–Jue 8:00am–12:00m / 1:30pm–5:30pm· Vie 7:45am–12:00m / 1:30pm–5:30pm.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 6. Cambios en la política -->
+  <article class="privacidad-seccion">
+    <div class="privacidad-seccion__icono privacidad-seccion__icono--gris">
+      <i class="fas fa-sync-alt"></i>
+    </div>
+    <div class="privacidad-seccion__contenido">
+      <h2>Modificaciones a esta política</h2>
+      <p>
+        Viboral Telecomunicaciones se reserva el derecho de cambiar los términos
+        de la presente Política de Privacidad en cualquier momento para adaptarse
+        a novedades normativas o cambios en nuestras actividades.
+      </p>
+      <p>
+        La versión vigente será siempre la publicada en este sitio web. Te
+        recomendamos consultarla periódicamente.
+      </p>
+    </div>
+  </article>
+
+  <!-- ════ LINKS LEGALES ════ -->
+  <div class="cookies-footer-links">
+    <a href="politica-cookies.html">
+      <i class="fas fa-cookie-bite"></i> Política de cookies
+    </a>
+    <a href="derechos-asociados.html">
+      <i class="fas fa-file-alt"></i> Derechos del Asociado
+    </a>
+    <a href="norma-estatutaria.html">
+      <i class="fas fa-landmark"></i> Norma Estatutaria
+    </a>
+  </div>
+
+</main>
+    
+
+    <footer class="footer-futurista">
+  <div class="contenedor-footer">
+
+    <!-- LOGO -->
+    <div class="logo-footer">
+      <a href="/">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+      <p class="footer-slogan">Conectando comunidades desde 1998</p>
+    </div>
+
+    <!-- REDES -->
+    <div class="redes-footer">
+      <h3 class="titulo-footer">Conéctate con nosotros</h3>
+      <div class="redes-sociales">
+        <a href="#" class="icon facebook" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="icon instagram" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze" aria-label="Waze">
+          <i class="fab fa-waze"></i>
+        </a>
+        <a href="mailto:soporte@viboraltelecomunicaciones.com" class="icon correo" aria-label="Correo electrónico">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- LINKS LEGALES -->
+    <div class="documentos-legales">
+      <h3 class="titulo-legales">Documentos legales</h3>
+      <div class="links-legales">
+        <a href="derechos-asociados.html">
+          <i class="fas fa-file-alt"></i> Derechos del Asociado
+        </a>
+        <a href="politica-cookies.html">
+          <i class="fas fa-cookie-bite"></i> Política de cookies
+        </a>
+        <a href="https://drive.google.com/file/d/1WF9erkJQymyCbJkmMbb72_KifQlKXpEI/view?usp=drive_link" target="_blank" rel="noopener">
+          <i class="fas fa-landmark"></i> Norma Estatutaria
+        </a>
+        <a href="politicadatos.html">
+          <i class="fas fa-shield-alt"></i> Política de privacidad
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="copyright">
+    Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
+  </div>
+</footer>
+<div class="wa-widget">
+  
+  
+  <div class="wa-burbuja" id="waBurbuja">
+    <p class="wa-burbuja-nombre">Viboral Telecomunicaciones</p>
+    <p class="wa-burbuja-texto">¡Hola! 👋 ¿En qué podemos ayudarte?</p>
+    <p class="wa-burbuja-hora">En línea</p>
+  </div>
+
+ 
+  <div class="wa-btn-wrap">
+    <div class="wa-pulse"></div>
+    <a 
+      class="wa-btn"
+      id="waBtn"
+      href="https://wa.me/573147258728?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.81A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm6.406 16.594c-.27.757-1.578 1.445-2.156 1.528-.547.078-1.234.11-1.992-.125a18.3 18.3 0 01-1.804-.668c-3.17-1.37-5.24-4.57-5.398-4.781-.156-.211-1.273-1.695-1.273-3.234 0-1.54.805-2.297 1.09-2.61.285-.312.621-.39.828-.39.207 0 .414.002.594.01.191.008.449-.072.703.537.262.625.89 2.164.969 2.32.078.157.13.34.026.547-.103.207-.156.336-.312.516-.156.18-.328.402-.469.54-.156.155-.32.324-.137.634.183.31.812 1.34 1.742 2.171 1.195 1.066 2.203 1.395 2.516 1.55.312.157.496.133.679-.078.183-.211.781-.914 1.992-1.125.156-.027.527.035.996.234l2.07.922c.39.172.742.289.85.55.105.263-.163 1.015-.434 1.772z"/>
+      </svg>
+      <span class="wa-badge">1</span>
+    </a>
+  </div>
+
+    <script src="build/js/bundle.min.js"></script>
+  </body>
+</html>

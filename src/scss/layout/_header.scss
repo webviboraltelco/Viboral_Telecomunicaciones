@@ -1,0 +1,288 @@
+// ─── Header ───────────────────────────────────────────────────────
+.header {
+  background-color: $header-fondo;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba($blanco, .08);
+
+  &.inicio {
+    background-image: url("../img/header.jpeg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
+
+    // ✅ Altura correcta en todos los dispositivos
+    min-height: 35rem;
+
+    @include tablet  { min-height: 50rem; }
+    @include desktop { min-height: 55rem; }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba($negro, .72) 0%,
+        rgba($negro, .20) 55%,
+        rgba($negro, .00) 100%
+      );
+      z-index: 0;
+    }
+  }
+}
+
+.contenido-header {
+  position: relative;
+  z-index: 1;
+}
+
+// ─── Barra ────────────────────────────────────────────────────────
+.barra {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  // ✅ Padding reducido en móvil, normal en tablet+
+  padding: .6rem 0;
+
+  @include tablet  { padding: 1.2rem 0; }
+  @include desktop { padding: 1.6rem 0; }
+
+  gap: 1rem;
+
+  &__logo {
+    flex-shrink: 0;
+    display: block;
+    line-height: 0;
+
+    img {
+      width: 9rem;
+      height: auto;
+      display: block;
+      animation: logoEntrada 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
+
+      @include telefono { width: 10rem; }
+      @include tablet   { width: 14rem; }
+      @include desktop  { width: 17rem; }
+
+      &:hover {
+        animation: logoPulse 1.5s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+// ─── Acciones: dark mode + hamburguesa ───────────────────────────
+.barra__acciones {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-shrink: 0;
+}
+
+// ─── Dark mode ────────────────────────────────────────────────────
+.dark-mode-boton {
+  background: rgba($blanco, .1);
+  border: 1px solid rgba($blanco, .25);
+  border-radius: .6rem;
+  padding: .5rem .6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s ease;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    filter: invert(100%);
+    display: block;
+    transition: transform .4s ease;
+  }
+
+  &:hover {
+    background: rgba($blanco, .2);
+    img { transform: rotate(25deg); }
+  }
+}
+
+// ─── Hamburguesa ──────────────────────────────────────────────────
+.mobile-menu {
+  background: rgba($blanco, .1);
+  border: 1px solid rgba($blanco, .25);
+  border-radius: .6rem;
+  padding: .6rem .8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s ease;
+
+  &:hover { background: rgba($blanco, .2); }
+
+  @include tablet { display: none; }
+}
+
+.hamburguesa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 20px;
+  height: 16px;
+
+  span {
+    display: block;
+    height: 2px;
+    background: $blanco;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease, width .3s ease;
+
+    &:nth-child(3) { width: 13px; }
+  }
+}
+
+.mobile-menu.activo .hamburguesa {
+  span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 20px; }
+}
+
+// ─── Navegación ───────────────────────────────────────────────────
+.navegacion {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba($negro, .97);
+  border-top: 1px solid rgba($blanco, .08);
+  padding: .8rem 0;
+  z-index: 50;
+
+  &.mostrar {
+    display: flex;
+    flex-direction: column;
+    animation: navDeslizar .3s ease forwards;
+  }
+
+  @include tablet {
+    display: flex !important;
+    position: static;
+    width: auto;
+    background: transparent;
+    border-top: none;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: .2rem;
+    flex: 1;
+    justify-content: flex-end;
+    animation: none !important;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    color: rgba($blanco, .88);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: $bold;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: 1.4rem 2.4rem;
+    border-bottom: 1px solid rgba($blanco, .06);
+    transition: color .2s ease, background-color .2s ease, padding-left .2s ease;
+
+    i {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      opacity: .65;
+    }
+
+    &:hover {
+      color: $amarillo;
+      background: rgba($blanco, .05);
+      padding-left: 3.2rem;
+      i { opacity: 1; }
+    }
+
+    @include tablet {
+      padding: .6rem .9rem;
+      border-bottom: none;
+      border-radius: .6rem;
+      font-size: 1.35rem;
+
+      i    { display: none; }
+      span { display: inline; }
+
+      &:hover {
+        color: $amarillo;
+        background: rgba($amarillo, .1);
+        padding-left: .9rem;
+      }
+    }
+
+    @include desktop {
+      font-size: 1.4rem;
+      padding: .7rem 1rem;
+    }
+  }
+}
+
+@keyframes navDeslizar {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Botón Oficina Virtual ────────────────────────────────────────
+.nav-btn-oficina {
+  background: $amarillo !important;
+  color: $negro !important;
+  border-bottom: none !important;
+  border-radius: .8rem !important;
+  margin: .8rem 1.6rem !important;
+  padding: 1rem 1.6rem !important;
+  justify-content: center !important;
+
+  i {
+    display: flex !important;
+    opacity: 1 !important;
+    color: $negro !important;
+  }
+
+  &:hover {
+    background: #c47608 !important;
+    color: $negro !important;
+    padding-left: 1.6rem !important;
+    transform: translateY(-2px);
+  }
+
+  @include tablet {
+    margin: 0 0 0 .6rem !important;
+    padding: .7rem 1.2rem !important;
+
+    i    { display: flex !important; }
+    span { display: inline !important; }
+  }
+}
+
+@keyframes logoEntrada {
+  0%   { opacity: 0; transform: translateY(20px) scale(.85); filter: blur(6px); }
+  60%  { opacity: 1; filter: blur(0px); transform: translateY(-4px) scale(1.03); }
+  80%  { transform: translateY(2px) scale(.99); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1);    filter: brightness(1); }
+  50%       { transform: scale(1.06); filter: brightness(1.15); }
+}

@@ -1,0 +1,473 @@
+// archivo: src/scss/components/_cookie-banner.scss
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111827;
+  border-top: 3px solid $amarillo;
+  padding: 1.6rem 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  z-index: 9999;
+
+  // Animación de entrada desde abajo
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.visible {
+    transform: translateY(0);
+  }
+
+  &.oculto {
+    transform: translateY(100%);
+  }
+}
+
+.cookie-contenido {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex: 1;
+  min-width: 24rem;
+}
+
+.cookie-icono {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.cookie-titulo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $amarillo;
+  margin: 0 0 .4rem;
+}
+
+.cookie-descripcion {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cookie-acciones {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+// Base compartida
+.cookie-btn {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: .6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &--rechazar {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.7);
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      color: $blanco;
+    }
+  }
+
+  &--aceptar {
+    background: $amarillo;
+    border: none;
+    color: $negro;
+
+    &:hover {
+      background: darken($amarillo, 10%);
+    }
+  }
+}
+// archivo: scss/layout/_cookies.scss
+
+// ─── Variables ────────────────────────────────────────────────────
+$ck-verde-bg:    #eef7d6;
+$ck-verde-txt:   #3d6100;
+$ck-azul-bg:     #e3edf9;
+$ck-azul-txt:    #1565C0;
+$ck-morado-bg:   #EEEDFE;
+$ck-morado-txt:  #26215C;
+$ck-naranja-bg:  #faeeda;
+$ck-naranja-txt: #633806;
+$ck-rojo-bg:     #fdecea;
+$ck-rojo-txt:    #7f1d1d;
+$ck-teal-bg:     #E1F5EE;
+$ck-teal-txt:    #04342C;
+$ck-gris-bg:     #F1EFE8;
+$ck-gris-txt:    #2C2C2A;
+$ck-sombra:      0 4px 20px rgba(0, 0, 0, .07);
+$ck-radio:       1.2rem;
+
+// ─── Hero ─────────────────────────────────────────────────────────
+.cookies-hero {
+  text-align: center;
+  padding: $separacion 0;
+  border-bottom: 1px solid $gris;
+  margin-bottom: $separacion;
+
+  &__icono {
+    width: 8rem;
+    height: 8rem;
+    background: $ck-naranja-bg;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+
+    i {
+      font-size: 3.4rem;
+      color: $amarillo;
+    }
+  }
+
+  &__intro {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: lighten($grisOscuro, 20%);
+    max-width: 72rem;
+    margin: 0 auto 1.6rem;
+    padding: 0;
+
+    strong { color: $grisOscuro; }
+  }
+
+  &__fecha {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: 1.3rem;
+    color: lighten($grisOscuro, 35%);
+    font-weight: $bold;
+
+    i { color: $verde; font-size: 1.2rem; }
+  }
+}
+
+// ─── Sección individual ───────────────────────────────────────────
+.cookies-seccion {
+  display: grid;
+  gap: 2.4rem;
+  align-items: start;
+  margin-bottom: $separacion;
+  padding-bottom: $separacion;
+  border-bottom: 1px solid $gris;
+
+  @include tablet {
+    grid-template-columns: 6rem 1fr;
+  }
+
+  &:last-of-type { border-bottom: none; }
+
+  // ─── Ícono lateral ──────────────────────
+  &__icono {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    i { font-size: 2.4rem; }
+
+    &--azul    { background: $ck-azul-bg;    i { color: $ck-azul-txt; }    }
+    &--verde   { background: $ck-verde-bg;   i { color: $ck-verde-txt; }   }
+    &--amarillo{ background: $ck-naranja-bg; i { color: $amarillo; }        }
+    &--gris    { background: $ck-gris-bg;    i { color: $ck-gris-txt; }    }
+  }
+
+  // ─── Contenido ───────────────────────────
+  &__contenido {
+    h2 {
+      font-size: 2.2rem;
+      font-weight: $black;
+      text-transform: uppercase;
+      color: $grisOscuro;
+      margin-bottom: 1.2rem;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 4rem;
+        height: 3px;
+        background: $amarillo;
+        border-radius: 2px;
+        margin-top: .6rem;
+      }
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      color: lighten($grisOscuro, 15%);
+      text-align: justify;
+      text-justify: inter-word;
+      padding: 0;
+      margin-bottom: 1.6rem;
+    }
+  }
+}
+
+// ─── Bloque destacado ─────────────────────────────────────────────
+.cookies-destacado {
+  display: flex;
+  gap: 1.4rem;
+  background: $ck-azul-bg;
+  border-left: 4px solid $ck-azul-txt;
+  border-radius: 0 $ck-radio $ck-radio 0;
+  padding: 1.6rem;
+  margin-top: 1.6rem;
+
+  i {
+    font-size: 2rem;
+    color: $ck-azul-txt;
+    flex-shrink: 0;
+    margin-top: .2rem;
+  }
+
+  p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.4rem !important;
+    color: $ck-azul-txt !important;
+
+    strong { color: darken($ck-azul-txt, 10%); }
+  }
+}
+
+// ─── Normas legales ───────────────────────────────────────────────
+.cookies-normas {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cookies-norma {
+  background: $blanco;
+  border: 1px solid $gris;
+  border-radius: $ck-radio;
+  padding: 1.6rem;
+  box-shadow: $ck-sombra;
+
+  &__badge {
+    display: inline-block;
+    background: $verde;
+    color: $blanco;
+    font-size: 1.2rem;
+    font-weight: $black;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: .4rem 1rem;
+    border-radius: .4rem;
+    margin-bottom: .8rem;
+  }
+
+  p {
+    font-size: 1.3rem !important;
+    color: lighten($grisOscuro, 20%) !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+}
+
+// ─── Grid de tipos de cookies ─────────────────────────────────────
+.cookies-tipos-grid {
+  display: grid;
+  gap: 1.6rem;
+  margin-top: 2rem;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cookies-tipo {
+  background: $blanco;
+  border: 1px solid $gris;
+  border-radius: $ck-radio;
+  padding: 2rem;
+  box-shadow: $ck-sombra;
+  transition: transform .2s ease, box-shadow .2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .1);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .8rem;
+    margin-bottom: 1rem;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: $black;
+      color: $grisOscuro;
+      text-transform: uppercase;
+      flex: 1;
+      margin: 0;
+    }
+  }
+
+  p {
+    font-size: 1.4rem !important;
+    line-height: 1.6 !important;
+    color: lighten($grisOscuro, 20%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+
+    strong { color: $grisOscuro; }
+  }
+
+  // Punto de color
+  &__dot {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &--verde   { background: $verde; }
+    &--azul    { background: $ck-azul-txt; }
+    &--morado  { background: #7F77DD; }
+    &--naranja { background: $amarillo; }
+    &--rojo    { background: #E24B4A; }
+    &--teal    { background: #1D9E75; }
+  }
+
+  // Tags
+  &__tag {
+    font-size: 1.1rem;
+    font-weight: $bold;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding: .3rem .8rem;
+    border-radius: 10rem;
+
+    &--siempre {
+      background: $ck-verde-bg;
+      color: $ck-verde-txt;
+    }
+
+    &--opcional {
+      background: $ck-gris-bg;
+      color: $ck-gris-txt;
+    }
+  }
+}
+
+// ─── Botones de navegadores ───────────────────────────────────────
+.cookies-navegadores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.cookies-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  background: $blanco;
+  border: 1.5px solid $gris;
+  border-radius: .8rem;
+  padding: .9rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: $bold;
+  color: $grisOscuro;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, transform .2s ease;
+
+  i { font-size: 1.6rem; }
+
+  &:hover {
+    border-color: $verde;
+    color: $verde;
+    transform: translateY(-2px);
+  }
+}
+
+// ─── Aviso de advertencia ─────────────────────────────────────────
+.cookies-aviso {
+  display: flex;
+  gap: 1.4rem;
+  background: $ck-naranja-bg;
+  border-left: 4px solid $amarillo;
+  border-radius: 0 $ck-radio $ck-radio 0;
+  padding: 1.6rem;
+
+  i {
+    font-size: 2rem;
+    color: $amarillo;
+    flex-shrink: 0;
+    margin-top: .2rem;
+  }
+
+  p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1.4rem !important;
+    color: $ck-naranja-txt !important;
+    line-height: 1.6 !important;
+    text-align: left !important;
+  }
+}
+
+// ─── Links legales al pie ─────────────────────────────────────────
+.cookies-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: $separacion 0;
+  border-top: 1px solid $gris;
+  margin-top: $separacion;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    background: $blanco;
+    border: 1px solid $gris;
+    border-radius: .8rem;
+    padding: .9rem 1.8rem;
+    font-size: 1.4rem;
+    font-weight: $bold;
+    color: $grisOscuro;
+    text-decoration: none;
+    transition: border-color .2s ease, color .2s ease;
+
+    i { font-size: 1.3rem; color: $verde; }
+
+    &:hover {
+      border-color: $verde;
+      color: $verde;
+    }
+  }
+}

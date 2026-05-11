@@ -13,9 +13,7 @@ Thumbs.db
 # Variables de entorno
 .env
 
-# Carpetas de desarrollo — no van al servidor
-src/
-deploy/
+# Archivos de build (si generas carpeta build o dist)
 
 # Archivos temporales
 *.tmp
@@ -27,8 +25,3 @@ deploy/
 
 # Cache
 .cache/
-
-# Archivos de desarrollo
-package.json
-package-lock.json
-gulpfile.js

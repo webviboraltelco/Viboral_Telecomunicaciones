@@ -1,0 +1,34 @@
+@import 'base/normalize';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/globales';
+@import 'base/utilidades';
+@import 'base/botones';
+@import 'base/darkMode';
+
+
+/** UI **/
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/navegacion';
+@import 'layout/iconos';
+@import 'layout/servicios';
+@import 'layout/pagos';
+@import 'layout/inferior';
+@import 'layout/testimoniales';
+@import 'layout/consulta';
+@import 'layout/planes';
+@import 'layout/canal';
+@import 'layout/contacto';
+@import 'layout/docs';
+@import 'layout/cookies';
+@import 'layout/whatsapp';
+@import 'layout/horarios';
+@import 'layout/politica-datos';
+@import 'layout/derechos-asociados';
+
+
+
+/** Páginas Internas **/
+@import 'internas/nosotros';

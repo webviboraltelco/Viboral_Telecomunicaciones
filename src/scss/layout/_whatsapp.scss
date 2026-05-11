@@ -1,0 +1,111 @@
+
+.wa-widget {
+  position: fixed;
+  bottom: 2.4rem;
+  left: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  z-index: 9998; 
+}
+
+.wa-burbuja {
+  background: $blanco;
+  border-radius: 1.2rem 1.2rem 1.2rem 0;
+  padding: 1.2rem 1.6rem;
+  max-width: 24rem;
+  transform: scale(0.8);
+  opacity: 0;
+  transform-origin: bottom left;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+
+  &.visible {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.wa-burbuja-nombre {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #25D366;
+  margin: 0 0 .4rem;
+}
+
+.wa-burbuja-texto {
+  font-size: 1.4rem;
+  color: #111;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.wa-burbuja-hora {
+  font-size: 1.1rem;
+  color:$negro;
+  text-align: right;
+  margin: .4rem 0 0;
+}
+
+
+.wa-btn-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+
+.wa-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: waPulso 2s ease-out infinite;
+}
+
+@keyframes waPulso {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+
+.wa-btn {
+  position: relative;
+  width: 5.6rem;
+  height: 5.6rem;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &:hover {
+    background: #1da851;
+    transform: scale(1.08);
+  }
+}
+
+
+.wa-badge {
+  position: absolute;
+  top: -.4rem;
+  right: -.4rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: $amarillo;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $negro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
