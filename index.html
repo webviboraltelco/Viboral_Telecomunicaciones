@@ -1,13 +1,36 @@
 <!doctype html>
 <html lang="en">
 
+<!doctype html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <!-- ─── SEO básico ─────────────────────────────────────── -->
+  <meta name="description" content="Viboral Telecomunicaciones — Internet de alta velocidad y televisión digital en El Carmen de Viboral, Antioquia." />
+  <meta name="theme-color" content="#71B100" />
+
+  <!-- ─── Favicon ───────────────────────────────────────── -->
+  <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
+
+  <!-- ─── Preload imagen hero (LCP) ─────────────────────── -->
+  <link rel="preload" as="image" href="build/img/header.webp" type="image/webp" />
+
+  <!-- ─── CSS propio — carga bloqueante (necesario) ──────── -->
   <link rel="stylesheet" href="build/css/app.css" />
+
+  <!-- ─── Font Awesome — carga diferida ─────────────────── -->
+  <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </noscript>
+
   <title>Viboral Telecomunicaciones</title>
-  <link rel="icon" type="image/x-icon" href="build/img/logo.png">
 </head>
 
 <body>
@@ -736,7 +759,7 @@
   </div>
 </footer>
 
-  <script src="build/js/bundle.min.js"></script>
+  <script defer src="build/js/bundle.min.js"></script>
 
 
   <div class="cookie-banner" id="cookieBanner">

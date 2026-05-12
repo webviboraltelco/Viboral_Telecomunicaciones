@@ -1,3 +1,6 @@
+
+$header-fondo: rgba(0, 0, 0, .82);
+
 // ─── Header ───────────────────────────────────────────────────────
 .header {
   background-color: $header-fondo;
@@ -16,7 +19,6 @@
     background-attachment: scroll;
     position: relative;
 
-    // ✅ Altura correcta en todos los dispositivos
     min-height: 35rem;
 
     @include tablet  { min-height: 50rem; }
