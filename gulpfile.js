@@ -7,7 +7,7 @@ const cssnano = require('cssnano');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser-js');
 const rename = require('gulp-rename');
-const imagemin = require('gulp-imagemin'); // Minificar imagenes 
+const imagemin = require('gulp-imagemin');
 const notify = require('gulp-notify');
 const cache = require('gulp-cache');
 const clean = require('gulp-clean');
@@ -24,7 +24,6 @@ function css() {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(postcss([autoprefixer(), cssnano()]))
-        // .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
         .pipe(dest('build/css'));
 }
@@ -43,7 +42,7 @@ function imagenes() {
     return src(paths.imagenes)
         .pipe(cache(imagemin({ optimizationLevel: 3 })))
         .pipe(dest('build/img'))
-        .pipe(notify('Imagen Completada' ));
+        .pipe(notify('Imagen Completada'));
 }
 
 function versionWebp() {
@@ -53,6 +52,20 @@ function versionWebp() {
         .pipe(notify({ message: 'Imagen Completada' }));
 }
 
+// ─── Optimizar imágenes que ya están en build/img ─────────────────
+function optimizarBuild() {
+    return src('build/img/**/*.{png,jpg,jpeg}')
+        .pipe(cache(imagemin({ optimizationLevel: 9 })))
+        .pipe(dest('build/img'))
+        .pipe(notify({ message: 'Imagen optimizada' }));
+}
+
+function webpBuild() {
+    return src('build/img/**/*.{png,jpg,jpeg}')
+        .pipe(webp())
+        .pipe(dest('build/img'))
+        .pipe(notify({ message: 'WebP generado' }));
+}
 
 function watchArchivos() {
     watch(paths.scss, css);
@@ -61,6 +74,11 @@ function watchArchivos() {
     watch(paths.imagenes, versionWebp);
 }
 
-exports.css = css;
+exports.css          = css;
+exports.javascript   = javascript;
+exports.imagenes     = imagenes;
+exports.versionWebp  = versionWebp;
+exports.optimizarBuild = optimizarBuild;
+exports.webpBuild    = webpBuild;
 exports.watchArchivos = watchArchivos;
-exports.default = parallel(css, javascript, imagenes, versionWebp, watchArchivos); 
+exports.default = parallel(css, javascript, imagenes, versionWebp, watchArchivos);
