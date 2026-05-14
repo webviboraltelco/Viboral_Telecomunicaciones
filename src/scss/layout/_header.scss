@@ -9,12 +9,12 @@ $header-fondo: rgba(0, 0, 0, .82);
   z-index: 100;
   border-bottom: 1px solid rgba($blanco, .08);
 
-  // ✅ Clase scrolled — refuerza el color (por si acaso)
+  
   &.scrolled {
     background-color: $header-fondo;
   }
 
-  // ✅ Solo en inicio tiene imagen de fondo
+  
   &.inicio {
     background-image: url("../img/header.webp");
     background-position: center center;
