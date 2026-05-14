@@ -1,8 +1,7 @@
 $header-fondo: rgba(0, 0, 0, .82);
 
 .header {
- background-color: $header-fondo;  // ← este es el color oscuro base
-  backdrop-filter: blur(10px);
+  background-color: $header-fondo; // ← siempre oscuro por defecto
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: sticky;
@@ -10,19 +9,24 @@ $header-fondo: rgba(0, 0, 0, .82);
   z-index: 100;
   border-bottom: 1px solid rgba($blanco, .08);
 
+  // ✅ Clase scrolled — refuerza el color (por si acaso)
+  &.scrolled {
+    background-color: $header-fondo;
+  }
+
+  // ✅ Solo en inicio tiene imagen de fondo
   &.inicio {
-    background-image: url("../img/header.jpeg");
+    background-image: url("../img/header.webp");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
     position: relative;
+    background-color: transparent; // ← en inicio no queremos el fondo oscuro sólido
 
-    // ✅ Altura correcta en todos los dispositivos
-    min-height: 35rem;
-
-    @include tablet  { min-height: 50rem; }
-    @include desktop { min-height: 55rem; }
+    height: 100vh;
+    max-height: 90rem;
+    min-height: 50rem;
 
     &::before {
       content: '';
