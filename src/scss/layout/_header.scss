@@ -1,6 +1,8 @@
-// ─── Header ───────────────────────────────────────────────────────
+$header-fondo: rgba(0, 0, 0, .82);
+
 .header {
-  
+ background-color: $header-fondo;  // ← este es el color oscuro base
+  backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: sticky;

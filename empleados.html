@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Directorio de empleados — Viboral Telecomunicaciones" />
+  <meta name="theme-color" content="#71B100" />
+  <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
+  <link rel="stylesheet" href="build/css/app.css" />
+  <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </noscript>
+  <title>Empleados · Viboral Telecomunicaciones</title>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="contenedor contenido-header">
+    <div class="barra">
+      <a href="/" class="barra__logo">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
+        </a>
+        <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina" target="_blank" rel="noopener">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu"
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════ MAIN ════════════ -->
+<main class="contenedor seccion empleados-page">
+
+  <!-- Encabezado -->
+  <div class="emp-hero">
+    <span class="seccion-label">Nuestro equipo</span>
+    <h1 class="seccion-titulo">Directorio de Empleados</h1>
+    <p class="emp-hero__desc">
+      Cooperativa Multiactiva de Telecomunicaciones &mdash; NIT 811.013.014-1
+    </p>
+  </div>
+
+  <!-- Buscador -->
+  <div class="emp-search-wrap">
+    <i class="fas fa-search emp-search-icon"></i>
+    <input
+      type="text"
+      id="empSearch"
+      class="emp-search"
+      placeholder="Buscar por nombre, cédula o cargo..."
+      autocomplete="off"
+    />
+    <span class="emp-count" id="empCount">45</span>
+  </div>
+
+  <!-- Filtros -->
+  <div class="emp-filters" id="empFilters"></div>
+
+  <!-- Áreas -->
+  <div class="emp-areas" id="empAreas"></div>
+
+</main>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="footer-futurista">
+  <div class="contenedor-footer">
+    <div class="logo-footer">
+      <a href="/"><img src="build/img/logo.png" alt="Viboral Telecomunicaciones" /></a>
+      <p class="footer-slogan">Conectando comunidades desde 1998</p>
+    </div>
+    <div class="redes-footer">
+      <h3 class="titulo-footer">Conéctate con nosotros</h3>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/share/1DzENF9H9H/?mibextid=wwXIfr" class="icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/viboraltelecomunicaciones?igsh=MWo5cnFnZXB3Y25vaA==" class="icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://waze.com/ul?ll=6.0824437,-75.3343036&navigate=yes" class="icon waze" aria-label="Waze"><i class="fab fa-waze"></i></a>
+        <a href="mailto:servicioasociado@viboral.tv" class="icon correo" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="documentos-legales">
+      <h3 class="titulo-legales">Documentos legales</h3>
+      <div class="links-legales">
+        <a href="derechos-asociados.html"><i class="fas fa-file-alt"></i> Normatividad</a>
+        <a href="politica-cookies.html"><i class="fas fa-cookie-bite"></i> Política de cookies</a>
+        <a href="norma-estatutaria.html" target="_blank" rel="noopener"><i class="fas fa-landmark"></i> Norma Estatutaria</a>
+        <a href="politica-datos.html"><i class="fas fa-shield-alt"></i> Política de privacidad</a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
+  </div>
+</footer>
+
+<script defer src="build/js/bundle.min.js"></script>
+
+<!-- ════════════ COOKIE BANNER ════════════ -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-contenido">
+    <span class="cookie-icono">🍪</span>
+    <div class="cookie-texto">
+      <h3 class="cookie-titulo">Usamos cookies</h3>
+      <p class="cookie-descripcion">Utilizamos cookies para mejorar tu experiencia. Puedes aceptarlas o rechazarlas.</p>
+    </div>
+  </div>
+  <div class="cookie-acciones">
+    <button class="cookie-btn cookie-btn--rechazar" id="cookieRechazar">Rechazar</button>
+    <button class="cookie-btn cookie-btn--aceptar" id="cookieAceptar">Aceptar todas</button>
+  </div>
+</div>
+
+<!-- ════════════ JS EMPLEADOS ════════════ -->
+<script>
+(function () {
+  const AREAS = [
+    {
+      nombre: 'Gerencia',
+      color: '#1A3A5C', light: '#EBF2F9',
+      empleados: [
+        { cc: '15435557',   nombre: 'WILLIAM ALBERTO GALINDO MUÑOZ',      cargo: 'GERENTE' },
+      ]
+    },
+    {
+      nombre: 'Administrativo y Contable',
+      color: '#1E5631', light: '#EBF5EE',
+      empleados: [
+        { cc: '1002205752', nombre: 'PATRICIA LOPEZ NARANJO',              cargo: 'SECRETARIA GENERAL' },
+        { cc: '1193033004', nombre: 'KATERINE CASTRO GONZALEZ',            cargo: 'AUXILIAR CONTABLE' },
+        { cc: '43712649',   nombre: 'ELENA GALLO GARCIA',                  cargo: 'OFICIAL DE CUMPLIMIENTO / CARTERA' },
+        { cc: '43467868',   nombre: 'NELSY GARCIA GIRALDO',                cargo: 'COORDINADOR DE SERVICIOS' },
+        { cc: '43466051',   nombre: 'BERTHA NELLY GOMEZ GIRALDO',          cargo: 'COORDINADOR DE SERVICIOS' },
+        { cc: '43711822',   nombre: 'CLAUDIA PATRICIA JARAMILLO QUINTERO', cargo: 'GESTION HUMANA' },
+        { cc: '43467442',   nombre: 'OLGA ESTELLA MORENO BETANCUR',        cargo: 'ASISTENTE ADMINISTRATIVA Y CONTABLE' },
+        { cc: '1036392826', nombre: 'ALEXANDER ZULUAGA RAMIREZ',           cargo: 'AUXILIAR CARTERA' },
+      ]
+    },
+    {
+      nombre: 'Técnico',
+      color: '#6E2F0A', light: '#FDF0E8',
+      empleados: [
+        { cc: '71115035',   nombre: 'JAIME ALONSO GARCIA MORENO',          cargo: 'JEFE TECNICO' },
+        { cc: '15428777',   nombre: 'NEFTALI ARIAS ARIAS',                 cargo: 'TECNICO NIVEL 1' },
+        { cc: '1088284846', nombre: 'ANDRES MAURICIO CADAVID NOREÑA',      cargo: 'TECNICO NIVEL 1' },
+        { cc: '1036400046', nombre: 'JUAN PABLO GARCIA QUINTERO',          cargo: 'TECNICO NIVEL 1' },
+        { cc: '71112570',   nombre: 'JAVIER ALONSO GAVIRIA LOPEZ',         cargo: 'TECNICO NIVEL 1' },
+        { cc: '1036403320', nombre: 'CRISTIAN CAMILO GONZALEZ OSORIO',     cargo: 'TECNICO NIVEL 1' },
+        { cc: '71296117',   nombre: 'RIGOBERTO HOYOS SOTO',                cargo: 'TECNICO NIVEL 1' },
+        { cc: '1036924882', nombre: 'REINEL ANTONIO QUINTERO QUINTERO',    cargo: 'TECNICO NIVEL 1' },
+        { cc: '1036394344', nombre: 'JOSE JESUS ARANGO MONTOYA',           cargo: 'AUXILIAR TECNICO' },
+        { cc: '71118855',   nombre: 'REINALDO DE J CARDONA CARDONA',       cargo: 'AUXILIAR TECNICO' },
+        { cc: '71117640',   nombre: 'JOSE FERNEY GONZALEZ OSORIO',         cargo: 'AUXILIAR TECNICO' },
+        { cc: '1040031180', nombre: 'SEBASTIAN LOPERA JIMENEZ',            cargo: 'AUXILIAR TECNICO' },
+        { cc: '1036402749', nombre: 'RAFAEL ALBERTO SOTO ACOSTA',          cargo: 'AUXILIAR TECNICO' },
+        { cc: '71116563',   nombre: 'WILTON RENE ALZATE LOPEZ',            cargo: 'MENSAJERO - CONDUCTOR' },
+      ]
+    },
+    {
+      nombre: 'Producción y Canal',
+      color: '#4A235A', light: '#F5EBF9',
+      empleados: [
+        { cc: '15445958',   nombre: 'JUAN FELIPE VALENCIA LOPEZ',          cargo: 'COORDINADOR GENERAL DE PRODUCCIÓN' },
+        { cc: '15436350',   nombre: 'LIOMAR ANTONIO LLANO PAVAS',          cargo: 'DIRECTOR NOTICIAS - PRESENTADOR' },
+        { cc: '71728895',   nombre: 'DONOVAN DE J BOTERO CARRASQUILLA',    cargo: 'EDITOR PROGRAMADOR' },
+        { cc: '71267282',   nombre: 'HERNAN DARIO CARDONA VANEGAS',        cargo: 'EDITOR PROGRAMADOR' },
+        { cc: '1036393663', nombre: 'JAIRO ANDRES GIRALDO GOMEZ',          cargo: 'EDITOR PROGRAMADOR' },
+        { cc: '1022409428', nombre: 'DAVID ESTEBAN RAMIREZ ACOSTA',        cargo: 'EDITOR PROGRAMADOR' },
+        { cc: '1001138728', nombre: 'JUAN MANUEL GONZALEZ RENDON',         cargo: 'CAMARÓGRAFO PROGRAMADOR' },
+        { cc: '1118829654', nombre: 'JUAN DAVID GUERRERO NARANJO',         cargo: 'CAMARÓGRAFO PROGRAMADOR' },
+        { cc: '1000413799', nombre: 'MARIA JOSE VARGAS TABORDA',           cargo: 'CAMARÓGRAFO PROGRAMADOR' },
+        { cc: '71118890',   nombre: 'JUAN CARLOS ZULUAGA MARTINEZ',        cargo: 'CAMARÓGRAFO PROGRAMADOR' },
+        { cc: '1036961569', nombre: 'JULIANA MEDINA CASTRO',               cargo: 'PRESENTADOR REALIZADOR' },
+        { cc: '1047970858', nombre: 'MONICA OROZCO OCAMPO',                cargo: 'PRESENTADOR REALIZADOR' },
+        { cc: '71113775',   nombre: 'NICOLAS HERNAN QUINTERO QUINTERO',    cargo: 'PRESENTADOR REALIZADOR' },
+        { cc: '71112370',   nombre: 'JULIO CESAR QUINTERO VALENCIA',       cargo: 'PRESENTADOR REALIZADOR' },
+        { cc: '71118673',   nombre: 'DANIEL ALEJANDRO QUINTERO ZULUAGA',   cargo: 'PRESENTADOR REALIZADOR' },
+        { cc: '71114041',   nombre: 'JOHN FLAVIO VARGAS RESTREPO',         cargo: 'PRESENTADOR REALIZADOR' },
+      ]
+    },
+    {
+      nombre: 'Servicio al Asociado',
+      color: '#17607A', light: '#E8F5F9',
+      empleados: [
+        { cc: '1018226331', nombre: 'ANA MARIA CHICA PATIÑO',              cargo: 'SERVICIO AL ASOCIADO' },
+        { cc: '1036397043', nombre: 'CAROLINA GIRALDO NARVAEZ',            cargo: 'SERVICIO AL ASOCIADO' },
+        { cc: '4173703',    nombre: 'ELSIBETH FRANCO MOLINA',              cargo: 'SERVICIOS GENERALES' },
+      ]
+    },
+    {
+      nombre: 'Digital y Tecnología',
+      color: '#154360', light: '#EBF3FB',
+      empleados: [
+        { cc: '1036399377', nombre: 'JUAN SEBASTIAN RUIZ LOAIZA',          cargo: 'DESARROLLADOR MEDIOS DIGITALES' },
+      ]
+    },
+    {
+      nombre: 'Aprendices',
+      color: '#5D4E00', light: '#FDFAEB',
+      empleados: [
+        { cc: '1007108982', nombre: 'MARIA CELESTE BEDOYA LOPEZ',          cargo: 'APRENDIZ' },
+        { cc: '1040873342', nombre: 'JEANPIER CASTAÑO VARGAS',             cargo: 'APRENDIZ' },
+      ]
+    }
+  ];
+
+  const filtersEl = document.getElementById('empFilters');
+  const areasEl   = document.getElementById('empAreas');
+  const searchEl  = document.getElementById('empSearch');
+  const countEl   = document.getElementById('empCount');
+
+  let areaActiva = 'Todos';
+
+  // ── Filtros ──────────────────────────────────────────────
+  ['Todos', ...AREAS.map(a => a.nombre)].forEach(nombre => {
+    const btn = document.createElement('button');
+    btn.className = 'emp-filter-btn' + (nombre === 'Todos' ? ' activo' : '');
+    btn.textContent = nombre;
+    btn.addEventListener('click', () => {
+      areaActiva = nombre;
+      document.querySelectorAll('.emp-filter-btn').forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+      render();
+    });
+    filtersEl.appendChild(btn);
+  });
+
+  // ── Render ───────────────────────────────────────────────
+  function render() {
+    const q = searchEl.value.toLowerCase().trim();
+    areasEl.innerHTML = '';
+    let total = 0;
+
+    AREAS.forEach(area => {
+      if (areaActiva !== 'Todos' && area.nombre !== areaActiva) return;
+
+      const filtrados = area.empleados.filter(e =>
+        !q ||
+        e.nombre.toLowerCase().includes(q) ||
+        e.cc.includes(q) ||
+        e.cargo.toLowerCase().includes(q)
+      );
+      if (!filtrados.length) return;
+      total += filtrados.length;
+
+      const block = document.createElement('div');
+      block.className = 'emp-block';
+
+      const header = document.createElement('div');
+      header.className = 'emp-block__header';
+      header.style.background = area.light;
+      header.style.color = area.color;
+      header.style.borderLeft = `4px solid ${area.color}`;
+      header.innerHTML = `
+        <div class="emp-block__titulo">
+          <span class="emp-block__dot" style="background:${area.color}"></span>
+          <span class="emp-block__nombre">${area.nombre}</span>
+        </div>
+        <div class="emp-block__meta">
+          <span class="emp-block__badge">${filtrados.length} empleado${filtrados.length !== 1 ? 's' : ''}</span>
+          <span class="emp-block__chevron">▾</span>
+        </div>`;
+      header.addEventListener('click', () => block.classList.toggle('colapsado'));
+
+      const tableWrap = document.createElement('div');
+      tableWrap.className = 'emp-table-wrap';
+      tableWrap.innerHTML = `
+        <table class="emp-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cédula</th>
+              <th>Nombre Completo</th>
+              <th>Cargo</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${filtrados.map((e, i) => `
+              <tr>
+                <td class="emp-td-idx">${i + 1}</td>
+                <td class="emp-td-cc">${e.cc}</td>
+                <td class="emp-td-nombre">${e.nombre}</td>
+                <td class="emp-td-cargo">${e.cargo}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>`;
+
+      block.appendChild(header);
+      block.appendChild(tableWrap);
+      areasEl.appendChild(block);
+    });
+
+    if (!areasEl.children.length) {
+      areasEl.innerHTML = `<p class="emp-sin-resultados">
+        No se encontraron resultados para "<strong>${searchEl.value}</strong>"
+      </p>`;
+    }
+    countEl.textContent = total;
+  }
+
+  searchEl.addEventListener('input', render);
+  render();
+})();
+</script>
+
+</body>
+</html>
