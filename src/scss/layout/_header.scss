@@ -26,9 +26,15 @@ $header-fondo: rgba(0, 0, 0, .82);
 
   position: relative;
   background-color: transparent;
-  height: 100vh;
-  max-height: 90rem;
-  min-height: 50rem;
+  min-height: 17rem;
+
+  @include tablet {
+    min-height: 30rem;
+  }
+
+  @include desktop {
+    min-height: 55rem;
+  }
 
   &::before {
     content: '';
