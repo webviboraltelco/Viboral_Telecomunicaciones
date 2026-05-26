@@ -1,55 +1,70 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="description" content="Viboral Telecomunicaciones — Internet de alta velocidad y televisión digital en El Carmen de Viboral, Antioquia." />
+  <meta name="theme-color" content="#71B100" />
+  <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
+  <link rel="preload" as="image" href="build/img/header.webp" type="image/webp" />
   <link rel="stylesheet" href="build/css/app.css?v=2" />
+  <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </noscript>
   <title>Viboral Telecomunicaciones</title>
-  <link rel="icon" type="image/x-icon" href="build/img/logo.png">
 </head>
 
 <body>
- <header class="header inicio" id="header">  
-  <img src="build/img/header.jpeg" alt="" class="header__bg-img" aria-hidden="true" fetchpriority="high" />
-  <div class="contenedor contenido-header">
+ <header class="header inicio" id="header">
 
+  <img
+    src="build/img/header.webp"
+    alt=""
+    class="header__bg-img"
+    aria-hidden="true"
+    fetchpriority="high"
+  />
+
+  <div class="contenedor contenido-header">
     <div class="barra">
 
-  <a href="/" class="barra__logo">
-    <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
-  </a>
+      <a href="/" class="barra__logo">
+        <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+      </a>
 
-  <nav class="navegacion" id="navegacion">
-    <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
-    <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
-    <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
-    <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
-    <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
-      <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
-    </a>
-    <a href="#" class="nav-btn-oficina">
-      <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
-    </a>
-  </nav>
+      <nav class="navegacion" id="navegacion">
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/">
+          <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
+        </a>
+        <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
 
-  <!-- ✅ dark mode SIEMPRE visible, hamburguesa solo en móvil -->
-  <div class="barra__acciones">
-    <button class="dark-mode-boton" aria-label="Modo oscuro">
-      <img src="build/img/dark.png" alt="Modo oscuro" />
-    </button>
-    <button class="mobile-menu" id="mobileMenu"
-            aria-label="Abrir menú" aria-expanded="false">
-      <span class="hamburguesa">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </button>
-  </div>
+      <div class="barra__acciones">
+        <button class="dark-mode-boton" aria-label="Modo oscuro">
+          <img src="build/img/dark.png" alt="Modo oscuro" />
+        </button>
+        <button class="mobile-menu" id="mobileMenu"
+                aria-label="Abrir menú" aria-expanded="false">
+          <span class="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
 
-</div>
+    </div>
   </div>
 </header>                 
 
@@ -737,7 +752,7 @@
   </div>
 </footer>
 
-  <script src="build/js/bundle.min.js"></script>
+  <script defer src="build/js/bundle.min.js"></script>
 
 
   <div class="cookie-banner" id="cookieBanner">
