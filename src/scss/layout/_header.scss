@@ -299,6 +299,14 @@ $header-fondo: rgba(0, 0, 0, .82);
   }
 }
 
+
+.header.inicio .contenedor {
+  padding-left: 2rem;
+
+  @include tablet  { padding-left: 3rem; }
+  @include desktop { padding-left: 4rem; }
+}
+
 // ─── Keyframes ────────────────────────────────────────────────────
 @keyframes navDeslizar {
   from { opacity: 0; transform: translateY(-8px); }
