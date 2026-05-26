@@ -1,7 +1,10 @@
+// archivo: src/scss/layout/_header.scss
+
 $header-fondo: rgba(0, 0, 0, .82);
 
+// ─── Header principal ─────────────────────────────────────────────
 .header {
-  background-color: $header-fondo; // ← siempre oscuro por defecto
+  background-color: $header-fondo;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: sticky;
@@ -9,43 +12,62 @@ $header-fondo: rgba(0, 0, 0, .82);
   z-index: 100;
   border-bottom: 1px solid rgba($blanco, .08);
 
-  
   &.scrolled {
     background-color: $header-fondo;
   }
 
-  
-  &.inicio {
-    background-image: url("../img/header.webp");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    position: relative;
-    background-color: transparent; // ← en inicio no queremos el fondo oscuro sólido
+  // ─── Modo hero (página de inicio) ─────────────────────────────
+ &.inicio {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-image: none;
+  background-position: center center;
 
-    height: 100vh;
-    max-height: 90rem;
-    min-height: 50rem;
+  position: relative;
+  background-color: transparent;
+  height: 100vh;
+  max-height: 90rem;
+  min-height: 50rem;
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba($negro, .72) 0%,
-        rgba($negro, .20) 55%,
-        rgba($negro, .00) 100%
-      );
-      z-index: 0;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba($negro, .72) 0%,
+      rgba($negro, .20) 55%,
+      rgba($negro, .00) 100%
+    );
+    z-index: 0;
+  }
+}
+}
+
+.header__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+
+  @include tablet {
+    object-position: center center;
+  }
+
+  @include desktop {
+    object-position: 20% center;
   }
 }
 
+// ─── Contenido del header (nav) — encima de todo ──────────────────
 .contenido-header {
   position: relative;
-  z-index: 1;
+  z-index: 2; // ← encima del gradiente (z-index: 1) y la imagen (z-index: 0)
 }
 
 // ─── Barra ────────────────────────────────────────────────────────
@@ -54,14 +76,11 @@ $header-fondo: rgba(0, 0, 0, .82);
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  // ✅ Padding reducido en móvil, normal en tablet+
   padding: .6rem 0;
+  gap: 1rem;
 
   @include tablet  { padding: 1.2rem 0; }
   @include desktop { padding: 1.6rem 0; }
-
-  gap: 1rem;
 
   &__logo {
     flex-shrink: 0;
@@ -78,9 +97,7 @@ $header-fondo: rgba(0, 0, 0, .82);
       @include tablet   { width: 14rem; }
       @include desktop  { width: 17rem; }
 
-      &:hover {
-        animation: logoPulse 1.5s ease-in-out infinite;
-      }
+      &:hover { animation: logoPulse 1.5s ease-in-out infinite; }
     }
   }
 }
@@ -244,11 +261,6 @@ $header-fondo: rgba(0, 0, 0, .82);
   }
 }
 
-@keyframes navDeslizar {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 // ─── Botón Oficina Virtual ────────────────────────────────────────
 .nav-btn-oficina {
   background: $amarillo !important;
@@ -279,6 +291,12 @@ $header-fondo: rgba(0, 0, 0, .82);
     i    { display: flex !important; }
     span { display: inline !important; }
   }
+}
+
+// ─── Keyframes ────────────────────────────────────────────────────
+@keyframes navDeslizar {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes logoEntrada {
