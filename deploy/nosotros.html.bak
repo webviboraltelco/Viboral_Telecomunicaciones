@@ -8,12 +8,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="build/css/app.css?v=2" />
-    <title>Nosotros · Viboral Telecomunicaciones</title>
-<meta name="description" content="Conocé nuestra historia, misión, visión y valores cooperativos. Más de 25 años conectando El Carmen de Viboral." />
+    <title>Viboral Telecomunicaciones</title>
     <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
   </head>
   <body>
- <header class="header scrolled" id="header"> 
+  <header class="header " id="header">  
   <div class="contenedor contenido">
 
     <div class="barra">
@@ -25,17 +24,18 @@
 
       <!-- ✅ Nav DENTRO de .barra para que esté en la misma fila -->
       <nav class="navegacion" id="navegacion">
-  <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
-  <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
-  <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
-  <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
-  <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
-    <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
-  </a>
-  <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina">
-      <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
-    </a>
-</nav>
+        <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+        <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+        <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
+          <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
+
+        </a>
+        <a href="#" class="nav-btn-oficina">
+          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+        </a>
+      </nav>
 
       <!-- Acciones: solo visibles en móvil -->
       <div class="barra__acciones">
@@ -415,10 +415,6 @@
   <!-- COPYRIGHT -->
   <div class="copyright">
     Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
-    <span class="creador-sitio">
-      · Creado y desarrollado por
-      <a href="https://cv-sebastian-mu.vercel.app/" target="_blank" rel="noopener">js.dev</a>
-    </span>
   </div>
 </footer>
 <div class="wa-widget">
@@ -447,6 +443,6 @@
       <span class="wa-badge">1</span>
     </a>
   </div>
-      <script defer src="build/js/bundle.min.js"></script>
+    <script src="build/js/bundle.min.js"></script>
   </body>
 </html>

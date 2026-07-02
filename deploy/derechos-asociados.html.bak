@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
   </head>
   <body>
-  <header class="header scrolled" id="header">  
+  <header class="header " id="header">  
   <div class="contenedor contenido">
 
     <div class="barra">
@@ -32,9 +32,9 @@
           <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
 
         </a>
-        <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina">
+        <a href="#" class="nav-btn-oficina">
           <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
-         </a>
+        </a>
       </nav>
 
       <!-- Acciones: solo visibles en móvil -->
@@ -457,10 +457,6 @@
   <!-- COPYRIGHT -->
   <div class="copyright">
     Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
-    <span class="creador-sitio">
-      · Creado y desarrollado por
-      <a href="https://cv-sebastian-mu.vercel.app/" target="_blank" rel="noopener">js.dev</a>
-    </span>
   </div>
 </footer>
 

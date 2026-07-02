@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="build/css/app.css?v=2" />
-    <title>Viboral Telecomunicaciones </title>
+    <title>Contáctanos · Viboral Telecomunicaciones</title>
+    <meta name="description" content="Contactá a Viboral Telecomunicaciones. Formulario PQRS, WhatsApp, correo y dirección de nuestras oficinas." />
    <link rel="icon" type="image/x-icon" href="build/img/logo.png">
 
   </head>
   <body>
-    <header class="header " id="header">  
+    <header class="header scrolled" id="header">  
   <div class="contenedor contenido">
 
     <div class="barra">
@@ -31,9 +32,9 @@
           <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
 
         </a>
-        <a href="#" class="nav-btn-oficina">
-          <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
-        </a>
+      <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina">
+      <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+    </a>
       </nav>
 
       <!-- Acciones: solo visibles en móvil -->
@@ -90,7 +91,7 @@
           </div>
           <div>
             <strong>Oficinas</strong>
-            <p>Cr 30 #29-24, El Carmen de Viboral, Antioquia</p>
+            <p>Cr 35 # 30-92  locales 101 - 102, El Carmen de Viboral, Antioquia</p>
           </div>
         </div>
 
@@ -133,17 +134,17 @@
 
       <!-- Mapa -->
       <div class="contacto-mapa">
-        <iframe
-          src="https://www.google.com/maps?q=6.0825677,-75.3381221&output=embed"
-          width="100%"
-          height="220"
-          style="border:0; border-radius: 1rem;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Ubicación Viboral Telecomunicaciones"
-        ></iframe>
-      </div>
+  <iframe
+    src="https://www.google.com/maps?q=6.0825677,-75.3381221&output=embed"
+    width="100%"
+    height="220"
+    style="border:0; border-radius: 1rem;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación Viboral Telecomunicaciones"
+  ></iframe>
+</div>
 
     </aside>
 
@@ -320,10 +321,6 @@
   <!-- COPYRIGHT -->
   <div class="copyright">
     Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
-    <span class="creador-sitio">
-      · Creado y desarrollado por
-      <a href="https://cv-sebastian-mu.vercel.app/" target="_blank" rel="noopener">js.dev</a>
-    </span>
   </div>
 </footer>
 <div class="wa-widget">
@@ -354,7 +351,8 @@
   </div>
     
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="build/js/bundle.min.js"></script>
+    <script defer src="build/js/bundle.min.js"></script>
+
     
   </body>
 </html>

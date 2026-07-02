@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
   </head>
   <body>
-   <header class="header " id="header">  
+   <header class="header scrolled" id="header">  
   <div class="contenedor contenido">
 
     <div class="barra">
@@ -28,10 +28,10 @@
         <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
         <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
         <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
-        <a href="https://pse.viboraltelecomunicaciones.com/" target="_blank" rel="noopener">
-          <i class="fas fa-credit-card"></i><span>Pagos</span>
+        <a href="https://pse.viboraltelecomunicaciones.com/">
+          <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
         </a>
-        <a href="#" class="nav-btn-oficina">
+        <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina">
           <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
         </a>
       </nav>
@@ -397,10 +397,6 @@
   <!-- COPYRIGHT -->
   <div class="copyright">
     Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
-    <span class="creador-sitio">
-      · Creado y desarrollado por
-      <a href="https://cv-sebastian-mu.vercel.app/" target="_blank" rel="noopener">js.dev</a>
-    </span>
   </div>
 </footer>
 <div class="wa-widget">

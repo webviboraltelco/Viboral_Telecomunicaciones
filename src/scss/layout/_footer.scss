@@ -212,3 +212,18 @@ $icon-size:       4rem;
   color: $footer-texto;
   letter-spacing: .03em;
 }
+
+// ─── Crédito del desarrollador ────────────────────────────────────
+.creador-sitio {
+  a {
+    color: $amarillo;
+    text-decoration: none;
+    font-weight: $bold;
+    transition: color .2s ease;
+
+    &:hover {
+      color: $blanco;
+      text-decoration: underline;
+    }
+  }
+}
