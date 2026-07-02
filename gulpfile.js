@@ -51,14 +51,29 @@ async function imagenes() {
     for (const archivo of archivos) {
         const destDir  = path.dirname(archivo).replace('src/img', 'build/img');
         const baseName = path.basename(archivo, path.extname(archivo));
+        const ext      = path.extname(archivo).toLowerCase();
 
         fs.mkdirSync(destDir, { recursive: true });
 
-        await sharp(archivo)
-            .jpeg({ quality: 80, progressive: true })
-            .png({ compressionLevel: 8 })
-            .toFile(path.join(destDir, path.basename(archivo)));
+        // ✅ FIX: aplicar SOLO el formato correspondiente a la extensión real,
+        // en vez de encadenar .jpeg() y .png() (el segundo sobreescribía
+        // el formato de salida del primero, causando que los .jpg/.jpeg
+        // se guardaran como PNG sin comprimir, 10-25x más pesados)
+        if (ext === '.jpg' || ext === '.jpeg') {
+            await sharp(archivo)
+                .jpeg({ quality: 80, progressive: true })
+                .toFile(path.join(destDir, path.basename(archivo)));
+        } else if (ext === '.png') {
+            // palette: true activa cuantización de color (similar a pngquant),
+            // reduce mucho más el peso en fotos guardadas como PNG.
+            // Si alguna imagen se ve con banding/dithering notorio, ese
+            // archivo puntual es candidato a migrarse a .jpg en su lugar.
+            await sharp(archivo)
+                .png({ compressionLevel: 9, palette: true, quality: 80 })
+                .toFile(path.join(destDir, path.basename(archivo)));
+        }
 
+        // El .webp sí estaba bien — un solo formato, sin conflicto
         await sharp(archivo)
             .webp({ quality: 80 })
             .toFile(path.join(destDir, `${baseName}.webp`));
