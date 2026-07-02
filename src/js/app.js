@@ -688,3 +688,37 @@ function headerScroll() {
     });
   });
 })();
+
+// ─── Modal "Anuncio nueva sede" ───────────────────────────────────
+(function () {
+  const modal      = document.getElementById('anuncioModal');
+  const overlay    = document.getElementById('anuncioOverlay');
+  const btnCerrar  = document.getElementById('anuncioCerrar');
+
+  if (!modal) return;
+
+  const yaVisto = sessionStorage.getItem('anuncioSedeVisto');
+
+  function abrir() {
+    modal.classList.add('visible');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrar() {
+    modal.classList.remove('visible');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('anuncioSedeVisto', 'true');
+  }
+
+  if (!yaVisto) {
+    setTimeout(abrir, 600); // pequeño delay para que no golpee de inmediato
+  }
+
+  overlay.addEventListener('click', cerrar);
+  btnCerrar.addEventListener('click', cerrar);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') cerrar();
+  });
+})();
