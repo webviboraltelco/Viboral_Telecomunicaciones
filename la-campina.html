@@ -1,0 +1,545 @@
+<!-- archivo: la-campina.html -->
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Página temporal: fuera de Google. NO agregarla a robots.txt ni al sitemap -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <title>Parcelación La Campiña · Viboral Telecomunicaciones</title>
+    <meta name="description" content="Internet 500 Megas y más de 120 canales HD por un año, con convenios para tu familia. Oferta exclusiva para residentes de Parcelación La Campiña." />
+
+    <!-- Vista previa al compartir por WhatsApp (URLs absolutas) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="La Campiña · Un año conectado con un solo pago" />
+    <meta property="og:description" content="Internet 500 Megas + TV HD por 12 meses, con descuentos en salud, hospedaje y droguería." />
+    <meta property="og:image" content="https://viboraltelecomunicaciones.com/build/img/campina-og.jpg" /> <!-- ⚠️ CONFIRMAR dominio e imagen -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&display=swap" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="build/css/app.css?v=7" />
+    <link rel="icon" type="image/x-icon" href="build/img/logo.png" />
+  </head>
+  <body class="pagina-campina">
+    <header class="header scrolled" id="header">
+      <div class="contenedor contenido">
+        <div class="barra">
+          <a href="/" class="barra__logo">
+            <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+          </a>
+
+          <nav class="navegacion" id="navegacion">
+            <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+            <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+            <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+            <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+            <a href="https://pse.viboraltelecomunicaciones.com/">
+              <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
+            </a>
+            <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina">
+              <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+            </a>
+          </nav>
+
+          <div class="barra__acciones">
+            <button class="dark-mode-boton" aria-label="Modo oscuro">
+              <img src="build/img/dark.png" alt="Modo oscuro" />
+            </button>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú" aria-expanded="false">
+              <span class="hamburguesa"><span></span><span></span><span></span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ⚠️ CONFIRMAR data-fin: fecha y hora de cierre (zona Colombia -05:00) -->
+    <main class="campina" data-campina data-fin="2026-11-30T23:59:59-05:00">
+
+      <!-- ════ HERO ════ -->
+      <section class="campina-hero">
+        <div class="contenedor campina-hero__contenido">
+          <img class="campina-hero__logo" src="build/img/campina-logo-crema.png"
+               alt="La Campiña Parcelación" width="900" height="528" />
+
+          <span class="campina-eyebrow">Invitación exclusiva · Residentes</span>
+
+          <h1 class="campina-hero__titulo" aria-label="Tu hogar en el campo, conectado con fibra óptica">
+            <span class="campina-hero__palabra" style="--d:.15s">Tu</span>
+            <span class="campina-hero__palabra" style="--d:.22s">hogar</span>
+            <span class="campina-hero__palabra" style="--d:.29s">en</span>
+            <span class="campina-hero__palabra" style="--d:.36s">el</span>
+            <span class="campina-hero__palabra" style="--d:.43s">campo,</span>
+            <span class="campina-hero__palabra campina-hero__palabra--acento" style="--d:.55s">conectado</span>
+            <span class="campina-hero__palabra campina-hero__palabra--acento" style="--d:.62s">con</span>
+            <span class="campina-hero__palabra campina-hero__palabra--acento" style="--d:.69s">fibra</span>
+            <span class="campina-hero__palabra campina-hero__palabra--acento" style="--d:.76s">óptica</span>
+          </h1>
+
+          <p class="campina-hero__texto">
+            Internet de 500 Megas y más de 120 canales en HD <strong>por un año completo</strong>,
+            con descuentos para toda tu familia en salud, hospedaje, droguería y la oportunidad de ganar un tesla model Y y 55 tv de 55 Pulgadas.
+          </p>
+
+          
+
+          <div class="campina-hero__acciones">
+            <a href="#oferta" class="campina-btn campina-btn--primario" data-solo-vigente>Ver la oferta</a>
+            <a href="https://wa.me/573147258728?text=Hola,%20soy%20residente%20de%20Parcelaci%C3%B3n%20La%20Campi%C3%B1a"
+               target="_blank" rel="noopener" class="campina-btn campina-btn--linea">
+              <i class="fab fa-whatsapp"></i> Hablar con un asesor
+            </a>
+          </div>
+        </div>
+
+        <!-- Decoración: niebla + colinas en capas con la "fibra" recorriendo la cresta -->
+        <div class="campina-niebla campina-niebla--1" aria-hidden="true"></div>
+        <div class="campina-niebla campina-niebla--2" aria-hidden="true"></div>
+        <div class="campina-colinas" aria-hidden="true">
+          <svg data-capa="0.15" viewBox="0 0 1440 300" preserveAspectRatio="none">
+            <path fill="#1F4D3A" d="M0 140 C 180 80 320 120 480 90 S 820 30 980 80 S 1300 60 1440 100 V300 H0Z" />
+          </svg>
+          <svg data-capa="0.3" viewBox="0 0 1440 300" preserveAspectRatio="none">
+            <path fill="#1A4433" d="M0 190 C 220 140 400 200 620 160 S 980 110 1180 160 S 1360 150 1440 170 V300 H0Z" />
+          </svg>
+          <svg data-capa="0.5" viewBox="0 0 1440 300" preserveAspectRatio="none">
+            <path fill="#17402F" d="M0 240 C 260 200 460 250 720 220 S 1180 190 1440 230 V300 H0Z" />
+            <path class="campina-fibra" fill="none" stroke="#C9A96E" stroke-width="2.5" stroke-linecap="round"
+                  d="M0 240 C 260 200 460 250 720 220 S 1180 190 1440 230" />
+            <path class="campina-fibra campina-fibra--2" fill="none" stroke="#E4D3AE" stroke-width="2" stroke-linecap="round"
+                  d="M0 240 C 260 200 460 250 720 220 S 1180 190 1440 230" />
+            <circle class="campina-lote" cx="430" cy="236" r="5" fill="#E4D3AE" />
+            <circle class="campina-lote" style="animation-delay:-1s" cx="880" cy="211" r="5" fill="#E4D3AE" />
+            <circle class="campina-lote" style="animation-delay:-2s" cx="1210" cy="212" r="5" fill="#E4D3AE" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- ════ CINTA (contenido duplicado a propósito para el loop) ════ -->
+      <div class="campina-cinta" aria-hidden="true">
+        <div class="campina-cinta__pista">
+          <span>Internet 500 Megas</span><span>+120 canales en HD</span><span>12 meses de servicio</span>
+          <span>15% en Hotel Casa Rosé</span><span>10% en DR Centro Médico</span><span>5% en Droguería El Carmen</span>
+          <span>Internet 500 Megas</span><span>+120 canales en HD</span><span>12 meses de servicio</span>
+          <span>15% en Hotel Casa Rosé</span><span>10% en DR Centro Médico</span><span>5% en Droguería El Carmen</span>
+        </div>
+      </div>
+
+      <!-- ════ CIFRAS ════ -->
+      <section class="campina-seccion">
+        <div class="contenedor">
+          <header class="campina-encabezado reveal">
+            <span class="campina-eyebrow campina-eyebrow--oscuro">Solo para La Campiña</span>
+            <h2 class="campina-encabezado__titulo">Todo en un solo plan</h2>
+          </header>
+
+          <div class="campina-cifras">
+            <article class="campina-cifra reveal">
+              <div class="campina-cifra__num"><span data-cuenta="500">500</span><small>Mbps</small></div>
+              <h3>Internet por fibra</h3>
+              <p>Streaming, trabajo remoto y videollamadas sin cortes.</p>
+            </article>
+            <article class="campina-cifra reveal">
+              <div class="campina-cifra__num">+<span data-cuenta="120">120</span><small>canales</small></div>
+              <h3>Televisión en HD</h3>
+              <p>Películas, deportes, infantiles y nuestro Canal Local.</p>
+            </article>
+            <article class="campina-cifra reveal">
+              <div class="campina-cifra__num"><span data-cuenta="12">12</span><small>meses</small></div>
+              <h3>Un año completo</h3>
+              <p>Pagas una vez y te olvidas de la factura mensual.</p>
+            </article>
+            <article class="campina-cifra reveal">
+              <div class="campina-cifra__num"><span data-cuenta="3">3</span><small>convenios</small></div>
+              <h3>Para tu familia</h3>
+              <p>Descuentos en salud, hospedaje, restaurante y droguería.</p>
+            </article>
+
+            
+          </div>
+        </div>
+      </section>
+
+            <!-- ════ ASÍ SE VIVE EN LA CAMPIÑA ════ -->
+      <!-- ⚠️ CONFIRMAR con la parcelación que la imagen es suya y que se puede usar -->
+      <section class="campina-seccion campina-seccion--claro campina-seccion--vivir">
+        <div class="contenedor">
+          <div class="campina-vivir">
+            <figure class="campina-vivir__foto reveal">
+              <img src="build/img/campina-casa.jpeg"
+                   alt="Casa campestre de un piso con grandes ventanales, rodeada de vegetación y montañas al atardecer"
+                   width="1280" height="720" loading="lazy" />
+              <figcaption class="campina-vivir__nota">Imagen de referencia</figcaption>
+            </figure>
+
+            <div class="campina-vivir__tarjeta reveal">
+              <span class="campina-eyebrow">Así se vive en La Campiña</span>
+              <h2>El campo que soñaste, sin desconectarte</h2>
+              <p>
+                Montañas, aire puro y espacio para tu familia, con la misma velocidad
+                de la ciudad para trabajar, estudiar y disfrutar.
+              </p>
+              <ul class="campina-vivir__chips">
+                <li>Naturaleza</li>
+                <li>Tranquilidad</li>
+                <li>Fibra hasta tu casa</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════ OFERTA ════ -->
+      <section class="campina-seccion campina-seccion--verde" id="oferta">
+        <div class="contenedor">
+          <header class="campina-encabezado reveal">
+            <span class="campina-eyebrow">Oferta exclusiva</span>
+            <h2 class="campina-encabezado__titulo campina-encabezado__titulo--claro">Un año conectado, un solo pago</h2>
+            <p class="campina-encabezado__texto">
+              Internet y televisión para toda la casa durante 12 meses, a un precio que solo tienen los residentes de La Campiña.
+            </p>
+          </header>
+
+          <div class="campina-oferta" data-solo-vigente>
+            <article class="campina-plan reveal">
+              <span class="campina-plan__badge">Exclusivo residentes</span>
+              <span class="campina-plan__tipo">Combo anual</span>
+              <h3 class="campina-plan__nombre">500 Megas + TV HD</h3>
+
+              <!-- ⚠️ CONFIRMAR: $892.000 es el pago total por 12 meses -->
+              <div class="campina-plan__precio">
+                <strong>$892.000</strong><span>por 12 meses</span>
+              </div>
+              <p class="campina-plan__mes">Equivale a $74.333 al mes</p>
+
+              <div class="campina-plan__aporte">
+                <span>Aporte de Asociación a la Cooperativa (pago único)</span>
+                <strong>$88.000</strong>
+              </div>
+
+              <ul class="campina-plan__lista">
+                <li>Internet de 500 Mbps por fibra óptica</li>
+                <li>Más de 120 canales en alta definición</li>
+                <li>Nuestro Canal Local</li>
+                <li>Descuentos en Hotel Casa Rosé, DR Centro Médico Integral y Droguería El Carmen</li>
+              </ul>
+
+              <a href="https://wa.me/573147258728?text=Hola,%20soy%20residente%20de%20Parcelaci%C3%B3n%20La%20Campi%C3%B1a%20y%20quiero%20el%20plan%20anual%20500%20Megas%20%2B%20TV"
+                 target="_blank" rel="noopener" class="campina-btn campina-btn--primario campina-plan__btn">
+                <i class="fab fa-whatsapp"></i> Quiero mi plan anual
+              </a>
+            </article>
+
+            <!-- ⚠️ CONFIRMAR con comercial que se puede mostrar la comparación -->
+            <aside class="campina-ahorro reveal" aria-label="Comparación de ahorro en 12 meses">
+              <h3>Lo que ahorras en un año</h3>
+
+              <div class="campina-ahorro__barra">
+                <div class="campina-ahorro__fila"><span>Tarifa regular · $81.300 × 12</span><strong>$975.600</strong></div>
+                <div class="campina-ahorro__pista"><i class="campina-ahorro__relleno campina-ahorro__relleno--regular" style="--v:1"></i></div>
+              </div>
+
+              <div class="campina-ahorro__barra">
+                <div class="campina-ahorro__fila"><span>Oferta La Campiña</span><strong>$892.000</strong></div>
+                <div class="campina-ahorro__pista"><i class="campina-ahorro__relleno" style="--v:.832"></i></div>
+              </div>
+
+              <div class="campina-ahorro__total">
+                <span>Tu ahorro</span>
+                <strong>$<span data-cuenta="83600" data-miles>83.600</span></strong>
+              </div>
+              <p class="campina-ahorro__nota">
+                Comparado con el Combo 500 Megas + TV de nuestros planes regulares. No incluye el aporte de Asociación.
+              </p>
+            </aside>
+          </div>
+
+
+          <!-- Se muestra solo cuando vence la oferta (lo activa el JS) -->
+          <div class="campina-finalizada" data-finalizada hidden>
+            <i class="fas fa-hourglass-end"></i>
+            <h3>Esta oferta exclusiva ha finalizado</h3>
+            <p>Gracias por tu interés. Igual podemos ayudarte a encontrar el plan ideal para tu hogar.</p>
+            <a href="planes.html" class="campina-btn campina-btn--primario">Ver planes disponibles</a>
+          </div>
+        </div>
+      </section>
+
+            <!-- ════ SORTEO ════ -->
+      <!-- ⚠️ CONFIRMAR: autorización de Coljuegos, fecha del sorteo, mecánica y T&C -->
+      <section class="campina-seccion campina-sorteo" id="sorteo" data-solo-vigente>
+        <div class="contenedor">
+          <header class="campina-encabezado reveal">
+            <span class="campina-eyebrow">Gran sorteo para asociados</span>
+            <h2 class="campina-encabezado__titulo campina-encabezado__titulo--claro">Tu plan anual te pone a participar</h2>
+            <p class="campina-encabezado__texto">
+              Al tomar el plan anual entras al sorteo de 56 premios entre los nuevos Asociados.
+            </p>
+          </header>
+
+          <div class="campina-premios">
+            <article class="campina-premio campina-premio--mayor reveal">
+              <span class="campina-premio__tag">Premio mayor</span>
+              <h3>Tesla Model Y</h3>
+              <p>Un vehículo 100% eléctrico para recorrer el Oriente con tu familia.</p>
+              <div class="campina-premio__ilus" aria-hidden="true">
+                <svg viewBox="0 0 260 100">
+                  <path d="M18 74h14M70 74h108M216 74h22c4 0 6-3 6-7v-9c0-6-4-10-10-12l-28-6-30-20c-6-4-12-6-20-6H92c-10 0-18 3-25 9L46 40l-20 5c-6 2-10 6-10 12v10c0 4 2 7 6 7" />
+                  <path d="M74 40l14-13c4-3 8-5 14-5h22v18zM134 22h18c6 0 10 2 14 5l16 13h-48z" />
+                  <circle cx="51" cy="74" r="16" /><circle cx="197" cy="74" r="16" />
+                  <circle cx="51" cy="74" r="5" /><circle cx="197" cy="74" r="5" />
+                </svg>
+              </div>
+            </article>
+
+            <article class="campina-premio campina-premio--tv reveal">
+              <span class="campina-premio__tag campina-premio__tag--linea">Además</span>
+              <div class="campina-premio__num"><span data-cuenta="55">55</span><small>televisores</small></div>
+              <h3>Smart TV de 55 pulgadas</h3>
+              <p>Más oportunidades de ganar para que disfrutes tus canales en HD en grande.</p>
+              <div class="campina-premio__ilus" aria-hidden="true">
+                <svg viewBox="0 0 120 90">
+                  <rect x="6" y="6" width="108" height="64" rx="5" />
+                  <path d="M46 84h28M60 70v14" />
+                </svg>
+              </div>
+            </article>
+          </div>
+
+          <ol class="campina-participa reveal">
+            <li><b>1</b><span><strong>Toma el plan anual</strong>Combo 500 Megas + TV HD.</span></li>
+            <li><b>2</b><span><strong>Quedas inscrito</strong>Te damos los tikets por un año para el sorteo de nuestros premios.</span></li> <!-- ⚠️ CONFIRMAR mecánica -->
+            <li><b>3</b><span><strong>Fechas del sorteo</strong>Tv hasta el 31 de diciembre 2026. <br>Carro Tesla 1 de julio 2027.</span></li> <!-- ⚠️ CONFIRMAR fecha -->
+          </ol>
+
+          <p class="campina-sorteo__legal">
+            Sorteo autorizado por Coljuegos. <!-- ⚠️ reemplazar por "Autorizado por Coljuegos mediante…" -->
+            Consulta los <a href="https://tvcolombiadigital.com/" target="_blank" rel="noopener">términos y condiciones</a>. Imagen ilustrativa.
+          </p>
+        </div>
+      </section>
+
+      <!-- ════ CONVENIOS ════ -->
+      <section class="campina-seccion campina-seccion--claro">
+        <div class="contenedor">
+          <header class="campina-encabezado reveal">
+            <span class="campina-eyebrow campina-eyebrow--oscuro">Beneficios para tu familia</span>
+            <h2 class="campina-encabezado__titulo">Convenios que te acompañan</h2>
+            <p class="campina-encabezado__texto campina-encabezado__texto--oscuro">
+              Por ser Asociado tienes descuentos en aliados de la región durante todo el año.
+            </p>
+          </header>
+
+          <div class="campina-convenios">
+            <article class="campina-convenio reveal">
+              <div class="campina-convenio__cabecera">
+                <span class="campina-convenio__icono"><i class="fas fa-hotel"></i></span>
+                <div>
+                  <span class="campina-convenio__tipo">Hospedaje y gastronomía</span>
+                  <h3>Hotel Casa Rosé</h3>
+                </div>
+              </div>
+              <ul class="campina-descuentos">
+                <li class="campina-descuento">
+                  <span class="campina-descuento__pct"><span data-cuenta="15">15</span><small>%</small></span>
+                  <span class="campina-descuento__texto">En hospedaje</span>
+                </li>
+                <li class="campina-descuento">
+                  <span class="campina-descuento__pct"><span data-cuenta="10">10</span><small>%</small></span>
+                  <span class="campina-descuento__texto">En el restaurante<small>MiCacera</small></span>
+                </li>
+                <li class="campina-descuento">
+                  <span class="campina-descuento__pct"><span data-cuenta="25">25</span><small>%</small></span>
+                  <span class="campina-descuento__texto">En el Cubo Rosé</span>
+                </li>
+              </ul>
+            </article>
+
+            <article class="campina-convenio reveal">
+              <div class="campina-convenio__cabecera">
+                <span class="campina-convenio__icono"><i class="fas fa-stethoscope"></i></span>
+                <div>
+                  <span class="campina-convenio__tipo">Salud</span>
+                  <h3>DR Centro Médico Integral</h3>
+                </div>
+              </div>
+              <ul class="campina-descuentos">
+                <li class="campina-descuento">
+                  <span class="campina-descuento__pct"><span data-cuenta="10">10</span><small>%</small></span>
+                  <span class="campina-descuento__texto">En servicios médicos</span>
+                </li>
+              </ul>
+              <ul class="campina-servicios" aria-label="Servicios incluidos">
+                <li>Consulta médica</li>
+                <li>Atención médica domiciliaria</li>
+                <li>Toma de muestras de laboratorio</li>
+                <li>Paso de sondas</li>
+              </ul>
+            </article>
+
+            <article class="campina-convenio reveal">
+              <div class="campina-convenio__cabecera">
+                <span class="campina-convenio__icono"><i class="fas fa-prescription-bottle-medical"></i></span>
+                <div>
+                  <span class="campina-convenio__tipo">Droguería</span>
+                  <h3>Droguería El Carmen</h3>
+                </div>
+              </div>
+              <ul class="campina-descuentos">
+                <li class="campina-descuento">
+                  <span class="campina-descuento__pct"><span data-cuenta="5">5</span><small>%</small></span>
+                  <span class="campina-descuento__texto">En sus servicios<small>«Donde Mauricio»</small></span>
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- ⚠️ CONFIRMAR cómo se hacen efectivos los descuentos -->
+          <p class="campina-convenios__nota">Presenta tu constancia de Asociado en cada establecimiento para hacer efectivo el descuento.</p>
+        </div>
+      </section>
+
+      <!-- ════ PASOS ════ -->
+      <section class="campina-seccion">
+        <div class="contenedor">
+          <header class="campina-encabezado reveal">
+            <span class="campina-eyebrow campina-eyebrow--oscuro">Simple y rápido</span>
+            <h2 class="campina-encabezado__titulo">Así te conectamos</h2>
+          </header>
+
+          <ol class="campina-pasos" data-pasos>
+            <li class="campina-pasos__linea" aria-hidden="true"><i></i></li>
+            <li class="campina-paso">
+              <span class="campina-paso__numero">1</span>
+              <h3>Escríbenos</h3>
+              <p>Por WhatsApp, contándonos que eres residente de La Campiña.</p>
+            </li>
+            <li class="campina-paso">
+              <span class="campina-paso__numero">2</span>
+              <h3>Te Asocias</h3>
+              <p>Realizas el pago anual y el aporte de asociación a la cooperativa.</p>
+            </li>
+            <li class="campina-paso">
+              <span class="campina-paso__numero">3</span>
+              <h3>Disfruta</h3>
+              <p>Instalamos tu servicio y activamos los convenios para tu familia.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ════ PREGUNTAS FRECUENTES ════ -->
+      <section class="campina-seccion campina-seccion--claro">
+        <div class="contenedor campina-faq">
+          <header class="campina-encabezado reveal">
+            <span class="campina-eyebrow campina-eyebrow--oscuro">Resolvemos tus dudas</span>
+            <h2 class="campina-encabezado__titulo">Preguntas frecuentes</h2>
+          </header>
+
+          <details class="campina-faq__item">
+            <summary>¿Qué incluye el pago de $892.000?</summary>
+            <p>Doce meses de internet de 500 Megas y televisión con más de 120 canales en HD, además de los descuentos en los convenios para tu familia.</p>
+          </details>
+          <details class="campina-faq__item">
+            <summary>¿Qué es el aporte de asociación de $88.000?</summary>
+            <p>Viboral Telecomunicaciones es una Cooperativa. Con este aporte único te conviertes en Asociado y accedes a los beneficios y convenios.</p>
+          </details>
+          <!-- ⚠️ CONFIRMAR respuesta con el área comercial -->
+          <details class="campina-faq__item">
+            <summary>¿Cómo uso los descuentos de los convenios?</summary>
+            <p>Respuesta por confirmar con el área comercial.</p>
+          </details>
+          <!-- ⚠️ CONFIRMAR respuesta con el área comercial -->
+          <details class="campina-faq__item">
+            <summary>¿Qué pasa cuando terminan los 12 meses?</summary>
+            <p>Respuesta por confirmar con el área comercial.</p>
+          </details>
+        
+        </div>
+      </section>
+
+      <!-- ════ CTA FINAL ════ -->
+      <section class="campina-cta">
+        <div class="contenedor campina-cta__contenido reveal">
+          <h2>Un año de conexión y beneficios para tu familia</h2>
+          <p>Habla con un asesor y asegura tu plan anual hoy.</p>
+          <a href="https://wa.me/573147258728?text=Hola,%20soy%20residente%20de%20Parcelaci%C3%B3n%20La%20Campi%C3%B1a%20y%20quiero%20el%20plan%20anual"
+             target="_blank" rel="noopener" class="campina-btn campina-btn--primario">
+            <i class="fab fa-whatsapp"></i> Quiero mi plan anual
+          </a>
+          <p class="campina-alianza">Viboral Telecomunicaciones <span>×</span> Parcelación La Campiña</p>
+        </div>
+      </section>
+
+      <!-- Barra fija en móvil: aparece al salir del hero -->
+      <div class="campina-barra-movil" data-barra-movil data-solo-vigente>
+        
+        <a href="#oferta" class="campina-btn campina-btn--primario">Ver oferta</a>
+      </div>
+    </main>
+
+    <footer class="footer-futurista">
+      <div class="contenedor-footer">
+        <div class="logo-footer">
+          <a href="/"><img src="build/img/logo.png" alt="Viboral Telecomunicaciones" /></a>
+          <p class="footer-slogan">Conectando comunidades desde 1998</p>
+        </div>
+
+        <div class="redes-footer">
+          <h3 class="titulo-footer">Conéctate con nosotros</h3>
+          <div class="redes-sociales">
+            <a href="#" class="icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://waze.com/ul?ll=6.0825677,-75.3381221&navigate=yes" class="icon waze" aria-label="Waze"><i class="fab fa-waze"></i></a>
+            <a href="mailto:servicioasociado@viboral.tv" class="icon correo" aria-label="Correo electrónico"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="documentos-legales">
+          <h3 class="titulo-legales">Documentos legales</h3>
+          <div class="links-legales">
+            <a href="https://colombiatic.mintic.gov.co/679/articles-62266_doc_norma.pdf"><i class="fas fa-file-alt"></i> Derechos del Asociado</a>
+            <a href="politica-cookies.html"><i class="fas fa-cookie-bite"></i> Política de cookies</a>
+            <a href="norma-estatutaria.html" target="_blank" rel="noopener"><i class="fas fa-landmark"></i> Norma Estatutaria</a>
+            <a href="politica-datos.html"><i class="fas fa-shield-alt"></i> Política de privacidad</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
+        <span class="creador-sitio">
+          · Creado y desarrollado por
+          <a href="https://cv-sebastian-mu.vercel.app/" target="_blank" rel="noopener">JS.Dev</a>
+        </span>
+      </div>
+    </footer>
+
+    <div class="wa-widget">
+      <div class="wa-burbuja" id="waBurbuja">
+        <p class="wa-burbuja-nombre">Viboral Telecomunicaciones</p>
+        <p class="wa-burbuja-texto">¡Hola, vecino de La Campiña! 👋 ¿Te ayudamos?</p>
+        <p class="wa-burbuja-hora">En línea</p>
+      </div>
+      <div class="wa-btn-wrap">
+        <div class="wa-pulse"></div>
+        <a class="wa-btn" id="waBtn"
+           href="https://wa.me/573147258728?text=Hola,%20soy%20residente%20de%20Parcelaci%C3%B3n%20La%20Campi%C3%B1a"
+           target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.81A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm6.406 16.594c-.27.757-1.578 1.445-2.156 1.528-.547.078-1.234.11-1.992-.125a18.3 18.3 0 01-1.804-.668c-3.17-1.37-5.24-4.57-5.398-4.781-.156-.211-1.273-1.695-1.273-3.234 0-1.54.805-2.297 1.09-2.61.285-.312.621-.39.828-.39.207 0 .414.002.594.01.191.008.449-.072.703.537.262.625.89 2.164.969 2.32.078.157.13.34.026.547-.103.207-.156.336-.312.516-.156.18-.328.402-.469.54-.156.155-.32.324-.137.634.183.31.812 1.34 1.742 2.171 1.195 1.066 2.203 1.395 2.516 1.55.312.157.496.133.679-.078.183-.211.781-.914 1.992-1.125.156-.027.527.035.996.234l2.07.922c.39.172.742.289.85.55.105.263-.163 1.015-.434 1.772z"/>
+          </svg>
+          <span class="wa-badge">1</span>
+        </a>
+      </div>
+    </div>
+
+    <script defer src="build/js/bundle.min.js?v=3"></script>
+  </body>
+</html>

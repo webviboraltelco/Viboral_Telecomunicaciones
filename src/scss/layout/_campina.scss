@@ -1,0 +1,1297 @@
+// archivo: src/scss/layout/_campina.scss
+// Landing temporal Parcelación La Campiña. Todo bajo el prefijo campina-
+
+// ─── Paleta (hex fijos, sin lighten/darken) ────────────────────────
+$campina-bosque:          #0F2E22;
+$campina-bosque-oscuro:   #0A2118;
+$campina-bosque-medio:    #17402F;
+$campina-champana:        #C9A96E;
+$campina-champana-claro:  #E4D3AE;
+$campina-champana-oscuro: #8A6D3B; // champaña legible sobre fondos claros
+$campina-naranja:         #FFA11F;
+$campina-naranja-hover:   #E88E0C;
+$campina-crema:           #F7F3EC;
+$campina-claro:           #FFFDF9;
+$campina-borde:           #E8DFCF;
+$campina-texto:           #1E2B25;
+$campina-texto-suave:     #55635C;
+$campina-serif:           'Cinzel', Georgia, serif;
+$campina-curva:           cubic-bezier(.2, .7, .2, 1);
+
+// ─── Base de la página ─────────────────────────────────────────────
+.campina {
+  background: $campina-crema;
+  color: $campina-texto;
+  overflow-x: hidden; // las colinas son más anchas que la pantalla
+
+  h1, h2, h3 { text-wrap: balance; }
+}
+
+.campina-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: $campina-champana;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 2.8rem;
+    height: 1px;
+    background: currentColor;
+  }
+
+  &--oscuro { color: $campina-champana-oscuro; }
+}
+
+.campina-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  padding: 1.3rem 2.6rem;
+  border: 1px solid transparent;
+  border-radius: 10rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+
+  &:hover { transform: translateY(-2px); }
+
+  &:focus-visible {
+    outline: 2px solid $campina-champana;
+    outline-offset: 3px;
+  }
+
+  &--primario {
+    background: $campina-naranja;
+    color: $campina-bosque;
+    &:hover { background: $campina-naranja-hover; }
+  }
+
+  &--linea {
+    border-color: $campina-champana;
+    color: $campina-crema;
+    &:hover {
+      background: $campina-champana;
+      color: $campina-bosque;
+    }
+  }
+}
+
+// ─── Hero ──────────────────────────────────────────────────────────
+.campina-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: $campina-crema;
+  background: linear-gradient(180deg, $campina-bosque-oscuro 0%, $campina-bosque 55%, $campina-bosque-medio 100%);
+
+  &__contenido {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+    text-align: center;
+    padding-top: 12rem;    // espacio para tu header fijo
+    padding-bottom: 22rem; // espacio para las colinas
+  }
+
+  &__logo {
+    width: clamp(17rem, 26vw, 24rem); // máx. 240px: el original es de baja resolución
+    height: auto;
+    animation: campina-sube .9s ease both;
+  }
+
+  &__titulo {
+    max-width: 16ch;
+    margin: 0;
+    font-family: $campina-serif;
+    font-size: clamp(3rem, 5.4vw, 5.8rem);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: .02em;
+  }
+
+  &__palabra {
+    display: inline-block;
+    animation: campina-sube .8s $campina-curva both;
+    animation-delay: var(--d, 0s);
+
+    &--acento { color: $campina-champana-claro; }
+  }
+
+  &__texto {
+    max-width: 56ch;
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.6;
+    color: rgba($campina-crema, .86);
+    animation: campina-sube .9s .5s ease both;
+
+    strong { color: $campina-champana-claro; }
+  }
+
+  &__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    animation: campina-sube .9s .8s ease both;
+  }
+}
+
+@keyframes campina-sube {
+  from { opacity: 0; transform: translateY(1.8rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+// Contador
+.campina-contador {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  animation: campina-sube .9s .65s ease both;
+
+  &__label {
+    width: 100%;
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: $campina-champana-claro;
+  }
+
+  &__unidad {
+    min-width: 6.8rem;
+    padding: 1rem .8rem .8rem;
+    border: 1px solid rgba($campina-champana, .35);
+    border-radius: 1.2rem;
+    background: rgba($campina-bosque-oscuro, .55);
+    backdrop-filter: blur(6px);
+
+    span {
+      display: block;
+      font-family: $campina-serif;
+      font-size: 2.8rem;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    small {
+      font-size: 1rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .75;
+    }
+  }
+}
+
+// Decoración del hero
+.campina-colinas {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 30rem;
+  pointer-events: none;
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    width: 110%;
+    height: 100%;
+    will-change: transform;
+  }
+}
+
+.campina-niebla {
+  position: absolute;
+  z-index: 2;
+  width: 70%;
+  height: 12rem;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba($campina-champana-claro, .16), transparent);
+  filter: blur(8px);
+  pointer-events: none;
+
+  &--1 { bottom: 12rem; left: -20%; animation: campina-deriva 26s linear infinite; }
+  &--2 { bottom: 6rem;  left: 40%;  animation: campina-deriva 34s linear infinite reverse; }
+}
+
+@keyframes campina-deriva {
+  from { transform: translateX(0); }
+  to   { transform: translateX(40%); }
+}
+
+.campina-fibra {
+  stroke-dasharray: 60 900;
+  animation: campina-fibra 5.5s linear infinite;
+
+  &--2 { animation-delay: -2.7s; }
+}
+
+@keyframes campina-fibra {
+  from { stroke-dashoffset: 960; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.campina-lote { animation: campina-late 2.75s ease-in-out infinite; }
+
+@keyframes campina-late {
+  0%, 100% { opacity: .35; }
+  50%      { opacity: 1; }
+}
+
+// ─── Cinta ─────────────────────────────────────────────────────────
+.campina-cinta {
+  overflow: hidden;
+  background: $campina-bosque-medio;
+  color: $campina-champana-claro;
+  border-block: 1px solid rgba($campina-champana, .18);
+
+  &__pista {
+    display: flex;
+    width: max-content;
+    animation: campina-cinta 34s linear infinite;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 2.8rem;
+      padding: 1.4rem 2.8rem;
+      font-size: 1.3rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+
+      &::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $campina-champana;
+      }
+    }
+  }
+}
+
+@keyframes campina-cinta {
+  to { transform: translateX(-50%); } // el contenido está duplicado: -50% hace el loop perfecto
+}
+
+// ─── Secciones ─────────────────────────────────────────────────────
+.campina-seccion {
+  padding: 8.4rem 0;
+
+  &--claro { background: $campina-claro; }
+  &--verde { background: $campina-bosque; color: $campina-crema; }
+}
+
+.campina-encabezado {
+  display: grid;
+  justify-items: center;
+  gap: 1.2rem;
+  max-width: 64rem;
+  margin: 0 auto 4.4rem;
+  text-align: center;
+
+  &__titulo {
+    margin: 0;
+    font-family: $campina-serif;
+    font-size: clamp(2.6rem, 3.6vw, 4rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: .02em;
+    color: $campina-bosque;
+
+    &--claro { color: $campina-crema; }
+  }
+
+  &__texto {
+    margin: 0;
+    max-width: 56ch;
+    font-size: 1.6rem;
+    color: rgba($campina-crema, .8);
+
+    &--oscuro { color: $campina-texto-suave; }
+  }
+}
+
+// ─── Cifras ────────────────────────────────────────────────────────
+.campina-cifras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+
+  @include desktop { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.campina-cifra {
+  display: grid;
+  align-content: start;
+  gap: .6rem;
+  padding: 2.8rem 2rem;
+  border: 1px solid $campina-borde;
+  border-radius: 1.8rem;
+  background: $campina-claro;
+  transition: transform .3s ease, box-shadow .3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1.4rem 3.4rem rgba($campina-bosque, .09);
+  }
+
+  &__num {
+    font-family: $campina-serif;
+    font-size: clamp(3.2rem, 4vw, 4.4rem);
+    line-height: 1;
+    color: $campina-bosque;
+    font-variant-numeric: tabular-nums;
+
+    small {
+      margin-left: .4rem;
+      font-family: inherit;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: $campina-champana-oscuro;
+    }
+  }
+
+  h3 {
+    margin: .6rem 0 0;
+    font-size: 1.6rem;
+    color: $campina-bosque;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: $campina-texto-suave;
+  }
+}
+// ─── Así se vive en La Campiña (imagen + tarjeta) ──────────────────
+// Móvil primero: la tarjeta va debajo de la foto.
+// Desde tablet: la tarjeta se monta sobre la esquina inferior izquierda.
+.campina-seccion--vivir {
+  @include tablet { padding-bottom: 13.2rem; } // espacio para la tarjeta que sobresale
+}
+
+.campina-vivir {
+  position: relative;
+
+  &__foto {
+    position: relative;
+    margin: 0;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 2rem;
+    background: $campina-bosque-medio; // respaldo mientras carga
+    box-shadow: 0 3rem 6rem rgba($campina-bosque, .18);
+
+    @include tablet {
+      aspect-ratio: 16 / 9;
+      border-radius: 2.8rem;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.8s $campina-curva;
+    }
+  }
+
+  &__nota {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    padding: .5rem 1rem;
+    border-radius: 10rem;
+    background: rgba($campina-bosque-oscuro, .6);
+    backdrop-filter: blur(6px);
+    color: $campina-crema;
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+  }
+
+  &__tarjeta {
+    position: relative;
+    display: grid;
+    gap: 1.4rem;
+    margin: -4rem 1.2rem 0;
+    padding: 3rem 2.8rem;
+    border-radius: 2.2rem;
+    background: $campina-bosque;
+    color: $campina-crema;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, .25);
+
+    @include tablet {
+      position: absolute;
+      left: 3.2rem;
+      bottom: -4.8rem;
+      width: min(44rem, calc(100% - 6.4rem));
+      margin: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: $campina-serif;
+      font-size: clamp(2.4rem, 3vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: .02em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: rgba($campina-crema, .82);
+    }
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    margin: .4rem 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: .6rem 1.2rem;
+      border: 1px solid rgba($campina-champana, .45);
+      border-radius: 10rem;
+      font-size: 1.3rem;
+      color: $campina-champana-claro;
+    }
+  }
+}
+
+// Zoom de entrada: solo si el JS de animación está activo.
+// Sin JS o con movimiento reducido, la imagen se ve normal desde el inicio.
+.campina--animada .campina-vivir__foto:not(.is-visible) img {
+  transform: scale(1.12);
+}
+
+// ─── Oferta: plan único + ahorro ───────────────────────────────────
+.campina-oferta {
+  display: grid;
+  gap: 2.8rem;
+  max-width: 56rem;
+  margin: 0 auto;
+
+  @include desktop {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    max-width: none;
+  }
+}
+
+.campina-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 3.6rem 3.2rem 3rem;
+  border: 1px solid $campina-champana;
+  border-radius: 2.4rem;
+  background: $campina-bosque-medio;
+  box-shadow: 0 0 0 1px $campina-champana, 0 2.4rem 4.8rem rgba(0, 0, 0, .28);
+
+  &__badge {
+    position: absolute;
+    top: -1.3rem;
+    left: 3.2rem;
+    padding: .5rem 1.2rem;
+    border-radius: 10rem;
+    background: $campina-champana;
+    color: $campina-bosque;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  &__tipo {
+    font-size: 1.2rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: $campina-champana;
+  }
+
+  &__nombre {
+    margin: .6rem 0 0;
+    font-family: $campina-serif;
+    font-size: clamp(2.4rem, 3vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: $campina-crema;
+  }
+
+  &__precio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .4rem 1rem;
+    margin: 2.2rem 0 .2rem;
+
+    strong {
+      font-family: $campina-serif;
+      font-size: clamp(4.2rem, 6vw, 5.6rem);
+      font-weight: 500;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    span {
+      font-size: 1.5rem;
+      color: rgba($campina-crema, .75);
+    }
+  }
+
+  &__mes {
+    margin: 0;
+    font-size: 1.5rem;
+    color: $campina-champana-claro;
+  }
+
+  &__aporte {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 2rem 0 2.2rem;
+    padding: 1.2rem 1.6rem;
+    border: 1px dashed rgba($campina-champana, .45);
+    border-radius: 1.2rem;
+    background: rgba($campina-champana, .1);
+    font-size: 1.4rem;
+    color: rgba($campina-crema, .85);
+
+    strong {
+      font-size: 1.6rem;
+      color: $campina-crema;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  &__lista {
+    display: grid;
+    gap: 1rem;
+    margin: 0 0 2.6rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1.5rem;
+    color: rgba($campina-crema, .88);
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+
+      &::before {
+        content: '';
+        flex: none;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-top: .4rem;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, $campina-champana 0 3px, transparent 4px),
+          rgba($campina-champana, .18);
+      }
+    }
+  }
+
+  &__btn { margin-top: auto; }
+}
+
+.campina-ahorro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.2rem;
+  padding: 3.2rem;
+  border: 1px solid rgba($campina-champana, .2);
+  border-radius: 2.4rem;
+  background: rgba($campina-bosque-oscuro, .5);
+
+  h3 {
+    margin: 0;
+    font-family: $campina-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+
+  &__barra { display: grid; gap: .8rem; }
+
+  &__fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+    font-size: 1.4rem;
+    color: rgba($campina-crema, .75);
+
+    strong {
+      color: $campina-crema;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  &__pista {
+    height: 1.4rem;
+    overflow: hidden;
+    border-radius: 1.4rem;
+    background: rgba($campina-crema, .08);
+  }
+
+  &__relleno {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, $campina-champana-oscuro, $campina-champana);
+    transform-origin: left;
+    transform: scaleX(var(--v));
+    transition: transform 1.4s $campina-curva;
+
+    &--regular { background: rgba($campina-crema, .35); }
+  }
+
+  &__total {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: .8rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid rgba($campina-champana, .25);
+
+    > span {
+      font-size: 1.3rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: $campina-champana-claro;
+    }
+
+    strong {
+      font-family: $campina-serif;
+      font-size: clamp(3rem, 4vw, 4rem);
+      font-weight: 500;
+      color: $campina-naranja;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  &__nota {
+    margin: 0;
+    font-size: 1.3rem;
+    color: rgba($campina-crema, .55);
+  }
+}
+
+// Las barras arrancan vacías solo si el JS de animación está activo
+.campina--animada .campina-ahorro:not(.is-visible) .campina-ahorro__relleno {
+  transform: scaleX(0);
+}
+
+.campina-oferta__vence {
+  margin: 2.8rem 0 0;
+  text-align: center;
+  font-size: 1.4rem;
+  color: rgba($campina-crema, .65);
+
+  strong { color: $campina-champana-claro; }
+}
+// ─── Sorteo ────────────────────────────────────────────────────────
+.campina-sorteo {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba($campina-champana, .22), transparent 60%),
+    $campina-bosque-oscuro;
+  color: $campina-crema;
+
+  &__legal {
+    max-width: 70ch;
+    margin: 2.4rem auto 0;
+    text-align: center;
+    font-size: 1.3rem;
+    color: rgba($campina-crema, .55);
+
+    a { color: $campina-champana-claro; }
+  }
+}
+
+.campina-premios {
+  display: grid;
+  gap: 2rem;
+  max-width: 56rem;
+  margin: 0 auto;
+
+  @include desktop {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    max-width: none;
+  }
+}
+
+.campina-premio {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-content: start;
+  gap: 1.2rem;
+  padding: 3.2rem;
+  border: 1px solid rgba($campina-champana, .35);
+  border-radius: 2.4rem;
+  background: linear-gradient(160deg, $campina-bosque-medio, $campina-bosque);
+
+  &--mayor {
+    border-color: $campina-champana;
+    box-shadow: 0 0 0 1px $campina-champana, 0 3rem 6rem rgba(0, 0, 0, .35);
+
+    // Destello de luz que recorre la tarjeta
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(110deg, transparent 35%, rgba($campina-champana-claro, .16) 50%, transparent 65%);
+      transform: translateX(-100%);
+      animation: campina-brillo 5s ease-in-out infinite;
+    }
+  }
+
+  &__tag {
+    justify-self: start;
+    padding: .5rem 1.2rem;
+    border-radius: 10rem;
+    background: $campina-champana;
+    color: $campina-bosque;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    &--linea {
+      border: 1px solid $campina-champana;
+      background: transparent;
+      color: $campina-champana-claro;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    font-family: $campina-serif;
+    font-size: clamp(2.8rem, 4vw, 4.4rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: .02em;
+  }
+
+  p {
+    max-width: 42ch;
+    margin: 0;
+    font-size: 1.5rem;
+    color: rgba($campina-crema, .78);
+  }
+
+  &__num {
+    font-family: $campina-serif;
+    font-size: clamp(5.6rem, 8vw, 8.8rem);
+    line-height: .9;
+    color: $campina-champana-claro;
+    font-variant-numeric: tabular-nums;
+
+    small {
+      margin-left: .6rem;
+      font-family: inherit;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: $campina-champana;
+    }
+  }
+
+  &__ilus {
+    margin-top: .8rem;
+    color: $campina-champana;
+
+    svg {
+      display: block;
+      width: 100%;
+      max-width: 34rem;
+      height: auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  &--tv .campina-premio__ilus svg { max-width: 15rem; }
+}
+
+@keyframes campina-brillo {
+  0%, 55% { transform: translateX(-100%); }
+  100%    { transform: translateX(100%); }
+}
+
+.campina-participa {
+  display: grid;
+  gap: 1.6rem;
+  max-width: 56rem;
+  margin: 2.8rem auto 0;
+  padding: 0;
+  list-style: none;
+
+  @include desktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.4rem;
+    padding: 1.8rem;
+    border: 1px solid rgba($campina-champana, .2);
+    border-radius: 1.6rem;
+    background: rgba($campina-crema, .05);
+    font-size: 1.5rem;
+    color: rgba($campina-crema, .85);
+  }
+
+  b {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    background: $campina-champana;
+    color: $campina-bosque;
+    font-family: $campina-serif;
+  }
+
+  strong {
+    display: block;
+    color: $campina-crema;
+  }
+}
+
+// ─── Convenios ─────────────────────────────────────────────────────
+.campina-convenios {
+  display: grid;
+  gap: 2rem;
+  max-width: 56rem;
+  margin: 0 auto;
+
+  @include desktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+  }
+}
+
+.campina-convenio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 3rem 2.6rem;
+  border: 1px solid $campina-borde;
+  border-radius: 2.2rem;
+  background: $campina-claro;
+  transition: transform .3s ease, box-shadow .3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1.8rem 4rem rgba($campina-bosque, .1);
+  }
+
+  &__cabecera {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+
+    h3 {
+      margin: .2rem 0 0;
+      font-family: $campina-serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: $campina-bosque;
+    }
+  }
+
+  &__icono {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 1.4rem;
+    background: $campina-bosque;
+    color: $campina-champana-claro;
+    font-size: 2rem;
+  }
+
+  &__tipo {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: $campina-champana-oscuro;
+  }
+}
+
+.campina-descuentos {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.campina-descuento {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 1.4rem;
+  background: $campina-crema;
+
+  &__pct {
+    flex: none;
+    min-width: 7.4rem;
+    font-family: $campina-serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: $campina-bosque;
+    font-variant-numeric: tabular-nums;
+
+    small {
+      font-size: 1.8rem;
+      color: $campina-champana-oscuro;
+    }
+  }
+
+  &__texto {
+    font-size: 1.4rem;
+    line-height: 1.4;
+
+    small {
+      display: block;
+      font-size: 1.2rem;
+      color: $campina-texto-suave;
+    }
+  }
+}
+
+.campina-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: .6rem 1.2rem;
+    border: 1px solid $campina-borde;
+    border-radius: 10rem;
+    font-size: 1.3rem;
+    color: $campina-texto-suave;
+  }
+}
+
+.campina-convenios__nota {
+  max-width: 60ch;
+  margin: 2.8rem auto 0;
+  text-align: center;
+  font-size: 1.4rem;
+  color: $campina-texto-suave;
+}
+
+// ─── Pasos con línea que se llena ──────────────────────────────────
+.campina-pasos {
+  position: relative;
+  display: grid;
+  gap: 3.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+
+  &__linea {
+    display: none;
+
+    @include tablet {
+      display: block;
+      position: absolute;
+      top: 2.7rem;
+      left: 16.6%;
+      right: 16.6%;
+      height: 2px;
+      background: $campina-borde;
+    }
+
+    i {
+      display: block;
+      height: 100%;
+      background: $campina-champana-oscuro;
+      transform-origin: left;
+      transform: scaleX(var(--p, 0));
+    }
+  }
+}
+
+.campina-paso {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: .8rem;
+  text-align: center;
+
+  &__numero {
+    display: grid;
+    place-items: center;
+    width: 5.6rem;
+    height: 5.6rem;
+    border: 2px solid $campina-borde;
+    border-radius: 50%;
+    background: $campina-claro;
+    font-family: $campina-serif;
+    font-size: 2rem;
+    color: $campina-bosque;
+    transition: background .4s, border-color .4s, color .4s;
+  }
+
+  &.is-activo .campina-paso__numero {
+    background: $campina-bosque;
+    border-color: $campina-bosque;
+    color: $campina-champana-claro;
+  }
+
+  h3 {
+    margin: .8rem 0 0;
+    font-family: $campina-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: $campina-bosque;
+  }
+
+  p {
+    max-width: 30ch;
+    margin: 0;
+    font-size: 1.5rem;
+    color: $campina-texto-suave;
+  }
+}
+
+// ─── FAQ (usa <details>: accesible y sin JS) ──────────────────────
+.campina-faq {
+  max-width: 76rem;
+
+  &__item {
+    border-bottom: 1px solid $campina-borde;
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.6rem;
+      padding: 2rem 0;
+      list-style: none;
+      cursor: pointer;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: $campina-bosque;
+
+      &::-webkit-details-marker { display: none; }
+
+      &::after {
+        content: '+';
+        font-size: 2.6rem;
+        font-weight: 400;
+        color: $campina-champana-oscuro;
+        transition: transform .3s ease;
+      }
+    }
+
+    &[open] summary::after { transform: rotate(45deg); }
+
+    p {
+      max-width: 62ch;
+      margin: 0 0 2rem;
+      font-size: 1.5rem;
+      line-height: 1.7;
+      color: $campina-texto-suave;
+    }
+  }
+}
+
+// ─── CTA final ─────────────────────────────────────────────────────
+.campina-cta {
+  padding: 8rem 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba($campina-champana, .16), transparent 60%),
+    $campina-bosque;
+  color: $campina-crema;
+  text-align: center;
+
+  &__contenido {
+    display: grid;
+    justify-items: center;
+    gap: 1.6rem;
+
+    h2 {
+      max-width: 22ch;
+      margin: 0;
+      font-family: $campina-serif;
+      font-size: clamp(2.4rem, 3.6vw, 3.6rem);
+      font-weight: 500;
+      letter-spacing: .02em;
+    }
+
+    p {
+      margin: 0 0 .8rem;
+      font-size: 1.6rem;
+      color: rgba($campina-crema, .82);
+    }
+  }
+}
+
+.campina-alianza {
+  margin-top: 1.8rem !important;
+  font-size: 1.2rem !important;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba($campina-crema, .6) !important;
+
+  span {
+    margin: 0 .6rem;
+    color: $campina-champana;
+  }
+}
+
+// ─── Estado: oferta finalizada ─────────────────────────────────────
+.campina-finalizada {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 4.8rem 3.2rem;
+  border: 1px solid rgba($campina-champana, .4);
+  border-radius: 2rem;
+  text-align: center;
+
+  i {
+    font-size: 3.6rem;
+    color: $campina-champana;
+  }
+
+  h3 {
+    margin: 1.6rem 0;
+    font-family: $campina-serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 3.2rem;
+    font-size: 1.6rem;
+    opacity: .85;
+  }
+}
+
+.campina--finalizada [data-solo-vigente] { display: none !important; }
+
+// ─── Barra fija en móvil ───────────────────────────────────────────
+.campina-barra-movil {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem 1.6rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba($campina-champana, .25);
+  background: rgba($campina-bosque-oscuro, .94);
+  backdrop-filter: blur(8px);
+  color: $campina-crema;
+  transform: translateY(110%);
+  transition: transform .35s ease;
+
+  &.is-visible { transform: none; }
+
+  small {
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: $campina-champana-claro;
+  }
+
+  strong {
+    font-size: 1.5rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .campina-btn {
+    padding: 1rem 1.8rem;
+    font-size: 1.4rem;
+  }
+
+  @include tablet { display: none; }
+}
+
+// En móvil, sube el botón flotante de WhatsApp para que no choque con la barra
+.pagina-campina .wa-widget {
+  @media (max-width: 767px) { bottom: 8rem; } // ⚠️ ajustar si tu breakpoint tablet es otro
+}
+
+// ─── Animaciones de aparición ──────────────────────────────────────
+// Solo se ocultan si el JS cargó (agrega .campina--animada). Sin JS, todo se ve.
+.campina--animada .reveal {
+  opacity: 0;
+  transform: translateY(2.4rem);
+  transition: opacity .8s ease, transform .8s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// ─── Movimiento reducido: página quieta y completa ─────────────────
+@media (prefers-reduced-motion: reduce) {
+  .campina *,
+  .campina *::before,
+  .campina *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .campina--animada .reveal { opacity: 1; transform: none; }
+
+  .campina--animada .campina-ahorro:not(.is-visible) .campina-ahorro__relleno {
+    transform: scaleX(var(--v));
+  }
+}
