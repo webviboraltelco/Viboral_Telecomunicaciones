@@ -25,5 +25,10 @@
   },
   "dependencies": {
     "meow": "^14.1.0"
-  }
+  },
+  "overrides": {
+  "braces": "^3.0.3",
+  "decode-uri-component": "^0.2.2",
+  "postcss-selector-parser": "^7.1.6"
+ }
 }
