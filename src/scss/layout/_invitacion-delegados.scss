@@ -237,6 +237,30 @@ $inv-escritorio: 960px;
     color: $inv-marfil;
   }
 
+  // Recuadro del premio (cena para 2)  ← MOVIDO AQUÍ, dentro de .inv
+  .inv-hero__premio {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 560px;
+    padding: 16px 22px;
+    border: 1px solid $inv-dorado-borde;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+    color: $inv-texto-suave;
+
+    i {
+      margin-top: 4px;
+      color: $inv-dorado;
+    }
+
+    strong {
+      font-weight: 500;
+      color: $inv-marfil;
+    }
+  }
+
   .inv-hero__datos {
     display: flex;
     flex-wrap: wrap;
@@ -277,7 +301,7 @@ $inv-escritorio: 960px;
     gap: 56px;
   }
 
-  // 4 tarjetas: 1 → 2 → 4 columnas. El gap de 1px + fondo dibuja las líneas.
+  // Tarjetas: 1 → 2 → 3 columnas. El gap de 1px + fondo dibuja las líneas.
   .inv-tarjetas {
     display: grid;
     grid-template-columns: 1fr;
@@ -437,6 +461,28 @@ $inv-escritorio: 960px;
     }
   }
 
+  // Frase con el número de WhatsApp  ← FALTABA
+  .inv-confirmacion__numero {
+    font-size: 16px;
+    color: $inv-texto-suave;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+      font-weight: 500;
+      color: $inv-dorado;
+      text-decoration: none;
+      white-space: nowrap;   // el número nunca se parte en dos líneas
+
+      &:hover {
+        color: $inv-dorado-claro;
+        text-decoration: underline;
+      }
+    }
+  }
+
   .inv-confirmacion__nota {
     font-size: 14px;
     line-height: 1.7;
@@ -460,6 +506,11 @@ $inv-escritorio: 960px;
 
     .inv-hero__mensaje {
       font-size: 16px;
+    }
+
+    .inv-hero__premio {
+      padding: 14px 16px;
+      font-size: 15px;
     }
 
     // Datos uno debajo del otro, sin puntos
@@ -494,7 +545,7 @@ $inv-escritorio: 960px;
       }
     }
   }
-}
+} // ← fin de .inv: NADA de la invitación va después de esta llave
 
 // Scroll suave al botón "Confirmar asistencia" (solo en la página que tiene .inv)
 html:has(.inv) {
@@ -502,27 +553,5 @@ html:has(.inv) {
 
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
-  }
-}
-.inv-hero__premio {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  max-width: 560px;
-  padding: 16px 22px;
-  border: 1px solid $inv-dorado-borde;
-  font-size: 16px;
-  line-height: 1.6;
-  text-align: left;
-  color: $inv-texto-suave;
-
-  i {
-    margin-top: 4px;
-    color: $inv-dorado;
-  }
-
-  strong {
-    font-weight: 500;
-    color: $inv-marfil;
   }
 }
