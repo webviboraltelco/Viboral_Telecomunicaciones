@@ -1,0 +1,278 @@
+<!-- archivo: invitacion.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Página oculta: que Google no la indexe -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Encuentro de Delegados [AÑO] | Viboral Telecomunicaciones</title>
+  <meta name="description" content="Invitación al Encuentro de Delegados [AÑO] de Viboral Telecomunicaciones. Confirme su asistencia por WhatsApp.">
+
+  <!-- Vista previa al compartir el link por WhatsApp (Open Graph) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Encuentro de Delegados [AÑO]">
+  <meta property="og:description" content="Tenemos el honor de invitarle. Confirme su asistencia por WhatsApp.">
+  <meta property="og:image" content="https://viboraltelecomunicaciones.com/build/img/og-invitacion.jpg">
+  <meta property="og:url" content="https://viboraltelecomunicaciones.com/invitacion.html">
+
+  <!-- Fuentes de la invitación -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap">
+
+  <!-- Igual que el resto del sitio -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="build/css/app.css?v=7" />
+  <link rel="icon" type="image/x-icon" href="build/img/logo.png">
+</head>
+
+<body>
+  <!-- ========== HEADER DEL SITIO (igual que index, sin .inicio) ========== -->
+  <header class="header scrolled" id="header">
+      <div class="contenedor contenido">
+        <div class="barra">
+          <a href="/" class="barra__logo">
+            <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+          </a>
+
+          <nav class="navegacion" id="navegacion">
+            <a href="nosotros.html"><i class="fas fa-users"></i><span>Nosotros</span></a>
+            <a href="planes.html"><i class="fas fa-wifi"></i><span>Planes</span></a>
+            <a href="canal.html"><i class="fas fa-tv"></i><span>Canal Local</span></a>
+            <a href="contacto.html"><i class="fas fa-envelope"></i><span>Contáctanos</span></a>
+            <a href="https://pse.viboraltelecomunicaciones.com/">
+              <i class="fas fa-credit-card"></i><span>Pagos de facturas</span>
+            </a>
+            <a href="https://app.viboraltelecomunicaciones.com/" class="nav-btn-oficina">
+              <i class="fas fa-laptop-house"></i><span>Oficina Virtual</span>
+            </a>
+          </nav>
+
+          <div class="barra__acciones">
+            <button class="dark-mode-boton" aria-label="Modo oscuro">
+              <img src="build/img/dark.png" alt="Modo oscuro" />
+            </button>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú" aria-expanded="false">
+              <span class="hamburguesa"><span></span><span></span><span></span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <!-- ========== INVITACIÓN ========== -->
+  <main class="inv">
+
+    <!-- Hero / tarjeta -->
+    <section class="inv-hero" aria-labelledby="inv-titulo-evento">
+      <div class="inv-hero__marco">
+        <div class="inv-hero__contenido">
+
+          <svg class="inv-hero__ornamento" width="120" height="28" viewBox="0 0 120 28" aria-hidden="true">
+            <path d="M0 14 H44" stroke="currentColor" stroke-width="1" />
+            <path d="M76 14 H120" stroke="currentColor" stroke-width="1" />
+            <path d="M60 3 L71 14 L60 25 L49 14 Z" fill="none" stroke="currentColor" stroke-width="1" />
+            <circle cx="60" cy="14" r="2.5" fill="currentColor" />
+          </svg>
+
+          <p class="inv-etiqueta">Viboral Telecomunicaciones</p>
+
+          <p class="inv-hero__antetitulo">Tenemos el honor de invitarle al</p>
+
+          <h1 class="inv-hero__titulo" id="inv-titulo-evento">Encuentro de<br>Delegados</h1>
+
+          <div class="inv-hero__separador" aria-hidden="true"></div>
+
+          <p class="inv-hero__mensaje">
+            Estimado(a) <span class="inv-hero__nombre" data-nombre>delegado(a)</span>,
+            su compromiso como representante de nuestros Asociados es la base de lo que somos.
+            Queremos compartir con usted una tarde de reconocimiento y encuentro.
+          </p>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Detalles -->
+    <section class="inv-detalles" aria-labelledby="inv-titulo-detalles">
+      <div class="inv-contenedor inv-detalles__inner">
+
+        <header class="inv-encabezado">
+          <p class="inv-etiqueta inv-etiqueta--oscura">Detalles del evento</p>
+          <h2 class="inv-titulo-seccion inv-titulo-seccion--oscuro" id="inv-titulo-detalles">Una tarde para celebrar juntos</h2>
+        </header>
+
+        <ul class="inv-tarjetas">
+          <li class="inv-tarjeta">
+            <svg class="inv-tarjeta__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="1" /><path d="M3 10h18M8 3v4M16 3v4" />
+            </svg>
+            <p class="inv-tarjeta__etiqueta">Fecha</p>
+            <p class="inv-tarjeta__valor">Día, 14 de Noviembre de 2026</p>
+          </li>
+          <li class="inv-tarjeta">
+            <svg class="inv-tarjeta__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" />
+            </svg>
+            <p class="inv-tarjeta__etiqueta">Hora</p>
+            <p class="inv-tarjeta__valor">2:00 p. m.</p>
+          </li>
+          <li class="inv-tarjeta">
+            <svg class="inv-tarjeta__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+              <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" />
+            </svg>
+            <p class="inv-tarjeta__etiqueta">Lugar</p>
+            <p class="inv-tarjeta__valor">Edificio Fenix</p>
+            <p class="inv-tarjeta__detalle">El Carmen de Viboral, Antioquia</p>
+          </li>
+        
+        </ul>
+        
+    </section>
+
+    <!-- Confirmación por WhatsApp -->
+    <!-- archivo: invitacion.html (sección de confirmación) -->
+<section class="inv-confirmacion" id="confirmar" aria-labelledby="inv-titulo-confirmacion">
+  <div class="inv-contenedor inv-confirmacion__inner">
+
+    <header class="inv-encabezado">
+      <p class="inv-etiqueta">Confirmación</p>
+      <h2 class="inv-titulo-seccion inv-titulo-seccion--claro" id="inv-titulo-confirmacion">Su presencia es importante</h2>
+      <p class="inv-confirmacion__texto">
+        Por favor confirme antes del <span class="inv-confirmacion__fecha">03 De Noviembre</span>.
+      </p>
+    </header>
+
+    <div class="inv-confirmacion__acciones">
+      <!-- El href real lo arma invitacion.js; este es el respaldo si el JS falla -->
+      <a class="inv-boton inv-boton--primario" data-wa="si" href="https://wa.me/573207882028" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        Confirmar por WhatsApp
+      </a>
+      <a class="inv-boton inv-boton--contorno-claro" data-wa="no" href="https://wa.me/573207882028" target="_blank" rel="noopener noreferrer">
+        No podré asistir
+      </a>
+    </div>
+
+    
+  </div>
+</section>
+  </main>
+
+  <!-- ========== WIDGET WHATSAPP (igual que index; bundle.min.js lo busca) ========== -->
+  <div class="wa-widget">
+    <div class="wa-burbuja" id="waBurbuja">
+      <p class="wa-burbuja-nombre">Viboral Telecomunicaciones</p>
+      <p class="wa-burbuja-texto">¡Hola! 👋 ¿En qué podemos ayudarte?</p>
+      <p class="wa-burbuja-hora">En línea</p>
+    </div>
+
+    <div class="wa-btn-wrap">
+      <div class="wa-pulse"></div>
+      <a
+        class="wa-btn"
+        id="waBtn"
+        href="https://wa.me/573147258728?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#fff" d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.81A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm6.406 16.594c-.27.757-1.578 1.445-2.156 1.528-.547.078-1.234.11-1.992-.125a18.3 18.3 0 01-1.804-.668c-3.17-1.37-5.24-4.57-5.398-4.781-.156-.211-1.273-1.695-1.273-3.234 0-1.54.805-2.297 1.09-2.61.285-.312.621-.39.828-.39.207 0 .414.002.594.01.191.008.449-.072.703.537.262.625.89 2.164.969 2.32.078.157.13.34.026.547-.103.207-.156.336-.312.516-.156.18-.328.402-.469.54-.156.155-.32.324-.137.634.183.31.812 1.34 1.742 2.171 1.195 1.066 2.203 1.395 2.516 1.55.312.157.496.133.679-.078.183-.211.781-.914 1.992-1.125.156-.027.527.035.996.234l2.07.922c.39.172.742.289.85.55.105.263-.163 1.015-.434 1.772z"/>
+        </svg>
+        <span class="wa-badge">1</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER DEL SITIO (igual que index) ========== -->
+  <footer class="footer-futurista">
+    <div class="contenedor-footer">
+
+      <div class="logo-footer">
+        <a href="/">
+          <img src="build/img/logo.png" alt="Viboral Telecomunicaciones" />
+        </a>
+        <p class="footer-slogan">Conectando comunidades desde 1998</p>
+      </div>
+
+      <div class="redes-footer">
+        <h3 class="titulo-footer">Conéctate con nosotros</h3>
+        <div class="redes-sociales">
+          <a href="#" class="icon facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="icon instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/573147258728" class="icon whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://waze.com/ul?ll=6.0825677,-75.3381221&navigate=yes" class="icon waze" aria-label="Waze">
+            <i class="fab fa-waze"></i>
+          </a>
+          <a href="mailto:soporte@viboraltelecomunicaciones.com" class="icon correo" aria-label="Correo electrónico">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="documentos-legales">
+        <h3 class="titulo-legales">Documentos legales</h3>
+        <div class="links-legales">
+          <a href="derecho-asociado.html">
+            <i class="fas fa-file-alt"></i> Derecho del Asociado
+          </a>
+          <a href="politica-cookies.html">
+            <i class="fas fa-cookie-bite"></i> Política de cookies
+          </a>
+          <a href="https://drive.google.com/file/d/1WF9erkJQymyCbJkmMbb72_KifQlKXpEI/view?usp=drive_link" target="_blank" rel="noopener">
+            <i class="fas fa-landmark"></i> Norma Estatutaria
+          </a>
+          <a href="politicadatos.html">
+            <i class="fas fa-shield-alt"></i> Política de privacidad
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      Viboral Telecomunicaciones &copy; 2026 &mdash; Todos los derechos reservados
+      <span class="creador-sitio">
+        · Creado y desarrollado por
+        <a href="https://cv-sebastian-mu.vercel.app/" target="_blank" rel="noopener">JS.Dev</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="build/js/bundle.min.js?v=3"></script>
+
+  <!-- Banner de cookies (igual que index; bundle.min.js lo busca) -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-contenido">
+      <span class="cookie-icono">🍪</span>
+      <div class="cookie-texto">
+        <h3 class="cookie-titulo">Usamos cookies</h3>
+        <p class="cookie-descripcion">
+          Utilizamos cookies para mejorar tu experiencia en nuestro sitio web.
+          Puedes aceptarlas o rechazarlas.
+        </p>
+      </div>
+    </div>
+    <div class="cookie-acciones">
+      <button class="cookie-btn cookie-btn--rechazar" id="cookieRechazar">
+        Rechazar
+      </button>
+      <button class="cookie-btn cookie-btn--aceptar" id="cookieAceptar">
+        Aceptar todas
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
