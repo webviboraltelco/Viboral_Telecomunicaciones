@@ -504,3 +504,25 @@ html:has(.inv) {
     scroll-behavior: auto;
   }
 }
+.inv-hero__premio {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 560px;
+  padding: 16px 22px;
+  border: 1px solid $inv-dorado-borde;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  color: $inv-texto-suave;
+
+  i {
+    margin-top: 4px;
+    color: $inv-dorado;
+  }
+
+  strong {
+    font-weight: 500;
+    color: $inv-marfil;
+  }
+}
