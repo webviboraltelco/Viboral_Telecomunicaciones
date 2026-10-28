@@ -1,9 +1,8 @@
-// archivo: gulpfile.js
+﻿// archivo: gulpfile.js
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass         = require('gulp-sass')(require('sass'));
 const autoprefixer = require('autoprefixer');
 const postcss      = require('gulp-postcss');
-const sourcemaps   = require('gulp-sourcemaps');
 const cssnano      = require('cssnano');
 const concat       = require('gulp-concat');
 const terser       = require('gulp-terser-js');
@@ -11,7 +10,7 @@ const rename       = require('gulp-rename');
 const sharp        = require('sharp');
 const path         = require('path');
 const fs           = require('fs');
-const { glob } = require('fs/promises');
+const { glob }     = require('fs/promises');
 
 const paths = {
     scss:     'src/scss/**/*.scss',
@@ -19,84 +18,84 @@ const paths = {
     imagenes: 'src/img/**/*.{png,jpg,jpeg,gif,svg}'
 };
 
-// ─── CSS ──────────────────────────────────────────────────────────
+// Rutas absolutas: evitan problemas entre \ (Windows) y / (Linux)
+const ORIGEN_IMG  = path.resolve('src/img');
+const DESTINO_IMG = path.resolve('build/img');
+
+// --- CSS ------------------------------------------------
+// Sourcemaps nativos de Gulp 5: se activan en src() y se escriben en dest()
 function css() {
-    return src(paths.scss)
-        .pipe(sourcemaps.init())
+    return src(paths.scss, { sourcemaps: true })
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(sourcemaps.write('.'))
-        .pipe(dest('build/css'));
+        .pipe(dest('build/css', { sourcemaps: '.' }));
 }
 
-// ─── JavaScript ───────────────────────────────────────────────────
+// --- JavaScript -----------------------------------------
 function javascript() {
-    return src(paths.js)
-        .pipe(sourcemaps.init())
+    return src(paths.js, { sourcemaps: true })
         .pipe(concat('bundle.js'))
         .pipe(terser())
-        .pipe(sourcemaps.write('.'))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(dest('./build/js'));
+        .pipe(dest('build/js', { sourcemaps: '.' }));
 }
 
-// ─── Imágenes: optimizar + convertir a WebP con sharp ─────────────
+// --- Imagenes: optimizar + convertir a WebP con sharp ---
 async function imagenes() {
-    // glob nativo de Node 22 devuelve AsyncIterator
     const archivos = [];
     for await (const archivo of glob('src/img/**/*.{png,jpg,jpeg}')) {
         archivos.push(archivo);
     }
 
     for (const archivo of archivos) {
-        const destDir  = path.dirname(archivo).replace('src/img', 'build/img');
-        const baseName = path.basename(archivo, path.extname(archivo));
-        const ext      = path.extname(archivo).toLowerCase();
+        const rutaAbsoluta = path.resolve(archivo);
+        const relativa     = path.relative(ORIGEN_IMG, rutaAbsoluta);
+        const destino      = path.join(DESTINO_IMG, relativa);
+        const destDir      = path.dirname(destino);
+        const baseName     = path.basename(archivo, path.extname(archivo));
+        const ext          = path.extname(archivo).toLowerCase();
 
         fs.mkdirSync(destDir, { recursive: true });
 
-        // ✅ FIX: aplicar SOLO el formato correspondiente a la extensión real,
-        // en vez de encadenar .jpeg() y .png() (el segundo sobreescribía
-        // el formato de salida del primero, causando que los .jpg/.jpeg
-        // se guardaran como PNG sin comprimir, 10-25x más pesados)
+        // Un solo formato por archivo segun su extension real
         if (ext === '.jpg' || ext === '.jpeg') {
-            await sharp(archivo)
+            await sharp(rutaAbsoluta)
                 .jpeg({ quality: 80, progressive: true })
-                .toFile(path.join(destDir, path.basename(archivo)));
+                .toFile(destino);
         } else if (ext === '.png') {
-            // palette: true activa cuantización de color (similar a pngquant),
-            // reduce mucho más el peso en fotos guardadas como PNG.
-            // Si alguna imagen se ve con banding/dithering notorio, ese
-            // archivo puntual es candidato a migrarse a .jpg en su lugar.
-            await sharp(archivo)
+            await sharp(rutaAbsoluta)
                 .png({ compressionLevel: 9, palette: true, quality: 80 })
-                .toFile(path.join(destDir, path.basename(archivo)));
+                .toFile(destino);
         }
 
-        // El .webp sí estaba bien — un solo formato, sin conflicto
-        await sharp(archivo)
+        await sharp(rutaAbsoluta)
             .webp({ quality: 80 })
             .toFile(path.join(destDir, `${baseName}.webp`));
 
-        console.log(`✓ ${archivo}`);
+        console.log(`OK ${relativa}`);
     }
 }
 
-// ─── SVG y GIF: copiar sin modificar ──────────────────────────────
+// --- SVG y GIF: copiar sin modificar --------------------
+// encoding: false -> Gulp 5 lee como texto por defecto y corromperia los GIF
 function copiarOtros() {
-    return src('src/img/**/*.{svg,gif}')
+    return src('src/img/**/*.{svg,gif}', { encoding: false })
         .pipe(dest('build/img'));
 }
 
-// ─── Watch ────────────────────────────────────────────────────────
+// --- Watch ----------------------------------------------
 function watchArchivos() {
     watch(paths.scss,     css);
     watch(paths.js,       javascript);
     watch(paths.imagenes, series(imagenes, copiarOtros));
 }
 
+// --- Tareas publicas ------------------------------------
+const build = parallel(css, javascript, series(imagenes, copiarOtros));
+
 exports.css           = css;
 exports.javascript    = javascript;
 exports.imagenes      = series(imagenes, copiarOtros);
+exports.build         = build;
 exports.watchArchivos = watchArchivos;
-exports.default       = parallel(css, javascript, series(imagenes, copiarOtros), watchArchivos);
+exports.default       = series(build, watchArchivos);

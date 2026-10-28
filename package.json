@@ -17,7 +17,6 @@
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^2.6.5",
     "gulp-terser-js": "^5.2.2",
     "sass": "^1.49.9",
     "sharp": "^0.35.2",
@@ -27,8 +26,8 @@
     "meow": "^14.1.0"
   },
   "overrides": {
-  "braces": "^3.0.3",
-  "decode-uri-component": "^0.2.2",
-  "postcss-selector-parser": "^7.1.6"
- }
+    "braces": "^3.0.3",
+    "decode-uri-component": "^0.2.2",
+    "postcss-selector-parser": "^7.1.6"
+  }
 }
