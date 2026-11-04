@@ -1,0 +1,569 @@
+// archivo: src/scss/layout/_facturas.scss
+$pagos-viboral: #FFA11F;
+$pagos-viboral-oscuro: #E08600;
+$pagos-tvc: #F26522;
+$pagos-tvc-oscuro: #C94A10;
+$pagos-texto: #1F2937;
+$pagos-gris: #6B7280;
+$pagos-linea: #E5E7EB;
+$pagos-fondo: #FAF7F2;
+
+// Ángulo animable del borde degradado (necesario para animar conic-gradient)
+@property --angulo {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ================= Sección ================= */
+.pagos {
+  position: relative;
+  padding: 88px 16px 96px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(31, 41, 55, .07) 1px, transparent 0) 0 0 / 22px 22px,
+    $pagos-fondo;
+  overflow: hidden;
+  isolation: isolate;
+
+  // Manchas de color animadas
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 460px;
+    height: 460px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .28;
+    z-index: -1;
+    animation: pagos-flotar 14s ease-in-out infinite alternate;
+  }
+  &::before { background: $pagos-viboral; top: -160px; left: -140px; }
+  &::after  { background: $pagos-tvc; bottom: -180px; right: -140px; animation-delay: -7s; }
+
+  &__contenedor { max-width: 1040px; margin-inline: auto; }
+
+  &__encabezado {
+    max-width: 640px;
+    margin: 0 auto 52px;
+    text-align: center;
+  }
+
+  &__etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: $pagos-viboral-oscuro;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(224, 134, 0, .18);
+
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, .6);
+      animation: pagos-pulso 2s infinite;
+    }
+  }
+
+  &__titulo {
+    margin: 18px 0 14px;
+    color: $pagos-texto;
+    font-size: clamp(30px, 4.5vw, 46px);
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+
+    span {
+      background: linear-gradient(90deg, $pagos-viboral-oscuro, $pagos-tvc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  &__texto {
+    margin: 0;
+    color: $pagos-gris;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  // Pasos 1 → 2
+  &__pasos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 28px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+    color: $pagos-texto;
+    font-size: 15px;
+    font-weight: 600;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    b {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: $pagos-texto;
+      color: #FFFFFF;
+      font-size: 13px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 32px;
+  }
+
+  &__nota {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 44px 0 0;
+    color: $pagos-gris;
+    font-size: 14px;
+    text-align: center;
+
+    svg { flex-shrink: 0; }
+  }
+}
+
+/* ================= Tarjeta ================= */
+.factura {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  --lift: 0px;
+  --delay: 0s;
+
+  --marca: #{$pagos-viboral};
+  --marca-oscuro: #{$pagos-viboral-oscuro};
+  --marca-suave: #FFF3E0;
+  --boton-fondo: #{$pagos-viboral};
+  --boton-fondo-hover: #{$pagos-viboral-oscuro};
+  --boton-texto: #{$pagos-texto};
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  border-radius: 26px;
+  // Borde degradado: fondo blanco en el padding-box + conic-gradient en el border-box
+  background:
+    linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+    conic-gradient(from var(--angulo), $pagos-linea, $pagos-linea 60%, var(--marca) 80%, $pagos-linea) border-box;
+  color: $pagos-texto;
+  text-align: left;
+  box-shadow: 0 14px 40px rgba(17, 24, 39, .08);
+  isolation: isolate;
+  transform: none;
+  transition:
+    transform .25s ease-out,
+    box-shadow .35s ease,
+    opacity .7s ease var(--delay),
+    translate .7s cubic-bezier(.2, .8, .2, 1) var(--delay);
+
+  &--tvc {
+    --marca: #{$pagos-tvc};
+    --marca-oscuro: #{$pagos-tvc-oscuro};
+    --marca-suave: #FFEDE3;
+    --boton-fondo: #{$pagos-tvc-oscuro};
+    --boton-fondo-hover: #A93D0C;
+    --boton-texto: #FFFFFF;
+  }
+
+  // Brillo que sigue el mouse
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 255, 255, .35), transparent 45%);
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  &:hover,
+  &:focus-within {
+    --lift: -8px;
+    box-shadow: 0 30px 60px rgba(17, 24, 39, .16);
+     transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--lift));
+    --lift: -8px;
+    animation: factura-borde 3s linear infinite;
+
+    &::after { opacity: 1; }
+
+    .factura__imagen { translate: 0 6px; rotate: 0deg; scale: 1.03; }
+    .factura__lupa   { opacity: 1; translate: -50% 0; }
+    .factura__laser  { opacity: 1; animation: factura-escanear 1.8s ease-in-out infinite alternate; }
+    .factura__boton::after { translate: 120% 0; }
+  }
+
+  /* --- Zona de la imagen --- */
+  &__vista {
+    appearance: none;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 290px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 24px 24px 0 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .9), transparent 60%),
+      linear-gradient(160deg, var(--marca-suave), #FFFFFF 85%);
+    font: inherit;
+    color: inherit;
+    overflow: hidden;
+    // cursor: pointer;
+
+    &:focus-visible {
+      outline: 3px solid var(--marca);
+      outline-offset: -3px;
+    }
+  }
+
+  // La factura "asoma" como una hoja de papel y se desvanece hacia abajo
+  &__imagen {
+    position: absolute;
+    left: 50%;
+    top: 34px;
+    width: 76%;
+    max-width: none;
+    height: auto;
+    margin: 0 0 0 -38%;
+    padding: 0;
+    border-radius: 8px;
+    background: #FFFFFF;
+    box-shadow:
+      0 2px 4px rgba(17, 24, 39, .06),
+      0 18px 40px rgba(17, 24, 39, .18);
+    rotate: 0deg;
+    backface-visibility: hidden;
+    translate: 0 22px;
+    transform-origin: top center;
+    transition: translate .6s cubic-bezier(.2, .8, .2, 1), rotate .6s ease, scale .6s ease;
+    animation: factura-respirar 5s ease-in-out infinite;
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  }
+
+  &--tvc &__imagen {
+    width: 62%;
+    margin-left: -31%;
+    rotate: 0deg;
+    animation-delay: -2.5s;
+  }
+
+  &__chip {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: var(--boton-fondo);
+    color: var(--boton-texto);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    box-shadow: 0 6px 16px rgba(17, 24, 39, .18);
+  }
+
+  &__lupa {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: rgba(17, 24, 39, .88);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    translate: -50% 10px;
+    transition: opacity .3s ease, translate .3s ease;
+  }
+
+  &__laser {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 34px;
+    z-index: 1;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--marca);
+    box-shadow: 0 0 18px 4px var(--marca);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* --- Texto y botón --- */
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    padding: 24px 26px 28px;
+  }
+
+  &__titulo {
+    margin: 0;
+    color: $pagos-texto;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  &__pista {
+    margin: 0;
+    color: $pagos-gris;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+
+    strong { color: $pagos-texto; }
+  }
+
+  &__acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  &__boton {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: var(--boton-fondo);
+    color: var(--boton-texto);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    overflow: hidden;
+    box-shadow: 0 10px 22px rgba(17, 24, 39, .14);
+    transition: gap .3s ease, background .3s ease, box-shadow .3s ease;
+
+    // Destello que cruza el botón
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%);
+      translate: -120% 0;
+      transition: translate .8s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      gap: 16px;
+      background: var(--boton-fondo-hover);
+      box-shadow: 0 14px 28px rgba(17, 24, 39, .2);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--marca);
+      outline-offset: 3px;
+    }
+  }
+
+  &__seguro {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: $pagos-gris;
+    font-size: 13px;
+  }
+}
+
+// En celular no hay hover: mostrar siempre "Ver factura"
+@media (hover: none) {
+  .factura__lupa { opacity: 1; translate: -50% 0; }
+}
+
+@media (max-width: 480px) {
+  .factura__vista { height: 240px; }
+  .factura__info { padding: 20px 20px 24px; }
+}
+
+/* ================= Animaciones ================= */
+@keyframes factura-borde    { to { --angulo: 360deg; } }
+@keyframes factura-escanear { from { top: 34px; } to { top: calc(100% - 20px); } }
+@keyframes factura-respirar { 0%, 100% { margin-top: 0; } 50% { margin-top: -6px; } }
+@keyframes pagos-flotar     { to { transform: translate(60px, 40px) scale(1.1); } }
+@keyframes pagos-pulso {
+  70%  { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* ================= Visor (dialog) ================= */
+.visor {
+  width: min(92vw, 900px);
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .4);
+  overflow: hidden;
+
+  &::backdrop {
+    background: rgba(15, 23, 42, .78);
+    backdrop-filter: blur(6px);
+  }
+
+  &[open] { animation: visor-entrar .3s cubic-bezier(.2, .8, .2, 1); }
+
+  &__barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid $pagos-linea;
+  }
+
+  &__titulo {
+    margin: 0;
+    color: $pagos-texto;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &__cerrar {
+    appearance: none;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #F3F4F6;
+    color: $pagos-texto;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .2s ease, rotate .3s ease;
+
+    &:hover { background: $pagos-linea; rotate: 90deg; }
+  }
+
+  &__imagen {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(92vh - 68px);
+    object-fit: contain;
+    background: #FFFFFF;
+  }
+}
+
+@keyframes visor-entrar {
+  from { opacity: 0; transform: translateY(16px) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ================= Aparición al hacer scroll ================= */
+.reveal {
+  opacity: 0;
+  translate: 0 36px;
+  transition: opacity .7s ease, translate .7s cubic-bezier(.2, .8, .2, 1);
+
+  &.is-visible {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (scripting: none) {
+  .reveal { opacity: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; translate: 0 0; transition: none; }
+  .pagos::before,
+  .pagos::after,
+  .pagos__etiqueta::before,
+  .factura__imagen,
+  .factura:hover,
+  .factura:hover .factura__laser,
+  .visor[open] { animation: none; }
+  .factura,
+  .factura__imagen { transition: none; transform: none; }
+}
+
+/* ================= Modo oscuro ================= */
+// ⚠️ Cambia `.dark-mode` por la clase real de tu base/_darkMode.scss
+.dark-mode {
+  .pagos {
+    background:
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .06) 1px, transparent 0) 0 0 / 22px 22px,
+      #0F172A;
+
+    &__titulo { color: #F9FAFB; }
+    &__texto,
+    &__nota { color: #9CA3AF; }
+    &__etiqueta { background: #1E293B; color: #FFB54D; }
+    &__pasos { color: #E5E7EB; b { background: #FFA11F; color: #1F2937; } }
+  }
+
+  .factura {
+    background:
+      linear-gradient(#1E293B, #1E293B) padding-box,
+      conic-gradient(from var(--angulo), #334155, #334155 60%, var(--marca) 80%, #334155) border-box;
+    color: #F9FAFB;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .4);
+
+    &::after { background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 255, 255, .07), transparent 45%); }
+
+    &__vista { background: linear-gradient(160deg, rgba(255, 161, 31, .18), #1E293B 85%); }
+    &--tvc .factura__vista { background: linear-gradient(160deg, rgba(242, 101, 34, .2), #1E293B 85%); }
+
+    &__titulo { color: #F9FAFB; }
+    &__pista { color: #9CA3AF; strong { color: #F9FAFB; } }
+    &__seguro { color: #9CA3AF; }
+  }
+}
