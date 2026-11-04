@@ -507,7 +507,11 @@ $pagos-fondo: #FAF7F2;
 }
 
 /* ================= Aparición al hacer scroll ================= */
-.reveal {
+// archivo: src/scss/layout/_facturas.scss (reemplaza líneas 509–536)
+/* ================= Aparición al hacer scroll ================= */
+// Solo se oculta si el JS ya marcó la sección con .js-reveal.
+// Sin JS (o con JS viejo en caché) el contenido se ve normal.
+.js-reveal .reveal {
   opacity: 0;
   translate: 0 36px;
   transition: opacity .7s ease, translate .7s cubic-bezier(.2, .8, .2, 1);
@@ -518,12 +522,8 @@ $pagos-fondo: #FAF7F2;
   }
 }
 
-@media (scripting: none) {
-  .reveal { opacity: 1; translate: 0 0; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; translate: 0 0; transition: none; }
+  .js-reveal .reveal { opacity: 1; translate: 0 0; transition: none; }
   .pagos::before,
   .pagos::after,
   .pagos__etiqueta::before,
